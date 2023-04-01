@@ -28,8 +28,11 @@ function clickLogin(numero, reg){
     if(numero==0){
         stato = 'true';
         }
+}  
 
-       
+function prova(ciao){
+    var prova = ciao;
+    alert(prova);
 }
 
 function presa_elementi_registrazione(){
