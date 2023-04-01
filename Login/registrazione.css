@@ -13,17 +13,22 @@ body {
     margin: auto;
 }
 
+.contenitore1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
 .form-registrazione {
     width: 90%;
     max-width: 450px;
-    position: absolute;
-    top: 10%;
-    left: 33%;
-    transform: translate (-50%, -50%);
     background: #fff;
     padding: 50px 60px 20px;
     text-align: center;
 }
+
 
 .form-registrazione h1 {
     font-size: 60px;
