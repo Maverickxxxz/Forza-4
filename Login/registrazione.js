@@ -3,8 +3,12 @@
 const urlParams = new URLSearchParams(window.location.search);
 var stato = urlParams.get('reg');
 
+
+
 //CONTROLLA SE L'UTENTE HA CLICCATO LOGIN O REGISTRATI
 if(stato=="login"){
+    var obj = document.getElementById("campo_nome");
+    
     campo_nome.style.maxHeight = 0; //Cancella il campo nome
     titolo.innerHTML = "Accedi";
     bottoneRegistrati.classList.add("disabilitato");
@@ -18,11 +22,6 @@ if(stato=="signup"){
     bottoneLogin.classList.add("disabilitato");
     
 }
-
-
-
-
-    
 
 function clickLogin(numero){
 
