@@ -27,22 +27,37 @@
   color: white;
 }
 
-.topnav a.centro{
-    color: #ffffff;
+.topnav a.centro {
+    color: #f3d31a;
     font-size: 49px;
     font-weight: bold;
 }
+
+.topnav a.centro2{
+    color: #970707;
+    font-size: 49px;
+    font-weight: bold;
+}
+
 
 /* Right-aligned section inside the top navigation */
 .topnav-right {
   float: right;
 }
 
-.topnav-center{
-        width:1000px;
-        height:100px;
-        position: fixed;
-        left: 50%;
-        margin-left: -196px;
-        margin-top: -27px;
+.topnav-center a.centro{
+    width:1000px;
+    height:100px;
+    position: fixed;
+    left: 50%;
+    margin-left: -571px;
+    margin-top: -27px;
+}
+.topnav-center a.centro2{
+    width:1000px;
+    height:100px;
+    position: fixed;
+    left: 50%;
+    margin-left: -383px;
+    margin-top: -27px;
 }
