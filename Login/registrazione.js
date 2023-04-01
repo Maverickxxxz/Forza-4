@@ -22,5 +22,5 @@ function presa_elementi_registrazione(){
         return false;
 
     }
-    var cazzo;
+    var loalalla;
 }
