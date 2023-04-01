@@ -7,10 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="registrazione.css">
-    <script src="./registrazione.js">
-        const urlParams = new URLSearchParams(window.location.search);
-        const reg = urlParams.get('reg');
-    </script>
+    
+
 </head>
 
 <body>
@@ -36,19 +34,14 @@
                 </div>
 
                 <div class="btn-field">
-                    <button type="button" id="bottoneRegistrati" onclick="clickLogin(0, reg);">Registrati</button>
-                    <button type="button" id="bottoneLogin" class="disabilitato" onclick="clickLogin(1, reg);">Accedi</button>
+                    <button type="button" id="bottoneRegistrati" onclick="clickLogin(0);">Registrati</button>
+                    <button type="button" id="bottoneLogin" class="disabilitato" onclick="clickLogin(1);">Accedi</button>
                 </div>
             </form>
         </div>
 
     </div>
-
-
-
-        
-
-
+    <script src="registrazione.js"></script>
 </body>
 
 </html>
