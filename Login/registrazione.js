@@ -21,6 +21,5 @@ function presa_elementi_registrazione(){
         alert("Non hai inserito la password!");
         return false;
 
-        var prova;
     }
 }
