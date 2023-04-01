@@ -20,9 +20,13 @@ function clickLogin(numero){
         bottoneRegistrati.classList.remove("disabilitato");
         bottoneLogin.classList.add("disabilitato");
         }
+}  
 
-       
+function prova(ciao){
+    var prova = ciao;
+    alert(prova);
 }
+
 function presa_elementi_registrazione(){
     let nome_utente = document.form_registrazione.nome_utente.value;
     let email = document.form_registrazione.email.value;
