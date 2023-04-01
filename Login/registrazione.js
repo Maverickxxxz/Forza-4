@@ -20,5 +20,7 @@ function presa_elementi_registrazione(){
     if(password==""){
         alert("Non hai inserito la password!");
         return false;
+
+        var prova;
     }
 }
