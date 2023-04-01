@@ -6,6 +6,7 @@ body {
     width: 100%;
     height: auto;
 }
+
 .articles{
     width:90%; /*Takes 90% width from WebContainer*/
     height: auto;
