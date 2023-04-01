@@ -1,8 +1,8 @@
 function presa_elementi_registrazione(){
 
-    let nome_utente = document.form_registrazione.nome_utente.value;
-    let email = document.form_registrazione.email.value;
-    let password = document.form_registrazione.password.value;  
+    let nome_utente = document.form_registrazione.nome_utente_r.value;
+    let email = document.form_registrazione.email_r.value;
+    let password = document.form_registrazione.password_r.value;  
 
     //CONTROLLA SE I CAMPI SONO VUOTI
     if(nome_utente==""){
@@ -20,16 +20,32 @@ function presa_elementi_registrazione(){
         return false;
     }
 
-    var file = JSON.stringify({ "nome_utente": nome_utente, 
-                                 "email": email, 
-                                 "password": password
-                                });
+}
 
+function presa_elementi_login(){
 
-    var fs = require('fs');
-    fs.writeFile("data.json", file);
+    let email = document.form_login.email_l.value;
+    let password = document.form_login.password_l.value;  
+
+    if(email==""){
+        alert("Non hai inserito l'email!");
+        return false;
+    }
+
+    if(password==""){
+        alert("Non hai inserito la password!");
+        return false;
+    }
 
 }
+
+
+
+
+
+
+
+
 
 
 

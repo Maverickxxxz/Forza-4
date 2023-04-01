@@ -15,25 +15,25 @@
     <div class="contenitore1">
         <div class="form-box">
             <h1 id="titolo">REGISTRATI</h1>
-            <form name="form_registrazione" method="post">
+            <form name="form_registrazione" method="post" action="data.php">
                 <div class="input-group">
 
                     <div class="input-field" id="campo_nome">
-                        <input name="nome_utente" type="text" placeholder="Nome utente">
+                        <input name="nome_utente_r" type="text" placeholder="Nome utente">
                     </div>
 
                     <div class="input-field">
-                        <input name="email" type="email" placeholder="Email">
+                        <input name="email_r" type="email" placeholder="Email">
                     </div>
 
                     <div class="input-field">
-                        <input name="password" type="password" placeholder="Password">
+                        <input name="password_r" type="password" placeholder="Password">
                     </div>
 
                 </div>
 
                 <div class="btn-field">
-                    <button type="button" id="bottoneRegistrati" onclick="presa_elementi_registrazione();">Registrati</button>                     
+                    <button type="submit" id="bottoneRegistrati" onclick="presa_elementi_registrazione();">Registrati</button>                     
                 </div>
             </form>
         </div>
