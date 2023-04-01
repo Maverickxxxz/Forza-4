@@ -21,7 +21,7 @@ body {
 }
 
 
-.form-registrazione {
+.form-box {
     width: 90%;
     max-width: 450px;
     background: #fff;
@@ -30,7 +30,7 @@ body {
 }
 
 
-.form-registrazione h1 {
+.form-box h1 {
     font-size: 60px;
     color: green;
 }
@@ -41,6 +41,9 @@ body {
     Border-radius: 3px;
     Display: flex;
     Align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
 }
 
 Input {
@@ -49,6 +52,12 @@ Input {
     border: 0;
     outline: 0;
     padding: 18px 15px;
+}
+
+.btn-field{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -64,3 +73,8 @@ Input {
     cursor: pointer;
     transition: background 1s;
 }
+
+.btn-field button.disabilitato{
+    background-color: #eaeaea;
+    color: #555;
+} 
