@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
 
 }
 
@@ -34,16 +35,22 @@
     padding: 0px 60px 20px;
     text-align: center;
     border-radius: 30px;
-    background: rgba(247, 247, 247, 0.9);
+    background: rgba(255, 255, 255, 0.374);
     /*USIAMO I VALORI RGB PER NON INTACCARE GLI ELEMENTI FIGLIO DI FORM-BOX*/
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
 
 }
 
 .form-box h1 {
     font-size: 60px;
-    color: rgb(255, 0, 0);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #485fb9;
+    background-image: linear-gradient(-180deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 .input-field {
@@ -51,19 +58,45 @@
     Margin: 15px 0;
     Border-radius: 20px;
     Display: flex;
+    align-items: center;
 
 }
 
-input:focus {
-    outline: none;
-}
 
 Input {
     width: 100%;
     background: transparent;
     border: 0;
+    outline: 0;
     padding: 18px 15px;
+
 }
+
+input:focus+label {
+    font-size: .75em;
+    margin-top: -30px;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.input-field i {
+    margin-left: 15px;
+    color: #999;
+}
+
+.input-field label {
+    margin-left: -363px;
+    margin-top: 2px;
+    left: 0;
+    font-size: 1em;
+    color: #696982;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+
+
+
 
 .btn-field {
     width: 100%;

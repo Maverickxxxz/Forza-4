@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="form-sign.js"></script>
     <link rel="stylesheet" href="form-sign.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
 
 </head>
 
@@ -19,18 +20,22 @@
                 <div class="input-group">
 
                     <div class="input-field">
-                        <input name="email_l" type="email" placeholder="Email">
+                        <i class="ri-mail-fill"></i>
+                        <input name="email_l" type="email">
+                        <label for="email_r">Email</label>
                     </div>
 
                     <div class="input-field">
-                        <input name="password_l" type="password" placeholder="Password">
+                        <i class="ri-key-fill"></i>
+                        <input name="password_l" type="password">
+                        <label for="password_r">Password</label>
                     </div>
 
                 </div>
 
                 <div class="btn-field">
-                    <button type="button" id="bottoneLogin" onclick="presa_elementi_login();">Accedi</button> 
-     
+                    <button type="button" id="bottoneLogin" onclick="presa_elementi_login();">Accedi</button>
+
                 </div>
             </form>
         </div>

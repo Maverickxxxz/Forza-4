@@ -8,6 +8,7 @@
     <script src="form-sign.js"></script>
     <link rel="stylesheet" href="form-sign.css">
     <script src="registrazione.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
 
 
@@ -21,15 +22,21 @@
             <form name="form_registrazione" action="data.php" method="post">
                 <div class="input-group">
                     <div class="input-field" id="campo_nome">
-                        <input name="nome_utente_r" type="text" placeholder="Nome utente">
+                        <i class="ri-account-circle-fill"></i>
+                        <input name="nome_utente_r" type="text">
+                        <label for="nome_utente_r">Nome utente</label>
                     </div>
 
                     <div class="input-field">
-                        <input name="email_r" type="email" placeholder="Email">
+                        <i class="ri-mail-fill"></i>
+                        <input name="email_r" type="email">
+                        <label for="email_r">Email</label>
                     </div>
 
                     <div class="input-field">
-                        <input name="password_r" type="password" placeholder="Password">
+                        <i class="ri-key-fill"></i>
+                        <input name="password_r" type="password">
+                        <label for="password_r">Password</label>
                     </div>
                 </div>
 
