@@ -1,15 +1,17 @@
 body {
     background-image: url(../sources/1.png);
-    background-size: cover;
+
+
 }
 
-.WebContainer{
+.WebContainer {
     width: 100%;
     height: auto;
 }
 
-.articles{
-    width:90%; /*Takes 90% width from WebContainer*/
+.articles {
+    width: 90%;
+    /*Takes 90% width from WebContainer*/
     height: auto;
     margin: auto;
 }
@@ -19,28 +21,37 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+}
+
+#titolo {
+    margin-left: -13px;
 }
 
 
 .form-box {
     width: 90%;
-    max-width: 450px;
+    max-width: 350px;
     background: #fff;
-    padding: 50px 60px 20px;
+    padding: 0px 60px 20px;
     text-align: center;
-}
+    border-radius: 30px;
+    background: rgba(247, 247, 247, 0.9);
+    /*USIAMO I VALORI RGB PER NON INTACCARE GLI ELEMENTI FIGLIO DI FORM-BOX*/
+    backdrop-filter: blur(5px);
 
+}
 
 .form-box h1 {
     font-size: 60px;
     color: rgb(255, 0, 0);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .input-field {
     background: #eaeaea;
     Margin: 15px 0;
-    Border-radius: 3px;
+    Border-radius: 20px;
     Display: flex;
 }
 
@@ -51,7 +62,7 @@ Input {
     padding: 18px 15px;
 }
 
-.btn-field{
+.btn-field {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -69,4 +80,3 @@ Input {
     outline: 0;
     cursor: pointer;
 }
-
