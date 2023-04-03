@@ -1,6 +1,6 @@
 <?php
 
-    echo "LASDKAISD";
+
     
     $nome_utente = $_POST['nome_utente_r'];
     $email = $_POST['email_r'];
