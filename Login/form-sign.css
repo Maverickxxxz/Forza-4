@@ -1,9 +1,7 @@
-body {
+/*body {
     background-image: url(../sources/1.png);
-
-
 }
-
+*/
 .WebContainer {
     width: 100%;
     height: auto;
@@ -53,6 +51,11 @@ body {
     Margin: 15px 0;
     Border-radius: 20px;
     Display: flex;
+
+}
+
+input:focus {
+    outline: none;
 }
 
 Input {
