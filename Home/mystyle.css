@@ -20,6 +20,10 @@ header{
     background: transparent;
 }
 
+header a{
+    text-decoration: none;
+}
+
 .logo{
     font-size: 30px;
     font-weight: 700;
@@ -62,6 +66,10 @@ header{
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 2rem;
+}
+
+.hero a{
+    text-decoration: none;
 }
 
 section{
@@ -149,6 +157,10 @@ section{
     background: #a12d1b;
     border-radius: 30px;
     transition: all .50s ease;
+}
+
+.scroll-down a{
+    text-decoration: none;
 }
 
 .scroll-down i:hover{
