@@ -8,57 +8,58 @@
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type = "text/css" href="style.css">
+    <link rel="stylesheet" type = "text/css" href="mystyle.css">
     
+    <!-- FRAMEWORK CSS ESTERNI -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- FONT SCARICATI DA GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <title>Home</title>
 </head>
 
 <body>
-  
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Left</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="//codeply.com">Codeply</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-        <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" href="#">Navbar 2</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Right</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    
 
-    <!-- Immagine centrale -->
-    <div class="img_centrale">
-        <img src="../sources/1.png" alt="">
+    <header>
+        <a href="index.html" class="logo">prova</a>
+
+        <ul class="navlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Come si gioca</a></li>
+            <li><a href="#">Classifica</a></li>
+            <li><a href="#">Accedi</a></li>
+            <li><a href="#">Registrati</a></li>
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h5>#2</h5>
+            <h4>Supercell</h4>
+            <h1>GOBLINS</h1>
+            <p>Stiamo copiando dignitosamente il codice.</p>
+            <a href="#">GIOCA ORA!</a>
+            <a href="#" class="ctaa"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
+        </div>
+
+        <div class="hero-img">
+            <img src="../sources/board2.png" width="30%" height="30%">
+        </div>
+    </section>
+
+    <div class="scroll-down">
+        <a href="#"><i class="ri-arrow-down-s-line"></i></a>
     </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="home.js"></script>
 
 </body>
 
