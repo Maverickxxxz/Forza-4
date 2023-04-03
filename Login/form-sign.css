@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(136, 113, 113);
+    background-image: url(../sources/1.png);
+    background-size: cover;
 }
 
 .WebContainer{
