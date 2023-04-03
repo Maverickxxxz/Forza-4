@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -16,19 +16,20 @@
     <div class="contenitore1">
         <div class="form-box">
             <h1 id="titolo">ACCEDI</h1>
+
             <form name="form_login" method="post">
                 <div class="input-group">
 
                     <div class="input-field">
                         <i class="ri-mail-fill"></i>
-                        <input name="email_l" type="email">
-                        <label for="email_r">Email</label>
+                        <input name="email_l" id="email_l" type="email" oninput="verifica_vuoto();">
+                        <label id="label_email_l" for="email_l">Email</label>
                     </div>
 
                     <div class="input-field">
                         <i class="ri-key-fill"></i>
-                        <input name="password_l" type="password">
-                        <label for="password_r">Password</label>
+                        <input name="password_l" id="password_l" type="password" oninput="verifica_vuoto();">
+                        <label id="label_password_l"for="password_l">Password</label>
                     </div>
 
                 </div>
@@ -41,7 +42,9 @@
         </div>
 
     </div>
-    <script src="registrazione.js"></script>
+
+
+
 </body>
 
 </html>
