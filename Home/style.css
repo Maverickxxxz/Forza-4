@@ -34,11 +34,15 @@
 }
 
 .topnav a.centro2{
-    color: #970707;
-    font-size: 49px;
-    font-weight: bold;
+  color: #970707;
+  font-size: 49px;
+  font-weight: bold;
 }
 
+.topnav-center:hover{
+  opacity: 0.85;
+  cursor: pointer;
+}
 
 /* Right-aligned section inside the top navigation */
 .topnav-right {
