@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="form-sign.js"></script>
     <link rel="stylesheet" href="form-sign.css">
+    <script src="registrazione.js"></script>
+
 
 
 </head>
 
 <body>
     <div class="contenitore1">
-
         <div class="form-box">
-
             <h1 id="titolo">REGISTRATI</h1>
-            <form name="form_registrazione" method="post" action="data.php">
-                <div class="input-group">
 
+            <form name="form_registrazione" action="data.php" method="post">
+                <div class="input-group">
                     <div class="input-field" id="campo_nome">
                         <input name="nome_utente_r" type="text" placeholder="Nome utente">
                     </div>
@@ -31,18 +31,17 @@
                     <div class="input-field">
                         <input name="password_r" type="password" placeholder="Password">
                     </div>
-
                 </div>
 
                 <div class="btn-field">
-                    <button type="submit" id="bottoneRegistrati"
-                        onclick="presa_elementi_registrazione();">Registrati</button>
+                    <button onclick="presa_elementi_registrazione();" type="submit"
+                        id="bottoneRegistrati">Registrati</button>
                 </div>
             </form>
-        </div>
 
+        </div>
     </div>
-    <script src="registrazione.js"></script>
+
 </body>
 
 </html>
