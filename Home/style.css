@@ -7,7 +7,17 @@
 
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.topnav-right a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav-left a {
   float: left;
   color: #ffffff;
   text-align: center;
@@ -39,11 +49,15 @@
 
 .topnav-center{
   display: inline-block;
-  margin-left: 210px;
+  width: 816.884px;
+  height: 53.5px;
 }
 
-.topnav-center a{
-  margin-top: -3px;
+.topnav-center a.centro{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 53.5px;
 }
 
 .topnav-center a.centro:hover{
@@ -55,7 +69,7 @@
   color: rgb(242, 197, 17);
   float: left;
   font-size: 46px;
-  margin-top: -14px;
+  margin-top: -5px;
   font-weight: bold;
 }
 
@@ -64,6 +78,6 @@
   float: right;
   font-size: 46px;
   margin-left: 6px;
-  margin-top: -14px;
+  margin-top: -5px;
   font-weight: bold;
 }
