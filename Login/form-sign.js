@@ -2,10 +2,10 @@ function getCurrentURL () {
     return window.location.href;
   }
 
-  
-
 function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
     var url = getCurrentURL();
+
+    //VERIFICA SE IL CAMPO è VUOTO PER L'URL DI REGISTRAZIONE, ABBIAMO DOVUTO DIVIDERLI PERCHè ALTRIMENTI NON LEGGEVA QUELLI DI UN FORM E VICEVERSA
     if(url=="http://127.0.0.1:5500/Login/registrazione.html"){
         
 
@@ -53,6 +53,7 @@ function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
         }
 
 
+    // VERIFICA CAMPI VUOTI DEL FORM LOGIN
     if(url=="http://127.0.0.1:5500/Login/login.html"){
         let email_l = document.form_login.email_l.value;
         email_l = email_l.replace(/\s/g, '');
@@ -86,15 +87,7 @@ function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
     }
     
     }   
-
-    
-    
-    
-
-
-    
-
-
+   
 
 function presa_elementi_registrazione(){
 
@@ -117,6 +110,8 @@ function presa_elementi_registrazione(){
         alert("Non hai inserito la password!");
         return false;
     }
+
+    return true;
 
 }
 
