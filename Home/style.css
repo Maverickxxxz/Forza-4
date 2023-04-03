@@ -28,6 +28,9 @@
   color: white;
 }
 
+.topnav-left{
+  float: left;
+}
 
 /* Right-aligned section inside the top navigation */
 .topnav-right {
@@ -35,16 +38,13 @@
 }
 
 .topnav-center{
-  width: 1280px;
-  height: 84px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 210px;
 }
 
 .topnav-center a{
   margin-top: -3px;
-}
-
-.topnav-center a.centro{
-  margin-left: 195px;
 }
 
 .topnav-center a.centro:hover{
