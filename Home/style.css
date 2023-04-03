@@ -2,6 +2,7 @@
 .topnav {
     background-color: #4c40d2;
     overflow: hidden;
+    height: 53.5px;
 }
 
 
@@ -27,41 +28,43 @@
   color: white;
 }
 
-.topnav a.centro {
-    color: #f3d31a;
-    font-size: 49px;
-    font-weight: bold;
-}
-
-.topnav a.centro2{
-  color: #970707;
-  font-size: 49px;
-  font-weight: bold;
-}
-
-.topnav-center:hover{
-  opacity: 0.85;
-  cursor: pointer;
-}
 
 /* Right-aligned section inside the top navigation */
 .topnav-right {
   float: right;
 }
 
-.topnav-center a.centro{
-    width:297px;
-    height:100px;
-    position: fixed;
-    left: 50%;
-    margin-left: -218px;
-    margin-top: -27px;
+.topnav-center{
+  width: 1280px;
+  height: 84px;
 }
-.topnav-center a.centro2{
-    width:391px;
-    height:100px;
-    position: fixed;
-    left: 50%;
-    margin-left: -80px;
-    margin-top: -27px;
+
+.topnav-center a{
+  margin-top: -3px;
+}
+
+.topnav-center a.centro{
+  margin-left: 195px;
+}
+
+.topnav-center a.centro:hover{
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.topnav-center a h4.logo{
+  color: rgb(242, 197, 17);
+  float: left;
+  font-size: 46px;
+  margin-top: -14px;
+  font-weight: bold;
+}
+
+.topnav-center a h4.logo2{
+  color: rgb(184, 30, 30);
+  float: right;
+  font-size: 46px;
+  margin-left: 6px;
+  margin-top: -14px;
+  font-weight: bold;
 }
