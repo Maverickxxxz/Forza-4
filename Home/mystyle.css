@@ -49,6 +49,7 @@ header a {
     -webkit-text-fill-color: transparent;
 }
 
+
 .animato:hover{
     -webkit-animation: tada 1s;
     animation: tada 1s;
@@ -149,16 +150,17 @@ section {
 }
 
 .hero-img img {
-    width: 200px;
+    width: 500px;
     height: auto;
     transition: 0.5s;
+    margin-left: 200px;
 }
-
+/* ANIMAZIONE HOVER TEMPORANEAMENTE DISABILITATA
 .hero-img img:hover {
-    width: +105%;
-    height: +105%;
+    width: 102%;
+    height: 102%;
     transition: 0.5s;
-}
+}*/
 
 .hero-text{
     height: 500px;
