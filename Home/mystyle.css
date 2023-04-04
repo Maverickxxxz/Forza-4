@@ -25,10 +25,7 @@ header a {
 }
 
 .logo {
-    font-size: 30px;
     font-weight: 700;
-    color: white;
-
 }
 
 .navlist {
@@ -99,6 +96,7 @@ section {
     font-size: 18px;
     font-weight: 600;
     color: white;
+    margin-right: 40px;
     margin-bottom: 10px;
 }
 
@@ -110,14 +108,14 @@ section {
 }
 
 .hero-img img {
-    width: 300px;
+    width: 200px;
     height: auto;
     transition: 0.5s;
 }
 
 .hero-img img:hover {
-    width: +120%;
-    height: +120%;
+    width: +105%;
+    height: +105%;
     transition: 0.5s;
 }
 
