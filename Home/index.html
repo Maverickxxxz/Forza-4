@@ -17,19 +17,18 @@
     <!-- FONT SCARICATI DA GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Pangolin&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <title>Home</title>
 </head>
 
 <body>
 
-    <header>
-        <a href="index.html" class="logo" style="color: rgb(213, 49, 49); font-size: 50px;">CONNECT</a>
-        <a href="index.html" class="logo me-auto ms-1" style="color: rgb(236, 202, 27); font-size: 80px;">4</a>
-        <!-- <img src="../sources/logo-connect4.webp" width="25%" height="25%"> -->
+    <!-- HEADER CON LOGO E BOTTONI -->
+    <header class="mt-3">
+        <!-- <a id="logo1" href="index.html" class="animato" style="font-size: 50px;">CONNECT</a>
+        <a id="logo2" href="index.html" class="animato me-auto ms-1" style="font-size: 80px;">4</a>-->
+        <img class = "animato" src="../sources/logo-connect4.png" width="30%"> 
 
         <ul class="navlist">
             <li><a href="index.html">Home</a></li>
@@ -42,11 +41,15 @@
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
 
+    <!-- SEZIONE CON TESTO A SX E PLAY E A IMMAGINE A DX -->
     <section class="hero">
         <div class="hero-text">
-            <h4>Supercell</h4>
-            <h1>GOBLINS</h1>
-            <p>Stiamo copiando dignitosamente il codice.</p>
+            <h4>PROVA A COMPETERE ANCHE TU!</h4>
+            <h1>FORZA 4</h1>
+            <p>Da un'idea di <strong>Giulio Di Gregorio</strong> e <strong>Maffongelli Mattia</strong> nasce il gioco dell'anno: 
+                competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
+                Che aspetti? Non avere paura!
+            </p>
             <a href="#">GIOCA ORA!</a>
             <a href="#" class="ctaa"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
         </div>
@@ -56,8 +59,17 @@
         </div>
     </section>
 
+    <section id="img-down" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="container text-center text-md-left" data-aos="fade-up">
+            <h1 class="testo">PROVA</h1>
+            <h2 class="testo2">Funzionera? proviamo</h2>
+            <a href="#" class="btn-get-started scrollto">Get Started</a>
+        </div>
+    </section>
+
+    <!-- SCROLL DOWN -->
     <div class="scroll-down">
-        <a href="#"><i class="ri-arrow-down-s-line"></i></a>
+        <a href="#home"><i class="ri-arrow-down-s-line"></i></a>
     </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>

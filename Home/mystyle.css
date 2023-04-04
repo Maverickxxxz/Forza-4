@@ -7,8 +7,12 @@
     text-decoration: none;
 }
 
+body{
+    background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
+}
+
 header {
-    position: fixed;
+    /* position: fixed; */
     right: 0;
     top: 0;
     z-index: 1000;
@@ -17,15 +21,36 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 33px 9%;
-    background: transparent;
+    /* background: transparent; */
+    /* background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%); */
 }
 
 header a {
     text-decoration: none;
 }
 
-.logo {
+#logo1 {
     font-weight: 700;
+    background-color: #485fb9;
+    background-image: linear-gradient(-180deg, #E25822 10%, #B22222 30.53%, #7C0A02 60.52%);
+    background-size: 150%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+#logo2 {
+    font-weight: 700;
+    background-color: #485fb9;
+    background-image: linear-gradient(-180deg, #FFD93D 28.53%, #FF8400 75.52%);
+    background-size: 150%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.animato:hover{
+    -webkit-animation: tada 1s;
+    animation: tada 1s;
 }
 
 .navlist {
@@ -61,13 +86,15 @@ header a {
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
+    /* background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%); */
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 2rem;
+    margin-top: -30px;
 }
+
 
 .hero a {
     text-decoration: none;
@@ -153,7 +180,7 @@ section {
 }
 
 .scroll-down {
-    position: absolute;
+    position: fixed;
     bottom: 6%;
     right: 9%;
 }
@@ -281,4 +308,46 @@ section {
         width: 100%;
         height: auto;
     }
+}
+
+#img-down{
+    width: 100%;
+    height: 100vh;
+    background: url(../sources/sfondo.jpeg) center center;
+    background-size: cover;
+    position: relative;
+    padding: 0;
+}
+
+#img:before{
+    content: "";
+    background: #12215b;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#img .container{
+    z-index: 2;
+}
+
+.testo{
+    font-weight: 400;
+    color: #485fb9;
+    font-size: 130px;
+}
+
+#home .btn-get-started{
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 2px;
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 4px;
+    transition: ease-in-out 0.3s;
+    color: white;
+    background:rgb(240, 26, 26);
+    text-transform: uppercase;
 }
