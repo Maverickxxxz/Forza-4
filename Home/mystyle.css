@@ -96,7 +96,7 @@ header a {
     margin-top: -30px;
 }
 
-section::before{
+#sezione1::before{
     content: '';
     position: absolute;
     bottom: 0;
