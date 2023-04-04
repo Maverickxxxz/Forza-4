@@ -31,8 +31,8 @@
         <img class = "animato" src="../sources/logo-connect4.png" width="30%"> 
 
         <ul class="navlist">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Come si gioca</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#img-down">Come si gioca</a></li>
             <li><a href="#">Classifica</a></li>
             <li><a id="accedi" href="../Login/login.html">Accedi</a></li>
             <li><a id="registrati" href="../Login/registrazione.html">Registrati</a></li>
@@ -44,7 +44,7 @@
     <!-- SEZIONE CON TESTO A SX E PLAY E A IMMAGINE A DX -->
     <section class="hero">
         <div class="hero-text">
-            <h4>PROVA A COMPETERE ANCHE TU!</h4>
+            <h4 class="mt-2">PROVA A COMPETERE ANCHE TU!</h4>
             <h1>FORZA 4</h1>
             <p>Da un'idea di <strong>Giulio Di Gregorio</strong> e <strong>Maffongelli Mattia</strong> nasce il gioco dell'anno: 
                 competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
@@ -55,22 +55,43 @@
         </div>
 
         <div class="hero-img">
-            <img src="../sources/board-mod.png" width="20%" height="20%" class="mt-5">
+            <img src="../sources/board-mod.png" width="20%" height="20%" class="">
         </div>
     </section>
 
-    <section id="img-down" class="d-flex flex-column justify-content-center align-items-center">
-        <div class="container text-center text-md-left" data-aos="fade-up">
-            <h1 class="testo">PROVA</h1>
-            <h2 class="testo2">Funzionera? proviamo</h2>
+    <section id="img-down" class="d-flex flex-column justify-content-start">
+        <div class="container text-center text-md-left mt-3" data-aos="fade-up">
+            <h1 class="testo ">COME SI GIOCA</h1>
+            <h2 class="testo2">Non conosci il gioco o le regole del gioco? <br>
+                Non ti preoccupare e leggi di seguito!</h2>
+            <div class="griglia justify-content-center align-items-center">
+                <div class="card mt-5 ms-5" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card mt-5 ms-5" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card mt-5 ms-5" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
             <a href="#" class="btn-get-started scrollto">Get Started</a>
         </div>
     </section>
 
     <!-- SCROLL DOWN -->
-    <div class="scroll-down">
+    <!-- <div class="scroll-down">
         <a href="#home"><i class="ri-arrow-down-s-line"></i></a>
-    </div>
+    </div> -->
 
     <script src="https://unpkg.com/scrollreveal"></script>
 

@@ -13,8 +13,13 @@ const sr= ScrollReveal({
     reset: true
 });
 
+
 sr.reveal('.hero-text', {delay:200, origin:'left'});
 sr.reveal('.hero-img', {delay:450, origin:'right'});
-sr.reveal('.scroll-down', {delay:500, origin:'right'});
+sr.reveal('.scroll-down', {delay:500, origin:'bottom'});
 sr.reveal('.animato', {delay:450, origin:'top'});
-sr.reveal('.navlist', {delay:450, origin:'right'});
+sr.reveal('.navlist', {delay:450, origin:'top'});
+
+
+
+
