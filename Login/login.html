@@ -17,9 +17,8 @@
         <div class="form-box">
             <h1 id="titolo">ACCEDI</h1>
 
-            
-
-            <form name="form_login" method="post">
+        
+            <form name="form_login" method="post" action="./signup-process.php">
                 <div class="input-group">
 
                     <div class="input-field">
@@ -37,7 +36,7 @@
                 </div>
 
                 <div class="btn-field">
-                    <button type="button" id="bottoneLogin" onclick="presa_elementi_login();">Accedi</button>
+                    <button type="submit" id="bottoneLogin" onclick="return presa_elementi_login();">Accedi</button>
 
                 </div>
             </form>

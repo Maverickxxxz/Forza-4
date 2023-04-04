@@ -133,4 +133,6 @@ function presa_elementi_login(){
         return false;
     }
 
+    return true;
+
 }
