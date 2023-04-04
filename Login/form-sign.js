@@ -1,13 +1,13 @@
 function getCurrentURL () {
-    return window.location.href;
+    //return window.location.href;
+    return window.location.pathname;
   }
 
 function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
     var url = getCurrentURL();
-
+   
     //VERIFICA SE IL CAMPO è VUOTO PER L'URL DI REGISTRAZIONE, ABBIAMO DOVUTO DIVIDERLI PERCHè ALTRIMENTI NON LEGGEVA QUELLI DI UN FORM E VICEVERSA
-    if(url=="http://127.0.0.1:5500/Login/registrazione.html"){
-        
+    if(url.endsWith("Login/registrazione.html")){
 
     let nome_utente_r = document.form_registrazione.nome_utente_r.value;
     nome_utente_r = nome_utente_r.replace(/\s/g, ''); //RIMUOVE GLI SPAZI A NOME_UTENTE
@@ -50,11 +50,13 @@ function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
             document.getElementById("label_password").style.marginTop = "2px";
             document.getElementById("label_password").style.fontSize = "1em"; 
         }
-        }
+        return true;
+    }
+    
 
 
     // VERIFICA CAMPI VUOTI DEL FORM LOGIN
-    if(url=="http://127.0.0.1:5500/Login/login.html"){
+    if(url.endsWith("Login/login.html")){
         let email_l = document.form_login.email_l.value;
         email_l = email_l.replace(/\s/g, '');
   
@@ -82,9 +84,10 @@ function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
             document.getElementById("label_password_l").style.marginTop = "2px";
             document.getElementById("label_password_l").style.fontSize = "1em"; 
         }
-
+        return true;
      
     }
+    else{return false;}
     
     }   
    
@@ -131,18 +134,3 @@ function presa_elementi_login(){
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
