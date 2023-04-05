@@ -4,7 +4,7 @@ $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    $mysqli = require __DIR__ . "./database.php";
+    $mysqli = require __DIR__ . "\database.php";
     
     $sql = sprintf("SELECT * FROM utente
                     WHERE email = '%s'",
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             $_SESSION["utente_id"] = $user["id"]; //memorizziamo nella sessione corrente l'id dell'utente
             
-            header("Location: ./index.php");
+            header("Location: signin-success.html");
             exit;
         }
     }

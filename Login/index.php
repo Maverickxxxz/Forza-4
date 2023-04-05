@@ -1,8 +1,17 @@
 <?php
-
-    session_start();
-
-    //print_r($_SESSION);
+    session_start(); 
+    
+    if (isset($_SESSION["utente_id"])) {
+    
+        $mysqli = require __DIR__ . "/database.php";
+        
+        $sql = "SELECT * FROM utente
+                WHERE id = {$_SESSION["utente_id"]}";
+                
+        $result = $mysqli->query($sql);
+        
+        $user = $result->fetch_assoc();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../Home/mystyle.css">
 
     <!-- FRAMEWORK CSS ESTERNI -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -43,8 +52,16 @@
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#img-down">Come si gioca</a></li>
             <li><a href="#">Classifica</a></li>
-            <li><a id="accedi" href="../Login/SignIN/login.html">Accedi</a></li>
-            <li><a id="registrati" href="../Login/SignUP/registrazione.html">Registrati</a></li>
+
+            <?php if(isset($_SESSION["utente_id"])):?>
+                <li><a id="logout" href="logout.php">Logout</a></li>
+            
+            <?php else: ?>
+                <li><a id="accedi" href="../Login/login.html">Accedi</a></li>
+                <li><a id="registrati" href="../Login/registrazione.html">Registrati</a></li>
+            <?php endif;?>
+            
+            
         </ul>
 
         <div class="bx bx-menu" id="menu-icon"></div>

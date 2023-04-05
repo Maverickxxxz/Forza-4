@@ -4,12 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./form-sign.css">
-    <title>CONNECT 4</title>
+    <title>Registrazione effettuata!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="form-sign.js"></script>
+    <link rel="stylesheet" href="success.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-    <div class="titolo_signup-success">
-    <h1>Login effettuato con successo</h1>
+    <div class="contenitore1">
+        <div class="form-box">
+            <h1 id="titolo">ACCESSO EFFETTUATO CON SUCCESSO!</h1>
+
+            <form name="form_registrazione" action="./signup-process.php" method="post">
+                <div class="testo">
+                    <p>Ora sei davvero pronto, cosa aspetti? Inizia a giocare! <br>
+                    Clicca il bottone e parti!</p>
+                </div>
+                <div class="btn-field">
+                    <a href="../Login/index.php">GIOCA ORA!</a>
+                </div>
+            </form>
+
+        </div>
     </div>
 </body>
 </html>
