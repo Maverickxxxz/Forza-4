@@ -1,0 +1,110 @@
+body {
+    background-image: url(../Sources/sfondo-blur.png);
+    background-size: cover;
+}
+
+.WebContainer {
+    width: 100%;
+    height: auto;
+}
+
+.articles {
+    width: 90%;
+    /*Takes 90% width from WebContainer*/
+    height: auto;
+    margin: auto;
+}
+
+.contenitore1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+
+}
+
+#titolo {
+    margin-left: -13px;
+    margin-top: 80px;
+}
+
+#titolo:hover{
+    -webkit-animation: tada 1s;
+    animation: tada 1s;
+
+}
+
+
+.form-box {
+    width: 90%;
+    height: 50%;
+    max-width: 700px;
+    max-height: 700px;
+    background: #fff;
+    padding: 0px 60px 20px;
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.374);
+    /*USIAMO I VALORI RGB PER NON INTACCARE GLI ELEMENTI FIGLIO DI FORM-BOX*/
+    backdrop-filter: blur(8px);
+    background-size: 100px;
+
+}
+
+.form-box h1 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #485fb9;
+    background-image: linear-gradient(-180deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
+    background-size: 150%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+
+
+.btn-field {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.btn-field a {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    background: #a12d1b;
+    border: 1px solid transparent;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+    text-decoration: none;
+}
+
+
+.btn-field a:hover {
+    background: transparent;
+    border: 1px solid rgb(0, 0, 0);
+    transform: translateY(3px);
+}
+
+
+.testo{
+    font-size: 25px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    background-color: #485fb9;
+    background-image: linear-gradient(-180deg, #fc4444 0%, #b51616 28.53%, #950202 75.52%);
+    background-size: 150%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}

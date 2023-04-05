@@ -31,7 +31,7 @@ if ($stmt->execute()) { //VIENE ESEGUITA LA QUERY
 } else {
     
     if ($mysqli->error === "Uncaught mysqli_sql_exception") {      //KNOWN ERROR, VEDE SE LA MAIL è GIà IN USO
-        die("email già iscritta");
+        die("Sei gia registrato con questa email!");
     } else {
         die($mysqli->error . " " . $mysqli->errno);
     }
