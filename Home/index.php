@@ -3,14 +3,14 @@
     
     if (isset($_SESSION["utente_id"])) {
     
-        $mysqli = require __DIR__ . "/database.php";
+        $mysqli = require __DIR__ . "/../Login/database.php";
         
         $sql = "SELECT * FROM utente
                 WHERE id = {$_SESSION["utente_id"]}";
                 
         $result = $mysqli->query($sql);
         
-        $user = $result->fetch_assoc();
+        $utente = $result->fetch_assoc();
     }
 ?>
 
@@ -53,8 +53,9 @@
             <li><a href="#img-down">Come si gioca</a></li>
             <li><a href="#">Classifica</a></li>
 
-            <?php if(isset($_SESSION["utente_id"])):?>
-                <li><a id="logout" href="logout.php">Logout</a></li>
+            <?php if(isset($utente)):?>
+                <li><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a></li>
+                <li><a id="logout" href="../Login/logout.php">Logout</a></li>
             
             <?php else: ?>
                 <li><a id="accedi" href="../Login/login.html">Accedi</a></li>
