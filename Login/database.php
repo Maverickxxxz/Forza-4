@@ -15,6 +15,7 @@ if($mysqli->connect_errno){ //SE C'è UN ERRORE DI CONNESSIONE MOSTRA L'ERRORE
     die("Errore di connessione: " . $mysqli->connect_error); // IL PUNTO SERVE PER CONCATENARE DUE STRINGHE INSIEME
 }
 
-return $mysqli;
+
+return $mysqli; 
 
 ?>
