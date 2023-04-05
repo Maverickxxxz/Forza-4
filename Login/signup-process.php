@@ -2,14 +2,14 @@
 
 
 
-$nome_utente_r = $_POST["nome_utente_r"];
-$email_r = $_POST["email_r"];
-$password_r = $_POST["password_r"];
-$password_hash_r = password_hash($_POST["password_r"], PASSWORD_DEFAULT); //hashed, crittografata
+$nome_utente = $_POST["nome_utente_r"];
+$email = $_POST["email_r"];
+$password = $_POST["password_r"];
+$password_hash = password_hash($_POST["password_r"], PASSWORD_DEFAULT); //hashed, crittografata
 
-$mysqli = require __DIR__ . "/database.php";
+$mysqli = require __DIR__ . "./database.php";
 
-$sql = "INSERT INTO register_database . utente (nome_utente_r, email_r, password_hash_r)
+$sql = "INSERT INTO register_database . utente (nome_utente, email, password_hash)
         VALUES (?, ?, ?)";
         
 $stmt = $mysqli->stmt_init();
@@ -21,7 +21,7 @@ if ( ! $stmt->prepare($sql)) {          //SE FALLISCE LA PREPARAZIONE DELLA QUER
 $stmt->bind_param("sss",                //ASSOCIA AI VALORI ? ? ? RISPETTIVAMENTE, NAME, EMAIL E PASSWORD(hashed), sss specifica il tipo di dato delle variabili, tutte stringhe
                   $_POST["nome_utente_r"],
                   $_POST["email_r"],
-                  $password_hash_r);
+                  $password_hash);
                   
 if ($stmt->execute()) { //VIENE ESEGUITA LA QUERY
 

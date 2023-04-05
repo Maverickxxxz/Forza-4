@@ -1,11 +1,11 @@
 function getCurrentURL () {
-    //return window.location.href;
-    return window.location.pathname;
+    return window.location.href;
+ 
   }
 
 function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
     var url = getCurrentURL();
-   
+  
     //VERIFICA SE IL CAMPO è VUOTO PER L'URL DI REGISTRAZIONE, ABBIAMO DOVUTO DIVIDERLI PERCHè ALTRIMENTI NON LEGGEVA QUELLI DI UN FORM E VICEVERSA
     if(url.endsWith("Login/registrazione.html")){
 
@@ -88,8 +88,10 @@ function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
      
     }
     else{return false;}
+
+}
     
-    }   
+       
    
 
 function presa_elementi_registrazione(){
