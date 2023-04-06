@@ -6,19 +6,33 @@ menu.onclick = () => {
     navlist.classList.toggle('open');
 };
 
-const sr= ScrollReveal({
-    distance: '65px',
-    duration: 2600,
-    delay: 450,
-    reset: true
-});
+function revealFunction(){
+    window.sr = ScrollReveal({
+        distance: '65px',
+        duration: 2600,
+        delay: 450,
+        easing: 'ease-out'
+    });
 
-sr.reveal('.hero-text', {delay:200, origin:'left'});
-sr.reveal('.hero-img', {delay:450, origin:'right'});
-sr.reveal('.scroll-down', {delay:500, origin:'bottom'});
-sr.reveal('.animato', {delay:450, origin:'top'});
-sr.reveal('.navlist', {delay:450, origin:'top'});
+    
+    sr.reveal('.hero-text', {delay:200, origin:'left', reset:false});
+    sr.reveal('.hero-img', {delay:450, origin:'right', reset:false});
+    sr.reveal('.scroll-down', {delay:500, origin:'bottom', reset:false});
+    sr.reveal('.animato', {delay:450, origin:'top', reset:false});
+    sr.reveal('.navlist', {delay:450, origin:'top', reset:false});
+}
 
+window.addEventListener('load', () => {
+    revealFunction();
+})
+
+function menuToggle() {
+    var img = document.getElementById("board");
+    const toggleMenu = document.querySelector(".menu");
+    toggleMenu.classList.toggle("active");
+    img.style.width = '300px';
+
+}
 
 
 

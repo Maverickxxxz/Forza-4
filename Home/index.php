@@ -49,14 +49,33 @@
         <img class = "animato" src="../sources/logo-connect4.png" width="30%"> 
 
         <ul class="navlist">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="#img-down">Come si gioca</a></li>
-            <li><a href="#">Classifica</a></li>
+            <li><a id="elem"href="index.html" class="active">Home</a></li>
+            <li><a id="elem" href="#img-down">Come si gioca</a></li>
+            <li><a id="elem" href="#">Classifica</a></li>
 
             <?php if(isset($utente)):?>
-                <li><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a></li>
-                <li><a id="logout" href="../Login/logout.php">Logout</a></li>
-            
+                <li>
+                    <div class="action">
+                        <div class="profile" onclick="menuToggle();">
+                            <img src="../sources/avatar2.png" />
+                        </div>
+                        <div class="menu">
+                            <h3><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a><br /></h3>
+                            <ul>
+                            <li>
+                                <img src="../sources/user2.png" /><a href="#">Il mio profilo</a>
+                            </li>
+                            <li>
+                                <img src="../sources/envelope.png" /><a href="#">Messaggi</a>
+                            </li>
+                            <li><img src="../sources/question.png" /><a href="#">Help</a></li>
+                            <li>
+                                <img src="../sources/logout.png" /><a href="../Login/logout.php">Logout</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
             <?php else: ?>
                 <li><a id="accedi" href="../Login/login.html">Accedi</a></li>
                 <li><a id="registrati" href="../Login/registrazione.html">Registrati</a></li>
@@ -82,7 +101,7 @@
         </div>
 
         <div class="hero-img">
-            <img src="../sources/board-mod.png">
+            <img id = "board" src="../sources/board-mod.png">
         </div>
     </section>
 
