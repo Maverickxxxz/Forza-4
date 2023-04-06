@@ -114,19 +114,20 @@
                 <div class="card mt-5 ms-5" style="width: 18rem;">
                     <h4 class="mt-1">1</h4>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Avrete davanti una scacchiera 5x5 come quella nella figura sopra. Tu avrai delle pedine blu, il tuo avversario rosse.</p>
                     </div>
                 </div>
                 <div class="card mt-5 ms-5" style="width: 18rem;">
                     <h4 class="mt-1">2</h4>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">L'obiettivo finale sarà quello di avere 4 pedine consecutive dello stesso colore per riga, per colonna o in diagonale. Vince chi per primo raggiunge tale obiettivo!</p>
                     </div>
                 </div>
                 <div class="card mt-5 ms-5" style="width: 18rem;">
                     <h4 class="mt-1">3</h4>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text"> A turno dunque dovrete posizionare la vostra pedina in una cella, combinando logica e tattica affinchè riusciate a fare Forza 4 prima del vostro avversario!
+                        </p>
                     </div>
                 </div>
             </div>

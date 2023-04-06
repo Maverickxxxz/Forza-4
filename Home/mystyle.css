@@ -304,7 +304,7 @@ section {
     .hero-img img{
         visibility: hidden;
     }
-    
+
     .navlist {
         position: absolute;
         top: 100%;
@@ -388,6 +388,17 @@ section {
 #img-down .griglia{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+#img-down .card{
+    background-color: transparent;
+    transition: ease-in-out 0.3s;
+}
+
+#img-down .card:hover{
+    background: white;
+    transform: translateY(-5px);
+    transition: ease-in-out 0.3s;
 }
 
 .action {
