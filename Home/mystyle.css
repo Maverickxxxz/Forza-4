@@ -301,6 +301,10 @@ section {
         display: block;
     }
 
+    .hero-img img{
+        visibility: hidden;
+    }
+    
     .navlist {
         position: absolute;
         top: 100%;
