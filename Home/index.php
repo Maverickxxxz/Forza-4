@@ -76,15 +76,13 @@
                         </div>
                     </div>
                 </li>
+
             <?php else: ?>
-                <li><a id="accedi" href="../Login/login.html">Accedi</a></li>
-                <li><a id="registrati" href="../Login/registrazione.html">Registrati</a></li>
+                <li><a id="elem" href="../Login/login.html">Accedi</a></li>
+                <li><a id="elem" href="../Login/registrazione.html">Registrati</a></li>
             <?php endif;?>
             
-            
         </ul>
-
-        <div class="bx bx-menu" id="menu-icon"></div>
     </header>
 
     <!-- SEZIONE CON TESTO A SX E PLAY E A IMMAGINE A DX -->
@@ -96,7 +94,7 @@
                 competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
                 Che aspetti? Non avere paura!
             </p>
-            <a href="#">GIOCA ORA!</a>
+            <a href="../game/gioco.html">GIOCA ORA!</a>
             <a href="#" class="ctaa"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
         </div>
 
