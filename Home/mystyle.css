@@ -108,10 +108,21 @@ section {
     padding: 0 19%;
 }
 
+.bg-custom{
+    background-color: #7C0A02;
+    transition: all .55s ease;
+}
+
+.bg-custom:hover{
+    background-color: #7C0A02;
+    transition: all .55s ease;
+    opacity: 0.8;
+}
+
 .hero-text h5 {
-    font-size: 14px;
-    font-weight: 400;
-    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
     margin-bottom: 40px;
 }
 
@@ -148,16 +159,27 @@ section {
     transition: 0.5s;
     margin-left: 200px;
 }
-/* ANIMAZIONE HOVER TEMPORANEAMENTE DISABILITATA
+
 .hero-img img:hover {
     width: 102%;
     height: 102%;
     transition: 0.5s;
-}*/
+}
 
 .hero-text{
     height: 500px;
 }
+
+.hero-text button{
+    text-decoration: none;
+    color: white;
+}
+
+.hero-text button:hover{
+    text-decoration: none;
+    color: white;
+}
+
 
 .hero-text a {
     display: inline-block;
@@ -196,12 +218,13 @@ section {
     position: fixed;
     bottom: 6%;
     right: 9%;
+    z-index: 1000;
 }
 
 .scroll-down i {
     display: block;
     padding: 12px;
-    font-size: 25px;
+    font-size: 15px;
     color: white;
     background: #a12d1b;
     border-radius: 30px;
@@ -399,31 +422,31 @@ section {
     top: -14px;
     right: -17px;
     margin-left: 30px;
-  }
-  
-  .action .profile {
+}
+
+.action .profile {
     position: relative;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
-  }
-  
-  .action .profile img {
+}
+
+.action .profile img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 
-  .action .profile img:hover{
+.action .profile img:hover{
     opacity: 0.8;
-  }
-  
-  .action .menu {
+}
+
+.action .menu {
     position: absolute;
     top: 120px;
     right: -10px;
@@ -435,15 +458,15 @@ section {
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
-  }
-  
-  .action .menu.active {
+}
+
+.action .menu.active {
     top: 80px;
     visibility: visible;
     opacity: 1;
-  }
-  
-  .action .menu::before {
+}
+
+.action .menu::before {
     content: "";
     position: absolute;
     top: -5px;
@@ -452,9 +475,9 @@ section {
     height: 20px;
     background: #fff;
     transform: rotate(45deg);
-  }
-  
-  .action .menu h3 {
+}
+
+.action .menu h3 {
     width: 100%;
     text-align: center;
     font-size: 18px;
@@ -462,42 +485,65 @@ section {
     font-weight: 500;
     color: #555;
     line-height: 1.5em;
-  }
-  
-  .action .menu h3 span {
+}
+
+.action .menu h3 span {
     font-size: 14px;
     color: #cecece;
     font-weight: 300;
-  }
-  
-  .action .menu ul li {
+}
+
+.action .menu ul li {
     list-style: none;
     padding: 16px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
-  }
-  
-  .action .menu ul li img {
+}
+
+.action .menu ul li img {
     max-width: 20px;
     margin-left: -29px;
     opacity: 0.5;
     transition: 0.5s;
-  }
-  
-  .action .menu ul li:hover img {
+}
+
+.action .menu ul li:hover img {
     opacity: 1;
-  }
-  
-  .action .menu ul li a {
+}
+
+.action .menu ul li a {
     display: inline-block;
     text-decoration: none;
     color: #555;
     font-weight: 500;
     transition: 0.5s;
     margin: auto;
-  }
-  
-  .action .menu ul li:hover a {
+}
+
+.action .menu ul li:hover a {
     color: #ff5d94;
-  }
+}
+
+.ri-information-line{
+    opacity: 0.7;
+}
+
+.ri-information-line:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.ri-information-line .info{
+    visibility: hidden;
+    opacity: 0.7;
+    transition: .2s;
+    font-size: 10px;
+    font-weight: 200;
+}
+
+.ri-information-line:hover .info{
+    visibility: visible;
+    opacity: 0.7;
+    transition: .2s;
+}

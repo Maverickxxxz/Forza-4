@@ -94,7 +94,52 @@
                 competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
                 Che aspetti? Non avere paura!
             </p>
-            <a href="../game/gioco.html">GIOCA ORA!</a>
+            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a>GIOCA ORA!</a>
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">SELEZIONA UNA MODALITA':</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Locale
+                                </label>
+                                <i class="ri-information-line">
+                                <span class="info">Gioca contro il tuo avversario sullo stesso pc!</span>
+                                </i>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Multiplayer
+                                </label>
+                                <i class="ri-information-line">
+                                <span class="info">Gioca contro il tuo avversario su un altro pc!</span>
+                                </i>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    IA
+                                </label>
+                                <i class="ri-information-line">
+                                <span class="info">Prova a sfidare l'IA!</span>
+                                </i>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button>
+                        <button type="button" class="btn bg-custom">Gioca</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
             <a href="#" class="ctaa"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
         </div>
 
@@ -134,9 +179,9 @@
     </section>
 
     <!-- SCROLL DOWN -->
-    <!-- <div class="scroll-down">
-        <a href="#home"><i class="ri-arrow-down-s-line"></i></a>
-    </div> -->
+    <div class="scroll-down">
+        <a href="#sezione1"><i class="ri-arrow-up-s-line"></i></a>
+    </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>
 
