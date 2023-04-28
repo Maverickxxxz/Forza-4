@@ -27,6 +27,9 @@
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Home/mystyle.css">
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
 
     <!-- FRAMEWORK CSS ESTERNI -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -49,21 +52,21 @@
         <img class = "animato" src="../sources/logo-connect4.png" width="30%"> 
 
         <ul class="navlist">
-            <li><a id="elem"href="index.html" class="active">Home</a></li>
-            <li><a id="elem" href="#img-down">Come si gioca</a></li>
-            <li><a id="elem" href="#">Classifica</a></li>
+            <li><a id="elem1" href="index.html" class="active">Home</a></li>
+            <li><a id="elem2" href="#img-down" class="">Come si gioca</a></li>
+            <li><a id="elem3" href="#" class="">Classifica</a></li>
 
             <?php if(isset($utente)):?>
                 <li>
                     <div class="action">
                         <div class="profile" onclick="menuToggle();">
-                            <img src="../sources/avatar2.png" />
+                            <img src="../sources/av1.png" />
                         </div>
                         <div class="menu">
                             <h3><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a><br /></h3>
                             <ul>
                             <li>
-                                <img src="../sources/user2.png" /><a href="#">Il mio profilo</a>
+                                <img src="../sources/user2.png" /><a href="../Profile/profile.html">Il mio profilo</a>
                             </li>
                             <li>
                                 <img src="../sources/envelope.png" /><a href="#">Messaggi</a>
@@ -78,8 +81,8 @@
                 </li>
 
             <?php else: ?>
-                <li><a id="elem" href="../Login/login.html">Accedi</a></li>
-                <li><a id="elem" href="../Login/registrazione.html">Registrati</a></li>
+                <li><a id="elem4" href="../Login/login.html" class="">Accedi</a></li>
+                <li><a id="elem5" href="../Login/registrazione.html" class="">Registrati</a></li>
             <?php endif;?>
             
         </ul>

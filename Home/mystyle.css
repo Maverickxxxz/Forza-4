@@ -59,21 +59,33 @@ header a {
     display: flex;
 }
 
-#elem {
+#elem1, #elem2, #elem3, #elem4, #elem5{
     color: white;
     margin-left: 60px;
     font-size: 20px;
     font-weight: 600;
     border-bottom: 2px solid transparent;
-    /* transition: all .55s ease;*/
+    transition: all .55s ease;
 }
 
-
-#elem:hover, #elem.active{
+#elem1.active, #elem2.active, #elem3.active, #elem4.active, #elem5.active{
     border-bottom: 2px solid rgb(255, 208, 0);
     color: rgb(255, 208, 0);
-    /* transition: 0.5s; */
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 60px;
+    transition: all .55s ease;
 }
+
+
+
+
+/* #elem:hover, #elem.active{
+    border-bottom: 2px solid rgb(255, 208, 0);
+    color: rgb(255, 208, 0);
+    font-size: 25px;
+    transition: all .55s ease;
+} */
 
 
 .hero {
