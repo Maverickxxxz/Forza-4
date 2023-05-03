@@ -30,6 +30,7 @@
     <script src=
     "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
     </script>
+    <link rel="stylesheet" href="../Profile/fontawesome/css/all.css">
 
     <!-- FRAMEWORK CSS ESTERNI -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -46,7 +47,7 @@
 <body>
 
     <!-- HEADER CON LOGO E BOTTONI -->
-    <header class="mt-3">
+    <header class="mt-3" id="header">
         <!-- <a id="logo1" href="index.html" class="animato" style="font-size: 50px;">CONNECT</a>
         <a id="logo2" href="index.html" class="animato me-auto ms-1" style="font-size: 80px;">4</a>-->
         <img class = "animato" src="../sources/logo-connect4.png" width="30%"> 
@@ -181,11 +182,42 @@
         </div>
     </section>
 
-    
+    <footer id="#sezione3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mx-auto text-center">
+                    <h4 class="titleFooter">Contatti</h4>
+                    <ul class="list-unstyled">
+                    <li id="indirizzo">Indirizzo: <a style="cursor:pointer;" onmouseover="this.style.color='#aaa'" onmouseout="this.style.color='#fff'" onclick="openMap();">Viale Scalo San Lorenzo, Roma <i class="fa fa-map-marker fa-fw"></i></a></li>
+                    <li>Telefono: <a href="tel:06-1234567">06-1234567 <i class = "fa fa-phone fa-fw"></i></a></li>
+                    <li>Email: <a href="mailto:info@nowaste.com">info@nowaste.com <i class="fa fa-mail-bulk fa-fw"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mx-auto text-center">
+                <h4 class="titleFooter">Social</h4>
+                    <ul class="list-unstyled-icon">
+                        <li><a href="https://it-it.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/?lang=it" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class = "col-md-4 mx-auto text-center">
+                    <h4 class="titleFooter">Newsletter</h4>
+                    <p style="color:white;">Iscriviti alla newsletter Connect4 per ricevere informazioni su tutte le future novità!</p>
+                    <form method = "post" action="">
+                        <div class = " input-group mb-3">
+                            <input type="email" name = "emailIscritto" class="form-control" placeholder="Email" aria-label = "Email" required>
+                            <input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Invia">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- SCROLL DOWN -->
     <div class="scroll-down">
-        <a href="#sezione1"><i class="ri-arrow-up-s-line"></i></a>
+        <a href="#header"><i class="ri-arrow-up-s-line"></i></a>
     </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>

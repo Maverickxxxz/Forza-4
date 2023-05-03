@@ -185,6 +185,7 @@ section {
 .hero-text button{
     text-decoration: none;
     color: white;
+    z-index: 1000;
 }
 
 .hero-text button:hover{
@@ -558,3 +559,58 @@ section {
     opacity: 0.7;
     transition: .2s;
 }
+
+footer {
+    padding: 63px 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+footer ul li {
+    margin-bottom: 10px;
+  }
+  
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+footer ul li a:hover {
+    color: #aaa;
+  }
+  
+footer form {
+    margin-top: 20px;
+  }
+  
+@media (max-width: 767px) {
+    footer h4 {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+  }
+  
+.list-unstyled-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 24px; 
+  }
+  
+.list-unstyled li {
+    margin: 10px 0;
+    color: white;
+  }
+  
+.titleFooter{
+    text-align: center;
+    color: white;
+  }
