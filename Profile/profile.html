@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    <title>Il mio profilo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    
+    <title>Il mio profilo</title>
 </head>
 <body>
     <div class="griglia">
@@ -19,7 +20,7 @@
                     </a>
                     <a onclick="tabs(1)" 
                     class="tab">
-                        <i class="fa fa-credit-card"></i>
+                        <i class="fa fa-gamepad"></i>
                     </a>
                     <a onclick="tabs(2)" 
                     class="tab">
@@ -27,69 +28,44 @@
                     </a>
                     <a onclick="tabs(3)" 
                     class="tab">
-                        <i class="fa fa-tasks"></i>
-                    </a>
-                    <a onclick="tabs(4)" 
-                    class="tab">
                         <i class="fa fa-cog"></i>
                     </a>
                 </nav>
             </div>
             <div class="rightbox">
                 <div class="profile tabShow">
-                    <h1>Informazioni Personali</h1>
+                    <h1>INFORMAZIONI PERSONALI:</h1>
                     <h2>Nome e Cognome:</h2>
                     <input type="text" 
-                    class="input" value="Mattia Maffo">
+                    class="input" placeholder="Nome e Cognome..." disabled>
                     <h2>Data di Nascita:</h2>
                     <input type="date" 
-                    class="input" value="2 Aprile 2001">
-                    <h2>Sesso:</h2>
-                    <!-- Da cambiare in radio -->
-                    <input type="text" 
-                    class="input" value="Maschio">
+                    class="input" placeholder="" disabled>
                     <h2>Email:</h2>
                     <input type="email" 
-                    class="input" value="example@example.com">
+                    class="input"  placeholder="inserisci email..." id="#email" disabled>
                     <h2>Password</h2>
                     <input type="password" 
-                    class="input" value="brightcode">
-                    <button class="btn">Update</button>
+                    class="input" placeholder="password..." disabled>
+                    <div>
+                        <button class="btn">Salva</button>
+                        <button class="btn1">Modifica</button> 
+                    </div>
+                    
                 </div>
-                <div class="payment tabShow">
-                    <h1>Payment Info</h1>
-                    <h2>Payment Method</h2>
-                    <input type="text" 
-                    class="input" value="MasterCard - 9202 ****
-                    **** 8982">
-                    <h2>Billing Address</h2>
-                    <input type="text" 
-                    class="input" value="Via dei Rododendri">
-                    <h2>Codice Postale</h2>
-                    <input type="text" 
-                    class="input" value="00171">
-                    <h2>Billing Date</h2>
-                    <input type="text" 
-                    class="input" value="20 Maggio 2023">
-                    <h2>Redeem Card</h2>
-                    <input type="password" 
-                    class="input" value="Enter Gift Code">
-                    <button class="btn">Update</button>
-                </div>
-                <div class="subscription tabShow">
-                    <h1>Subscription Info</h1>
-                    <h2>Payment Date</h2>
-                    <p>15 Maggio 2023</p>
-                    <h2>Next Charges</h2>
-                    <p>$50 <span>includes tax</span></p>
-                    <h2>Plan</h2>
-                    <p>Limited Plan</p>
-                    <h2>Monthly</h2>
-                    <p>$25/month</p>
-                    <button class="btn">Update</button>
+                <div class="record tabShow">
+                    <h1>RECORD:</h1>
+                    <h2>Partite Giocate:</h2>
+                    <p></p>
+                    <h2>Partite Vinte:</h2>
+                    <p></p>
+                    <h2>Locale:</h2>
+                    <p></p>
+                    <h2>Online:</h2>
+                    <p></p>
                 </div>
                 <div class="privacy tabShow">
-                    <h1>Impostazioni Privacy</h1>
+                    <h1>CHE ALTRO?</h1>
                     <h2>Manager Email Noti.</h2>
                     <p>15 Maggio 2023</p>
                     <h2>Manage Privacy Settings</h2>
@@ -101,40 +77,81 @@
                     <button class="btn">Update</button>
                 </div>
                 <div class="settings tabShow">
-                    <h1>Account Settings</h1>
-                    <h2>Sync MatchList</h2>
-                    <p></p>
-                    <h2>Hold Subscription</h2>
-                    <p></p>
-                    <h2>Cancel Subscription</h2>
-                    <p></p>
-                    <h2>Your Devices</h2>
-                    <p></p>
-                    <h2>Referrals</h2>
-                    <p></p>
-                    <button class="btn">Update</button>
+                    <h1>IMPOSTAZIONI:</h1>
+                    <h2>Colore Pedina:</h2>
+                    <input class="radio" type="radio" name="Radio" id="Giallo" disabled> <label for="Giallo" class="pedina1">Giallo</label> 
+                    <input class="radio" type="radio" name="Radio" id="Rosso"  disabled> <label for="Rosso" class="pedina2">Rosso</label>
+                    <h2>Grassetto:</h2>
+                    <input class="radio2" type="radio" name="Grassetto" id="Si"  disabled> <label for="Si" class="grassetto" style="font-weight: bold;">Si</label>
+                    <input class="radio2" type="radio" name="Grassetto" id="No" checked disabled> <label for="No" class="grassetto">No</label>
+
+                    <div>
+                        <button class="btn">Salva</button>
+                        <button class="btn1">Modifica</button>
+                    </div>
+                    <div>
+                        <button class="btn">Riazzera Record</button>
+                        <button class="btn">Elimina Account</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="fotocontainer">
+            <img class = "pedinagialla" src="../sources/giallo.png" style="visibility: hidden;">
         </div>
     </div>
     <script>
         const tabBtn = document.querySelectorAll(".tab");
         const tab = document.querySelectorAll(".tabShow");
+        var $img = $(".pedinagialla");
+        var $giallo = $("#Giallo");
 
         function tabs(panelIndex){
             tab.forEach(function(node) {
                 node.style.display = "none";
             });
             tab[panelIndex].style.display = "block";
+            if(panelIndex == 3){
+                if($giallo.is(":checked")){
+                    $img.attr("src", "../sources/giallo.png")
+                    $img.attr("style", "visibility: visible");
+                }
+                else{
+                    $img.attr("src", "../sources/rosso.png")
+                    $img.attr("style", "visibility: visible");
+                }
+            }
+            else{
+                $img.attr("style", "visibility: hidden");
+            }
         }
         tabs(0);
     </script>
     <script>
         $(".tab").click(function(){
             $(this).addClass("active").siblings().removeClass("active");
+        })
+    </script>
+    <script>
+        var $inp = $(".input");
+        var $update = $(".btn");
+        var $mod = $(".btn1");
+        var $radio = $(".radio");
+        var $radio2 = $(".radio2");
+        $update.click(function(){
+            $inp.attr('disabled', 'disabled');
+            $radio.attr("disabled", "disabled");
+            $radio2.attr("disabled", "disabled");
+            tabs(3);
+        })
+        $mod.click(function(){
+            $radio.removeAttr("disabled");
+            $radio.val('')
+            $radio2.removeAttr("disabled");
+            $radio2.val('')
+            $inp.removeAttr("disabled");
+            $inp.val('');
         })
     </script>
 </body>

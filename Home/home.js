@@ -97,5 +97,15 @@ function menuToggle() {
     
 }
 
+function openGame(){
+    var $mod = $("#flexRadioDefault1");
+    if($mod.is(":checked")){
+        window.location.assign("../game/gioco.html");
+    }
+    else{
+        window.location.assign("../Profile/profile.html");
+    }
+}
+
 
 

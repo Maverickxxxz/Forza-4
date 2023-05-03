@@ -192,8 +192,7 @@ section {
     color: white;
 }
 
-
-.hero-text a {
+.hero-text a.ctaa, a.cta {
     display: inline-block;
     color: white;
     background: #a12d1b;
@@ -208,7 +207,7 @@ section {
 }
 
 
-.hero-text a:hover {
+.hero-text a.ctaa:hover, a.cta:hover {
     background: transparent;
     border: 1px solid white;
     transform: translateX(8px);

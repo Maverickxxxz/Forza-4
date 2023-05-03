@@ -98,7 +98,7 @@
                 Che aspetti? Non avere paura!
             </p>
             <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <a>GIOCA ORA!</a>
+                <a class = "cta">GIOCA ORA!</a>
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -109,7 +109,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Locale
                                 </label>
@@ -127,7 +127,7 @@
                                 </i>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled >
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     IA
                                 </label>
@@ -138,7 +138,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button>
-                        <button type="button" class="btn bg-custom">Gioca</button>
+                        <button type="button" class="btn bg-custom" onclick="openGame()">Gioca</button>
                     </div>
                     </div>
                 </div>
@@ -177,9 +177,11 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn-get-started scrollto">Get Started</a>
+            <a href="#" class="btn-get-started scrollto">GIOCA ORA!</a>
         </div>
     </section>
+
+    
 
     <!-- SCROLL DOWN -->
     <div class="scroll-down">
