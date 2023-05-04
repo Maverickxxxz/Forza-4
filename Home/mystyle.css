@@ -309,6 +309,7 @@ section {
     .hero-img img {
         width: 560px;
         height: auto;
+        visibility: hidden;
     }
 
     .hero {
@@ -360,9 +361,18 @@ section {
 }
 
 @media (max-width: 680px) {
+    .hero-img{
+        width: 0%;
+    }
+
     .hero-img img {
-        width: 100%;
+        width: 0%;
         height: auto;
+        visibility: hidden;
+    }
+
+    .ctaa{
+        visibility: hidden;
     }
 }
 
