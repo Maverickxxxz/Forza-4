@@ -53,7 +53,7 @@
         <img class = "animato" src="../sources/logo-connect4.png" width="30%"> 
 
         <ul class="navlist">
-            <li><a id="elem1" href="index.html" class="active">Home</a></li>
+            <li><a id="elem1" href="index.php" class="active">Home</a></li>
             <li><a id="elem2" href="#img-down" class="">Come si gioca</a></li>
             <li><a id="elem3" href="#" class="">Classifica</a></li>
 
