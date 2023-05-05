@@ -103,7 +103,7 @@ function openGame(){
         window.location.assign("../game/Locale/gioco.php");
     }
     else{
-        window.location.assign("../Profile/profile.html");
+        window.location.assign("../game/Multiplayer/stanza.html");
     }
 }
 
