@@ -178,7 +178,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn-get-started scrollto">GIOCA ORA!</a>
+            <a href="#header" class="btn-get-started scrollto">GIOCA ORA!</a>
         </div>
     </section>
 
