@@ -100,7 +100,7 @@ function menuToggle() {
 function openGame(){
     var $mod = $("#flexRadioDefault1");
     if($mod.is(":checked")){
-        window.location.assign("../game/Locale/gioco.html");
+        window.location.assign("../game/Locale/gioco.php");
     }
     else{
         window.location.assign("../Profile/profile.html");
