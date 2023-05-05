@@ -12,4 +12,4 @@ socket.on('connect', () => {
   //alert(`Sei connesso con id: ${socket.id}`);
 });
 
-socket.emit("messaggi-al-server", "ciaone") //manda l'evento al server
+socket.emit("messaggi-al-server", "try") //manda l'evento al server
