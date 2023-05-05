@@ -1,10 +1,15 @@
-import io from 'socket.io-client';
+import io from "socket.io-client";
+
+
+export function unisciti(){
+  let codice = document.getElementById("codice_stanza").value;
+  alert(codice);
+}
+
 
 const socket = io('http://localhost:3000');
 socket.on('connect', () => {
-  alert(`Sei connesso con id: ${socket.id}`);
-  
+  //alert(`Sei connesso con id: ${socket.id}`);
 });
 
-socket.emit("prova-server", 10, "ASD", {a: "a"}) //manda l'evento al server
-
+socket.emit("messaggi-al-server", "ciaone") //manda l'evento al server

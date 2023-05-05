@@ -8,8 +8,18 @@ const io = require('socket.io')(3000, {
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
     console.log(socket.id)
-    socket.on("prova-server", (number,string,obj) =>{
-        console.log(number,string,obj)
+    socket.on("messaggi-al-server", (string, room) =>{
+
+        if(room==""){
+            alert("Inserisci la stanza!")
+            return;
+        }
+
+        else{
+            socket.broadcast.to(room).emit("messaggi-al-server", string)
+        }
+
+        console.log(string)
     })
 })
 

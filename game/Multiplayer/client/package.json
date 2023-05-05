@@ -11,5 +11,8 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "description": ""
+    "description": "",
+    "dependencies": {
+        "socket.io-client": "^4.6.1"
+    }
 }
