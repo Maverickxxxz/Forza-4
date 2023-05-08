@@ -2,6 +2,8 @@ let menu = document.querySelector('#menu-icon');
 let navlist = document.querySelector('.navlist');
 var cont = 0;
 
+
+
 $("#elem1").on({
     mouseenter: function(){
         $(this).addClass("active");
@@ -99,7 +101,7 @@ function menuToggle() {
 function openGame(){
 
     var $mod = $("#flexRadioDefault1");
-    var nome_utente = document.getElementById("nome_utente").value;
+    var nome_utente = nome_utente;
     console.log(nome_utente);
 
     
@@ -107,11 +109,9 @@ function openGame(){
         window.location.href("../game/Locale/gioco.php");
     }
     else{
-        alert("wee");
-        window.location.href = `asdasd`;
         //window.location.href = `http://localhost:8080/stanza.html?nome_utente=${nome_utente}`;
+        window.location.href = "http://localhost:8081/stanza.html";
     }
 }
-
 
 

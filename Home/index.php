@@ -1,6 +1,7 @@
 <?php
     session_start(); 
     
+    
     if (isset($_SESSION["utente_id"])) {
     
         $mysqli = require __DIR__ . "/../Login/database.php";
@@ -11,7 +12,12 @@
         $result = $mysqli->query($sql);
         
         $utente = $result->fetch_assoc();
+
+        $nome_utente = $utente["nome_utente"];
+      
     }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +36,7 @@
     <script src=
     "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
     </script>
+    
     <link rel="stylesheet" href="../Profile/fontawesome/css/all.css">
 
     <!-- FRAMEWORK CSS ESTERNI -->
@@ -45,6 +52,10 @@
 </head>
 
 <body>
+
+    
+    
+
 
     <!-- HEADER CON LOGO E BOTTONI -->
     <header class="mt-3" id="header">
@@ -138,8 +149,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button>
-                        <button type="button" class="btn bg-custom" onclick="openGame()">Gioca</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button> 
+                        <button type="button" class="btn bg-custom"> <a href="http://localhost:8080/stanza.html">Gioca</a> </button>
+
+               
+
+                        
+                    
                     </div>
                     </div>
                 </div>
@@ -151,6 +167,8 @@
             <img id = "board" src="../sources/board-mod.png">
         </div>
     </section>
+
+    <script></script>
 
     <section id="img-down" class="d-flex flex-column justify-content-start">
         <div class="container text-center text-md-left mt-3" data-aos="fade-up">
@@ -221,8 +239,7 @@
     </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-
-    <script src="../Home/home.js" type="text/javascript"></script>
+    <script src="./home.js" type="text/javascript"></script>
 
 </body>
 
