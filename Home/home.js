@@ -93,17 +93,23 @@ function menuToggle() {
         toggleMenu.classList.toggle("active");
         img.style.width = '500px';
         cont = 0;
-    }
-    
+    }  
 }
 
 function openGame(){
+
     var $mod = $("#flexRadioDefault1");
+    var nome_utente = document.getElementById("nome_utente").value;
+    console.log(nome_utente);
+
+    
     if($mod.is(":checked")){
-        window.location.assign("../game/Locale/gioco.php");
+        window.location.href("../game/Locale/gioco.php");
     }
     else{
-        window.location.assign("http://localhost:8080/stanza.html");
+        alert("wee");
+        window.location.href = `asdasd`;
+        //window.location.href = `http://localhost:8080/stanza.html?nome_utente=${nome_utente}`;
     }
 }
 
