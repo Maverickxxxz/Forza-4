@@ -121,41 +121,28 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Locale
-                                </label>
-                                <i class="ri-information-line">
-                                <span class="info">Gioca contro il tuo avversario sullo stesso pc!</span>
-                                </i>
+                            <button class="btn" id="locale">
+                                <a href="">
+                                    <label class="form-check-label" for="locale">
+                                        Locale
+                                    </label>
+                                </a>
+                            </button>
+                            <button class="btn" id="multiplayer">
+                                <a href="">
+                                    <label class="form-check-label" for="multiplayer">
+                                        Multiplayer
+                                    </label>
+                                </a>
+                            </button>
+                            <button disabled class="btn" id="ia">
+                                <a href="">
+                                    <label class="form-check-label" for="ia">
+                                        IA
+                                    </label>
+                                </a>
+                            </button>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Multiplayer
-                                </label>
-                                <i class="ri-information-line">
-                                <span class="info">Gioca contro il tuo avversario su un altro pc!</span>
-                                </i>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled >
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    IA
-                                </label>
-                                <i class="ri-information-line">
-                                <span class="info">Prova a sfidare l'IA!</span>
-                                </i>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button> 
-                        <button type="button" class="btn bg-custom"> <a href="http://localhost:8080/stanza.html">Gioca</a> </button>
-
-               
-
-                        
-                    
                     </div>
                     </div>
                 </div>

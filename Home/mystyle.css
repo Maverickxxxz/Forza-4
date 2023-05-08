@@ -547,28 +547,6 @@ section {
     color: #ff5d94;
 }
 
-.ri-information-line{
-    opacity: 0.7;
-}
-
-.ri-information-line:hover{
-    opacity: 0.7;
-    cursor: pointer;
-}
-
-.ri-information-line .info{
-    visibility: hidden;
-    opacity: 0.7;
-    transition: .2s;
-    font-size: 10px;
-    font-weight: 200;
-}
-
-.ri-information-line:hover .info{
-    visibility: visible;
-    opacity: 0.7;
-    transition: .2s;
-}
 
 footer {
     padding: 63px 0;
@@ -624,3 +602,60 @@ footer form {
     text-align: center;
     color: white;
   }
+
+.form-check{
+    display: flex;
+    justify-content: center;
+}
+
+#locale{
+    background-color: rgb(255, 183, 0);
+    margin-right: 20px;
+    transition: 0.5s;
+    color: white;
+}
+
+#locale a{
+    text-decoration: none;
+    color: white;
+}
+
+#locale:hover{
+    background-color: rgb(255, 164, 59);
+    transform: translateX(2px);
+    transition: 0.5s;
+}
+
+#multiplayer{
+    background-color: rgb(174, 0, 0);
+    margin-right: 20px;
+    transition: 0.5s;
+    color: white;
+}
+
+#multiplayer a{
+    text-decoration: none;
+    color: white;
+}
+
+#multiplayer:hover{
+    background-color: rgb(113, 0, 0);
+    transform: translateX(2px);
+    transition: 0.5s;
+}
+
+#ia{
+    background-color: rgb(25, 32, 163);
+    margin-right: 20px;
+    color: white;
+}
+
+#ia a{
+    text-decoration: none;
+    color: white;
+}
+
+#ia:disabled{
+    background-color:  rgb(202, 205, 255);
+    color: white;
+}
