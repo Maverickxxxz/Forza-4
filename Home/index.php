@@ -122,24 +122,18 @@
                     <div class="modal-body">
                         <div class="form-check">
                             <button class="btn" id="locale">
-                                <a href="">
-                                    <label class="form-check-label" for="locale">
-                                        Locale
-                                    </label>
+                                <a href="../Profile/profile.html">
+                                    Locale
                                 </a>
                             </button>
                             <button class="btn" id="multiplayer">
                                 <a href="">
-                                    <label class="form-check-label" for="multiplayer">
-                                        Multiplayer
-                                    </label>
+                                    Multiplayer
                                 </a>
                             </button>
                             <button disabled class="btn" id="ia">
                                 <a href="">
-                                    <label class="form-check-label" for="ia">
-                                        IA
-                                    </label>
+                                    IA
                                 </a>
                             </button>
                         </div>
