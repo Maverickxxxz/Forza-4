@@ -98,20 +98,5 @@ function menuToggle() {
     }  
 }
 
-function openGame(){
-
-    var $mod = $("#flexRadioDefault1");
-    var nome_utente = nome_utente;
-    console.log(nome_utente);
-
-    
-    if($mod.is(":checked")){
-        window.location.href("../game/Locale/gioco.php");
-    }
-    else{
-        //window.location.href = `http://localhost:8080/stanza.html?nome_utente=${nome_utente}`;
-        window.location.href = "http://localhost:8081/stanza.html";
-    }
-}
 
 
