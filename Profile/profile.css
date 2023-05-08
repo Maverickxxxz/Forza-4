@@ -1,202 +1,256 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,900|Montserrat|Roboto");
-
-body{
-    background: linear-gradient(to left, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
-    overflow-x: hidden;
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+body {
+	background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
+	font-family: "Roboto", sans-serif;
 }
 
-.griglia{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 65px;
-    margin-top: 35px;
+
+.bg{
+    background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
 }
 
-.container{
-    background: #fff;
-    width: 540px;
-    height: 450px;
-    position: relative;
-    margin-top: 5%;
-    box-shadow: 2px 5px 20px rgba(119,119,119,.5);
-    border-radius: 10%;
+.shadow {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
 }
 
-.fotocontainer{
-    background: #fff;
-    width: 540px;
-    height: 450px;
-    position: relative;
-    margin-top: 5%;
-    box-shadow: 2px 5px 20px rgba(119,119,119,.5);
-    border-radius: 10%;
+.profile-tab-nav {
+	min-width: 250px;
 }
 
-.leftbox{
-    float: left;
-    top: -5%;
-    left: 5%;
-    position: absolute;
-    width: 15%;
-    height: 110%;
-    background: #2383e3;
-    box-shadow: 3px 3px 10px rgba(119,119,119,.5);
-    border: .1em solid #fff;
-    border-radius: 10%;
+.tab-content {
+	flex: 1;
 }
 
-nav{
-    margin-top: 65px;
+#aggiorna{
+    background-color: rgb(255, 216, 44); 
+    color: white;
+    transition: 0.5s;
 }
 
-nav a{
+#aggiorna:hover{
+    background-color: rgb(238, 152, 40);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+
+#aggiorna:disabled{
+    background-color: rgb(255, 230, 120); 
+}
+
+#aggiorna2:disabled{
+    background-color: rgb(255, 230, 120); 
+}
+
+#aggiorna3:disabled{
+    background-color: rgb(255, 230, 120); 
+}
+
+#aggiorna4:disabled{
+    background-color: rgb(255, 230, 120); 
+}
+
+#aggiorna5:disabled{
+    background-color: rgb(255, 230, 120); 
+}
+
+#aggiorna2{
+    background-color: rgb(255, 216, 44); 
+    color: white;
+    transition: 0.5s;
+}
+
+#aggiorna2:hover{
+    background-color: rgb(238, 152, 40);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+
+#aggiorna3{
+    background-color: rgb(255, 216, 44); 
+    color: white;
+    transition: 0.5s;
+}
+
+#aggiorna3:hover{
+    background-color: rgb(238, 152, 40);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+
+#aggiorna4{
+    background-color: rgb(255, 216, 44); 
+    color: white;
+    transition: 0.5s;
+}
+
+#aggiorna4:hover{
+    background-color: rgb(238, 152, 40);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+#aggiorna5{
+    background-color: rgb(255, 216, 44); 
+    color: white;
+    transition: 0.5s;
+}
+
+#aggiorna5:hover{
+    background-color: rgb(238, 152, 40);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+
+#conferma{
+    background-color: rgb(213, 18, 18); 
+    color: white;
+    transition: 0.5s;
+}
+
+#conferma:hover{
+    background-color: rgb(176, 14, 14);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+
+#conferma2{
+    background-color: rgb(213, 18, 18); 
+    color: white;
+    transition: 0.5s;
+}
+
+#conferma2:hover{
+    background-color: rgb(176, 14, 14);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+
+#conferma3{
+    background-color: rgb(213, 18, 18); 
+    color: white;
+    transition: 0.5s;
+}
+
+#conferma3:hover{
+    background-color: rgb(176, 14, 14);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+#conferma4{
+    background-color: rgb(213, 18, 18); 
+    color: white;
+    transition: 0.5s;
+}
+
+#conferma4:hover{
+    background-color: rgb(176, 14, 14);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+#conferma5{
+    background-color: rgb(213, 18, 18); 
+    color: white;
+    transition: 0.5s;
+}
+
+#conferma5:hover{
+    background-color: rgb(176, 14, 14);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
+.form-group {
+	margin-bottom: 1.5rem;
+}
+
+.nav-pills a.nav-link {
+	padding: 15px 20px;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0;
+	color: #333;
+}
+.nav-pills a.nav-link i {
+	width: 20px;
+}
+
+.img-circle img {
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	border: 5px solid #fff;
+}
+
+footer {
+    padding: 63px 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
+  }
+  
+footer ul {
     list-style: none;
-    padding: 35px;
-    color: #fff;
-    font-size: 1.1em;
-    display: block;
-    transition: all .3s ease-in-out;
-}
-
-nav a:hover{
-    color: #104cac;
-    cursor: pointer;
-    transform: scale(1.2);
-}
-
-nav a:first-child{
-    margin-top: 7px;
-}
-
-nav a.active{
-    color: #104cac;
-}
-
-
-
-.rightbox{
-    width: 60%;
-    margin-left: 27%;
-    /* padding-top: 5px; */
-}
-
-.tabShow{
-    transition: all .5s ease-in;
-    width: 80%;
-    position: absolute;
-}
-
-h1{
-    font-family: "Poppins", sans-serif;
-    color: #2383e3;
-    font-size: 1.2rem;
-    margin-top: 40px;
-    margin-bottom: 35px;
-}
-
-h2{
-    color: #777;
-    font-family: "Poppins", sans-serif;
-    text-transform: uppercase;
-    font-size: 8px;
-    letter-spacing: 1px;
-    margin-left: 2px;
-    margin-top: 10px;
-}
-
-.input{
-    border: 0;
-    border-bottom: 1px solid #3fb6a8;
-    width: 80%;
-    font-family: "Poppins", sans-serif;
-    font-size: .7em;
-    padding: 7px 0;
-    color: #070707;
-    outline: none;
-}
-
-p{
-    border: 0;
-    border-bottom: 1px solid #3fb6a8;
-    width: 80%;
-    font-family: "Poppins", sans-serif;
-    font-size: .7em;
-    padding: 7px 0;
-    color: #070707;
-    outline: none;
-    background: rgb(230, 229, 229);
-}
-
-
-.input:disabled{
-    border: 0;
-    border-bottom: 1px solid #3fb6a8;
-    width: 80%;
-    font-family: "Poppins", sans-serif;
-    font-size: .7em;
-    padding: 7px 0;
-    color: #070707;
-    outline: none;
-    background: rgb(230, 229, 229);
-}
-
-span{
-    font-size: .7em;
-    color: #777;
-}
-
-.btn{
-    font-family: "Poppins", sans-serif;
-    text-transform: uppercase;
-    font-size: 15px;
-    border: 0;
-    color: #fff;
-    background: #2383e3;
-    padding: 7px 15px;
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,.2);
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-.btn1{
-    font-family: "Poppins", sans-serif;
-    text-transform: uppercase;
-    font-size: 15px;
-    border: 0;
-    color: #fff;
-    background: #2383e3;
-    padding: 7px 15px;
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,.2);
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-.pedina2{
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-    color: rgb(220, 17, 17);
-}
-
-.pedina1{
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-    color: rgb(255, 213, 0);
-}
-
-.grassetto{
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-}
-
-.fotocontainer{
+    padding: 0;
+    margin: 0;
+  }
+  
+footer ul li {
+    margin-bottom: 10px;
+  }
+  
+footer ul li a {
+    color: #1e3386;
+    text-decoration: none;
+  }
+  
+footer ul li a:hover {
+    color: #162975;
+  }
+  
+footer form {
+    margin-top: 20px;
+  }
+  
+@media (max-width: 767px) {
+    footer h4 {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+  }
+  
+.list-unstyled-icon {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    font-size: 24px; 
+  }
+  
+.list-unstyled li {
+    margin: 10px 0;
+    color: #1e3386;
+  }
+  
+.titleFooter{
+    text-align: center;
+    color: #1e3386;
+  }
+
+.animato:hover{
+    -webkit-animation: tada 1s;
+    animation: tada 1s;
+} 
+
+.navbar{
+  background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
 }
 
-.fotocontainer img{
-    width: 80%;
+.navbar-brand{
+  width: 140px;
+}
+
+.navbar .nav-link {
+  color: rgb(255, 216, 44)  !important;
+}
+
+.navbar .nav-link:hover {
+  color: rgb(232, 189, 0) !important;
 }
