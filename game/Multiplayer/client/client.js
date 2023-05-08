@@ -33,3 +33,7 @@ socket.on('stanza-creata', (nomeStanza, idStanza) => {
 socket.on('stanza-giusta', (nomeStanza, idStanza) => {
   alert(`Ti sei unito alla stanza: ${nomeStanza}`);
 });
+
+socket.on('stanza-sbagliata', (nomeStanza) => {
+  alert(`La stanza con il codice "${nomeStanza}" non esiste!`);
+});
