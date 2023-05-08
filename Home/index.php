@@ -122,14 +122,14 @@
                     <div class="modal-body">
                         <div class="form-check">
                             <button class="btn" id="locale">
-                                <a href="">
+                                <a href="http:\\www.google.com">
                                     <label class="form-check-label" for="locale">
                                         Locale
                                     </label>
                                 </a>
                             </button>
                             <button class="btn" id="multiplayer">
-                                <a href="">
+                                <a href="http:\\www.facebook.com">
                                     <label class="form-check-label" for="multiplayer">
                                         Multiplayer
                                     </label>
