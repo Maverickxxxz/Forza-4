@@ -1,0 +1,1 @@
+cd game;cd Multiplayer;cd server;npm run devStart;

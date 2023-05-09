@@ -127,7 +127,7 @@
                                 </a>
                             </button>
                             <button class="btn" id="multiplayer">
-                                <a href="">
+                                <a href="http://localhost:8080/stanza.html?nome_utente=<?=urlencode($nome_utente) ?>">Gioca
                                     Multiplayer
                                 </a>
                             </button>
