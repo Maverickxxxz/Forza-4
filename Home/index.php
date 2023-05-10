@@ -97,8 +97,8 @@
             <?php endif;?>
             
         </ul>
-
         <div class="bx bx-menu" id = "menu-icon" onclick="menuTo();"></div>
+        
     </header>
 
     <!-- SEZIONE CON TESTO A SX E PLAY E A IMMAGINE A DX -->

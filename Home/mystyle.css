@@ -158,6 +158,7 @@ section {
 
 .hero-text{
     height: 500px;
+    z-index: 999;
 }
 
 .hero-text button{
@@ -338,6 +339,7 @@ section {
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
+    z-index: 100000;
 }
 
 .action .menu.active {
@@ -713,6 +715,7 @@ footer form {
         transition: all .55s ease;
 
     }
+    
 
     #sezione1::before{
         display: none;
@@ -732,6 +735,7 @@ footer form {
     
     .hero-text{
         padding-top: 0;
+        z-index: 999;
     }
 
     .hero-img img {
@@ -765,6 +769,5 @@ footer form {
     #img-down .card{
         margin-right: 42px;
     }
-    
 
 }
