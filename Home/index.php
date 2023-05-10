@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src=
-    "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-    </script>
+    <link rel="stylesheet" type="text/css" href="../Home/mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./home.js" type="text/javascript"></script>
     
     <link rel="stylesheet" href="../Profile/fontawesome/css/all.css">
 
@@ -110,8 +110,8 @@
                 competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
                 Che aspetti? Non avere paura!
             </p>
-            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <a class = "cta">GIOCA ORA!</a>
+            <button type="button" id="gioca_ora" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <!-- HO ELIMINATO QUESTA A !!! <a class = "cta"></a> -->      GIOCA ORA!
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -220,6 +220,7 @@
         <a href="#header"><i class="ri-arrow-up-s-line"></i></a>
     </div>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./home.js" type="text/javascript"></script>
 
 </body>
