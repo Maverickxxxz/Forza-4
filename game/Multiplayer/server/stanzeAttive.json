@@ -1,0 +1,38 @@
+{
+  "0.a2txaliy79o": {
+    "nomeStanza": "forza",
+    "giocatori": {
+      "socketID_G1": "hIP3Pkk8t8hbdrqcAAAH",
+      "giocatore1": "prova45",
+      "giocatore2": "forza",
+      "socketID_G2": "X5gJ8VVl4DOqL--bAAAF"
+    }
+  },
+  "0.vxo14w0tmj": {
+    "nomeStanza": "anton",
+    "giocatori": {
+      "socketID_G1": "8RA-mPixrfhD_eiuAAAF",
+      "giocatore1": "prova45",
+      "giocatore2": "forza",
+      "socketID_G2": "stiJ2D5zLHwI8JwDAAAH"
+    }
+  },
+  "0.8oagefixr8v": {
+    "nomeStanza": "a",
+    "giocatori": {
+      "socketID_G1": "RaM1QEukeLlSfFZmAAAF",
+      "giocatore1": "prova45",
+      "giocatore2": "forza",
+      "socketID_G2": "1GQkKW4nxqRWDmW_AAAH"
+    }
+  },
+  "0.oo8o0qpyxp": {
+    "nomeStanza": "p",
+    "giocatori": {
+      "socketID_G1": "6YmWXxRlJaFiOyNEAAAB",
+      "giocatore1": "prova45",
+      "giocatore2": "forza",
+      "socketID_G2": "eFOp8o7UPRAjpEtOAAAD"
+    }
+  }
+}

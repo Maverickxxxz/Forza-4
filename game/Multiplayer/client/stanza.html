@@ -10,25 +10,35 @@
     <title>Stanza</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Stanze di Chat</h1>
-        <div class="room-list">
-            <!-- Qui verranno aggiunte le stanze dinamicamente -->
+    <div id="prima-pagina" class="prima-pagina" style="display: block;">
+
+        <div class="container">
+            <h1>Stanze di Chat</h1>
+            <div class="room-list">
+                <!-- Qui verranno aggiunte le stanze dinamicamente -->
+
+            </div>
+            <form id="crea_stanza">
+                <input type="text" id="nomeStanza" placeholder="Nome della stanza">
+                <button type="button" onclick="import('./client.js').then(module => module.creaStanza())">Crea stanza</button>
+             
+            </form>
+            <form id="unisciti_stanza" onsubmit="return false;">
+                <input type="text" id="nomeStanzaUnione" placeholder="Codice della stanza">
+                <button type="button" onclick="import('./client.js').then(module => module.uniscitiStanza())">Unisciti</button>
+            </form>
+
+
+            <p id="id_utente"></p>
+            <p id="id_avversario"></p>
 
         </div>
-        <form id="crea_stanza">
-            <input type="text" id="nomeStanza" placeholder="Nome della stanza">
-            <button type="button" onclick="import('./client.js').then(module => module.creaStanza())">Crea stanza</button>
-        </form>
-        <form id="unisciti_stanza" onsubmit="return false;">
-            <input type="text" id="nomeStanzaUnione" placeholder="Codice della stanza">
-            <button type="button" onclick="import('./client.js').then(module => module.uniscitiStanza())">Unisciti</button>
-        </form>
+    </div>
 
-
-        <p id="id_utente"></p>
-        <p id="id_avversario"></p>
-
+    <div id="seconda-pagina" class="seconda-pagina" style="display: none;">   
+            <h1>Connect 4</h1>
+            <h2 id="winner"></h2>
+            <div id="board"></div>
     </div>
 </body>
 </html>

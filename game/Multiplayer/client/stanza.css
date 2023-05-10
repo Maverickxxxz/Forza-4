@@ -1,15 +1,15 @@
-* {
+.prima-pagina * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-body {
+.prima-pagina body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
 }
 
-.container {
+.prima-pagina .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -17,17 +17,17 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.prima-pagina h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.room-list {
+.prima-pagina .room-list {
     display: flex;
     flex-direction: column;
 }
 
-.room {
+.prima-pagina .room {
     padding: 10px;
     background-color: #e0e0e0;
     margin-bottom: 10px;
@@ -35,21 +35,21 @@ h1 {
     border-radius: 5px;
 }
 
-form {
+.prima-pagina form {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
 }
 
-form input {
+.prima-pagina form input {
     padding: 10px;
     border: 1px solid #cccccc;
     border-radius: 5px;
     outline: none;
 }
 
-form button {
+.prima-pagina form button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #ffffff;
@@ -59,6 +59,42 @@ form button {
     border-radius: 5px;
 }
 
-form button:hover {
+.prima-pagina form button:hover {
     background-color: #0056b3;
 }
+
+.seconda-pagina body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.seconda-pagina #board {
+    height: 540px;
+    width: 630px;
+    background-color: blue;
+    border: 10px solid navy;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.seconda-pagina .tile {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+
+    /* Circle */
+    background-color: white;
+    border-radius: 50%;
+    border: 5px solid navy;
+}
+
+.seconda-pagina .red-piece {
+    background-color: red;
+}
+
+.seconda-pagina .yellow-piece {
+    background-color: yellow;
+}
+
