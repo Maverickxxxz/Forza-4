@@ -1,1 +1,0 @@
-cd game;cd Multiplayer;cd client;npm start;
