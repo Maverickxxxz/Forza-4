@@ -172,11 +172,12 @@ section {
     margin-left: 200px;
 }
 
+/*
 .hero-img img:hover {
     width: 102%;
     height: 102%;
     transition: 0.5s;
-}
+}*/
 
 .hero-text{
     height: 500px;

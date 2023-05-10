@@ -7,7 +7,7 @@ $email = $_POST["email_r"];
 $password = $_POST["password_r"];
 $password_hash = password_hash($_POST["password_r"], PASSWORD_DEFAULT); //hashed, crittografata
 
-$mysqli = require __DIR__ . "\database.php";
+$mysqli = require __DIR__ . "/database.php";
 
 $sql = "INSERT INTO register_database . utente (nome_utente, email, password_hash)
         VALUES (?, ?, ?)";
