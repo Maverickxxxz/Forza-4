@@ -32,7 +32,6 @@
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Home/mystyle.css">
     <script src=
     "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
     </script>
@@ -47,7 +46,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <link rel="stylesheet" href="mystyle.css">
+    
     <title>Home</title>
 </head>
 
@@ -59,9 +60,7 @@
 
     <!-- HEADER CON LOGO E BOTTONI -->
     <header class="mt-3" id="header">
-        <!-- <a id="logo1" href="index.html" class="animato" style="font-size: 50px;">CONNECT</a>
-        <a id="logo2" href="index.html" class="animato me-auto ms-1" style="font-size: 80px;">4</a>-->
-        <img class = "animato" src="../sources/logo-connect4.png" width="30%"> 
+        <img class="logo" src="../sources/logo-connect4.png"> 
 
         <ul class="navlist">
             <li><a id="elem1" href="index.php" class="active">Home</a></li>
@@ -98,6 +97,8 @@
             <?php endif;?>
             
         </ul>
+
+        <div class="bx bx-menu" id = "menu-icon" onclick="menuTo();"></div>
     </header>
 
     <!-- SEZIONE CON TESTO A SX E PLAY E A IMMAGINE A DX -->
@@ -151,12 +152,12 @@
 
     <script></script>
 
-    <section id="img-down" class="d-flex flex-column justify-content-start">
+    <section id="img-down" class="how">
         <div class="container text-center text-md-left mt-3" data-aos="fade-up">
             <h1 class="testo ">COME SI GIOCA</h1>
             <h2 class="testo2">Non conosci il gioco o le regole del gioco? <br>
                 Non ti preoccupare e leggi di seguito!</h2>
-            <div class="griglia justify-content-center align-items-center">
+            <div class="griglia">
                 <div class="card mt-5 ms-5" style="width: 18rem;">
                     <h4 class="mt-1">1</h4>
                     <div class="card-body">
@@ -177,7 +178,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#header" class="btn-get-started scrollto">GIOCA ORA!</a>
+            <!-- <a href="#header" class="btn-get-started scrollto">GIOCA ORA!</a>-->
         </div>
     </section>
 
@@ -219,7 +220,6 @@
         <a href="#header"><i class="ri-arrow-up-s-line"></i></a>
     </div>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./home.js" type="text/javascript"></script>
 
 </body>

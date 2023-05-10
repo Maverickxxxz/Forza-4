@@ -30,30 +30,9 @@ header a {
     text-decoration: none;
 }
 
-#logo1 {
-    font-weight: 700;
-    background-color: #485fb9;
-    background-image: linear-gradient(-180deg, #E25822 10%, #B22222 30.53%, #7C0A02 60.52%);
-    background-size: 150%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
+.logo{
+    width: 30%;
 }
-
-#logo2 {
-    font-weight: 700;
-    background-color: #485fb9;
-    background-image: linear-gradient(-180deg, #FFD93D 28.53%, #FF8400 75.52%);
-    background-size: 150%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-
-.animato:hover{
-    -webkit-animation: tada 1s;
-    animation: tada 1s;
-} 
 
 .navlist {
     display: flex;
@@ -77,15 +56,13 @@ header a {
     transition: all .55s ease;
 }
 
-
-
-
-/* #elem:hover, #elem.active{
-    border-bottom: 2px solid rgb(255, 208, 0);
-    color: rgb(255, 208, 0);
-    font-size: 25px;
-    transition: all .55s ease;
-} */
+#menu-icon{
+    color: white;
+    font-size: 35px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
 
 
 .hero {
@@ -252,134 +229,12 @@ section {
     transform: translateY(-5px);
 }
 
-
-@media (max-width: 1535px) {
-    header {
-        padding: 15px 3%;
-        transition: .2s;
-    }
-
-    .scroll-down {
-        right: 3%;
-        transition: .2s;
-    }
-
-}
-
-@media (max-width: 1460px) {
-    section {
-        padding: 0 12%;
-        transition: .2s;
-
-    }
-}
-
-@media (max-width: 1340px) {
-    .hero-img img {
-        width: 450px;
-        height: auto;
-        transition: 0.5s;
-        margin-left: 0px;
-    }
-
-    .hero-text h1 {
-        font-size: 75px;
-        margin: 0 0 30px;
-    }
-
-    .hero-text h5 {
-        margin-bottom: 25px;
-
-    }
-}
-
-@media (max-width: 1195px) {
-    section {
-        padding: 0 3%;
-        transition: .2s;
-    }
-
-    .hero-text {
-        padding-top: 115px;
-    }
-
-    .hero-img {
-        text-align: center;
-    }
-
-    .hero-img img {
-        width: 560px;
-        height: auto;
-        visibility: hidden;
-    }
-
-    .hero {
-        height: 100%;
-        gap: 1rem;
-        grid-template-columns: 1fr;
-    }
-
-    .scroll-down {
-        display: none;
-
-    }
-}
-
-
-@media (max-width: 990px) {
-    #menu-icon {
-        display: block;
-    }
-
-    .hero-img img{
-        visibility: hidden;
-    }
-
-    .navlist {
-        position: absolute;
-        top: 100%;
-        right: -100%;
-        width: 300px;
-        height: 40vh;
-        background: #a12d1b;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        padding: 50px 20px;
-        transition: all .55s ease;
-    }
-
-    .navlist a {
-        margin-left: 0;
-        display: block;
-        margin: 7px 0;
-    }
-
-    .navlist.open {
-        right: 0;
-
-    }
-}
-
-@media (max-width: 680px) {
-    .hero-img{
-        width: 0%;
-    }
-
-    .hero-img img {
-        width: 0%;
-        height: auto;
-        visibility: hidden;
-    }
-
-    .ctaa{
-        visibility: hidden;
-    }
-}
-
 #img-down{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     background: url(../sources/sfondo-3.png) center center;
     background-size: cover;
     position: relative;
@@ -403,7 +258,7 @@ section {
 }
 
 
-#img-down .btn-get-started{
+/*#img-down .btn-get-started{
     font-weight: 400;
     font-size: 13px;
     letter-spacing: 2px;
@@ -416,17 +271,19 @@ section {
     text-transform: uppercase;
     text-decoration: none;
     margin-top: 70px;
-}
+}*/
 
-#img-down .btn-get-started:hover{
+/* #img-down .btn-get-started:hover{
     background: transparent;
     border: 1px solid white;
     transform: translateY(8px);
-}
+} */
 
 #img-down .griglia{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
 }
 
 #img-down .card{
@@ -659,4 +516,255 @@ footer form {
 #ia:disabled{
     background-color:  rgb(202, 205, 255);
     color: white;
+}
+
+@media (max-width: 1835px){
+    .ctaa{
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 1535px) {
+    header {
+        padding: 15px 3%;
+        transition: .2s;
+    }
+
+    .scroll-down {
+        right: 3%;
+        transition: .2s;
+    }
+
+    #img-down{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        background: url(../sources/sfondo-3.png) center center;
+        background-size: cover;
+        position: relative;
+        padding: 0;
+    }
+
+    #img-down .griglia{
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: none;
+    }
+
+    #img-down .card{
+        margin-right: 42px;
+    }
+
+}
+
+@media (max-width: 1460px) {
+    section {
+        padding: 0 12%;
+        transition: .2s;
+
+    }
+}
+
+@media (max-width: 1340px) {
+    .hero-img img {
+        width: 450px;
+        height: auto;
+        transition: 0.5s;
+        margin-left: 0px;
+    }
+
+    .hero-text h1 {
+        font-size: 55px;
+        margin: 0 0 30px;
+    }
+
+    .hero-text h5 {
+        margin-bottom: 25px;
+
+    }
+
+    #sezione1::before{
+        display: none;
+    }
+
+    .ctaa{
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 1265px) {
+    section {
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    header{
+        padding: 7px 1%;
+        transition: .2s;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navlist {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 40%;
+        height: 40vh;
+        background: #385bc3;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px 20px;
+        transition: all .55s ease;
+    }
+
+    .navlist a {
+        margin-left: 0;
+        display: block;
+        margin: 7px 0;
+    }
+
+    .navlist.active {
+        right: 0;
+        display: flex;
+        visibility: visible;
+        transition: all .55s ease;
+
+    }
+
+    #elem1:active, #elem2:active, #elem3:active, #elem4:active, #elem5:active{
+        color: white;
+        margin-left: 60px;
+        font-size: 20px;
+        font-weight: 600;
+        border-bottom: 2px solid transparent;
+        transition: all .55s ease;
+    }
+
+    .hero-text {
+        padding-top: 115px;
+    }
+
+    .hero-img {
+        text-align: center;
+    }
+
+    .hero-img img {
+        width: 560px;
+        height: auto;
+        visibility: hidden;
+    }
+
+    .hero {
+        width: 50%;
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .scroll-down {
+        display: none;
+
+    }
+}
+
+
+@media (max-width: 990px) {
+
+    section {
+        padding: 0 1%;
+        transition: .2s;
+        z-index: 1000;
+    }
+
+    .hero-img img{
+        visibility: hidden;
+    }
+
+    .navlist {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 40%;
+        height: 40vh;
+        background: linear-gradient(to bottom, #385bc3 0.2%, transparent);
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px 20px;
+        transition: all .55s ease;
+        z-index: 999;
+    }
+
+    .navlist a {
+        margin-left: 10px;
+        display: block;
+        margin: 10px 0;
+    }
+
+    .navlist.active {
+        right: 0;
+        display: flex;
+        transition: all .55s ease;
+
+    }
+
+    #sezione1::before{
+        display: none;
+    }
+
+}
+
+@media (max-width: 680px) {
+    .hero-img{
+        width: 0%;
+    }
+
+    header .logo{
+        width: 40%;
+    }
+
+    
+    .hero-text{
+        padding-top: 0;
+    }
+
+    .hero-img img {
+        width: 0%;
+        height: auto;
+        visibility: hidden;
+    }
+
+    .ctaa{
+        visibility: hidden;
+    }
+
+    #img-down{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        background: url(../sources/sfondo-3.png) center center;
+        background-size: cover;
+        position: relative;
+        padding: 0;
+    }
+
+    #img-down .griglia{
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: none;
+    }
+
+    #img-down .card{
+        margin-right: 42px;
+    }
+    
+
 }
