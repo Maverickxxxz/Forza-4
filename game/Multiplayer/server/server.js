@@ -31,6 +31,8 @@ function scritturaDati(data){
 
 
 
+
+
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
     
@@ -63,8 +65,6 @@ io.on('connection', socket => {
                 stanzaEsiste = true; 
             }
         }
-
-        
 
         if(stanzaEsiste){   
             socket.emit("messaggi-al-client", "errore_creazione_nome");

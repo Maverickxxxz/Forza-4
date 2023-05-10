@@ -34,5 +34,23 @@
       "giocatore2": "forza",
       "socketID_G2": "eFOp8o7UPRAjpEtOAAAD"
     }
+  },
+  "0.rzhi5rm3y3": {
+    "nomeStanza": "ab",
+    "giocatori": {
+      "socketID_G1": "GVbh1TRBc21V-BsLAAAL",
+      "giocatore1": "prova45",
+      "giocatore2": "forza",
+      "socketID_G2": "jqDSJ06Nosbj1x7iAAAK"
+    }
+  },
+  "0.vayiyda3wn": {
+    "nomeStanza": "ckk",
+    "giocatori": {
+      "socketID_G1": "A7taVeB2r9THB4VkAAAR",
+      "giocatore1": "prova499",
+      "giocatore2": "prova496264",
+      "socketID_G2": "yxPSC3k4WMV8lT6OAAAT"
+    }
   }
 }

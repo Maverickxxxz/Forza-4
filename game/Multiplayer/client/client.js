@@ -36,7 +36,7 @@ socket.on('connect', () => {
           winner.innerText = "Yellow Wins";
       }
       gameOver = true;
-  }
+    }
   
     function checkWinner() {
       // horizontal
@@ -148,7 +148,7 @@ socket.on('connect', () => {
 
   const idUtenteElement = document.getElementById("id_utente");
 
-  if (idUtenteElement) {    //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
+  if (idUtenteElement){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
     idUtenteElement.innerHTML = nome_utente + `, il tuo id è: ${socket.id}`; //STAMPA DEL PROPRIO ID
   }
 

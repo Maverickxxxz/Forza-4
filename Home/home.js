@@ -2,6 +2,14 @@ let menu = document.querySelector('#menu-icon');
 let navlist = document.querySelector('.navlist');
 var cont = 0;
 
+window.onload = function(){
+    let nomeUtente = document.getElementById("nome_utente");
+    console.log(nomeUtente);
+    if (!nomeUtente) {
+        document.getElementById('gioca_ora').disabled = true;
+
+    }
+}
 
 
 $("#elem1").on({
@@ -63,6 +71,7 @@ menu.onclick = () => {
 };
 
 function revealFunction(){
+
     window.sr = ScrollReveal({
         distance: '65px',
         duration: 2600,
@@ -76,10 +85,11 @@ function revealFunction(){
     sr.reveal('.scroll-down', {delay:500, origin:'bottom', reset:false});
     sr.reveal('.animato', {delay:450, origin:'top', reset:false});
     sr.reveal('.navlist', {delay:450, origin:'top', reset:false});
+
 }
 
 window.addEventListener('load', () => {
-    revealFunction();
+    revealFunction();    
 })
 
 function menuToggle() {
@@ -97,6 +107,7 @@ function menuToggle() {
         cont = 0;
     }  
 }
+
 
 
 
