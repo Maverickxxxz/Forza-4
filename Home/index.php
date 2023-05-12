@@ -111,15 +111,15 @@
                 Che aspetti? Non avere paura!
             </p>
             <button type="button" id="gioca_ora" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <!-- HO ELIMINATO QUESTA A !!! <a class = "cta"></a> -->      GIOCA ORA!
+                <!-- HO ELIMINATO QUESTA A !!!-->  <a class = "cta"><i class="ri-play-fill"></i>Gioca ora!</a>
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">SELEZIONA UNA MODALITA':</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">SELEZIONA UNA MODALITA':</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
                     <div class="modal-body">
                         <div class="form-check">
                             <button class="btn" id="locale">
@@ -153,7 +153,7 @@
     <script></script>
 
     <section id="img-down" class="how">
-        <div class="container text-center text-md-left mt-3" data-aos="fade-up">
+        <div class="container text-center text-md-left mt-auto mb-auto" data-aos="fade-up">
             <h1 class="testo ">COME SI GIOCA</h1>
             <h2 class="testo2">Non conosci il gioco o le regole del gioco? <br>
                 Non ti preoccupare e leggi di seguito!</h2>

@@ -16,7 +16,7 @@ header {
     position: absolute; 
     right: 0;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; 
     width: 100%;
     display: flex;
     align-items: center;
@@ -59,7 +59,7 @@ header a {
 #menu-icon{
     color: white;
     font-size: 35px;
-    z-index: 10001;
+    /* z-index: 10001; */
     cursor: pointer;
     display: none;
 }
@@ -85,7 +85,6 @@ header a {
     width: 100%;
     height: 100px;
     background: linear-gradient(to top, #a8cfec 5%, transparent);
-    z-index: 900;
 }
 
 
@@ -149,22 +148,15 @@ section {
     margin-left: 200px;
 }
 
-/*
-.hero-img img:hover {
-    width: 102%;
-    height: 102%;
-    transition: 0.5s;
-}*/
-
 .hero-text{
     height: 500px;
-    z-index: 999;
+    /*z-index: 999;*/
 }
 
 .hero-text button{
     text-decoration: none;
     color: white;
-    z-index: 1000;
+    /* z-index: 1000;*/
 }
 
 .hero-text button:hover{
@@ -209,7 +201,7 @@ section {
     position: fixed;
     bottom: 6%;
     right: 9%;
-    z-index: 1000;
+    /*z-index: 1000;*/
 }
 
 .scroll-down i {
@@ -339,7 +331,7 @@ section {
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
-    z-index: 100000;
+    /*z-index: 100000;*/
 }
 
 .action .menu.active {
