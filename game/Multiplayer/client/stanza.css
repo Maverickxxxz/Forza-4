@@ -1,9 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body{
+    background: linear-gradient(-90deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
+}
+
+.animato:hover{
+    -webkit-animation: tada 1s;
+    animation: tada 1s;
+} 
+
+.navbar{
+  background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
+  animation: fadeIn;
+  animation-duration: 3s;
+}
+
+.navbar-brand{
+  width: 140px;
+}
+
+.navbar .nav-link {
+  color: #1e3386  !important;
+}
+
+.navbar .nav-link:hover {
+  color: #0a1955 !important;
+}
+
+.container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 300px);
+    row-gap: 5%;
+    height: 100vh;
+    margin-top: 5%;
+}
+
+.codice{
+    background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 2%;
+    animation: backInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+}
+
+.crea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: vh;
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 5px;
+    color:#0a1955;
+}
+
+.form{
+    margin-top: 20px;
+    text-align: center;
+}
+
+input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px; background-color: transparent; }
+
+:focus{outline: none;}
+
+.cod{border: 0; padding: 7px 0; border-bottom: 1px solid #0a1955;}
+
+.btn{
+    margin-top: 8%;
+}
+
+.btn:hover{
+    transform: translateX(4px);
+    transition: 0.5s ease-in-out;
+}
+
+.unisciti{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: vh;
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.stanze{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    animation: backInUp; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+}
+
+
+/*
+
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
 .prima-pagina * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-.prima-pagina body {
+.prima-pagina{
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
@@ -11,6 +142,7 @@
 
 .prima-pagina .container {
     max-width: 800px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
@@ -84,7 +216,7 @@
     width: 70px;
     margin: 5px;
 
-    /* Circle */
+    Circle 
     background-color: white;
     border-radius: 50%;
     border: 5px solid navy;
@@ -96,5 +228,5 @@
 
 .seconda-pagina .yellow-piece {
     background-color: yellow;
-}
+} */
 
