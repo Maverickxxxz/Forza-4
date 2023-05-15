@@ -16,7 +16,7 @@ header {
     position: absolute; 
     right: 0;
     top: 0;
-    z-index: 1000; 
+    z-index: 1000;
     width: 100%;
     display: flex;
     align-items: center;
@@ -673,7 +673,7 @@ footer form {
     section {
         padding: 0 1%;
         transition: .2s;
-        z-index: 1000;
+        /*z-index: 1000;*/
     }
 
     .hero-img img{
@@ -692,7 +692,7 @@ footer form {
         flex-direction: column;
         padding: 50px 20px;
         transition: all .55s ease;
-        z-index: 999;
+        /*z-index: 999;*/
     }
 
     .navlist a {
@@ -727,7 +727,7 @@ footer form {
     
     .hero-text{
         padding-top: 0;
-        z-index: 999;
+        /*z-index: 999;*/
     }
 
     .hero-img img {

@@ -1,4 +1,8 @@
 import io from "socket.io-client";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+import $ from 'jquery';
+
 
 // FUNZIONI PER LA MECCANICA DEL GIOCO
 
