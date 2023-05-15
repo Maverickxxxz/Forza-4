@@ -29,10 +29,6 @@ function scritturaDati(data){
 }
 
 
-
-
-
-
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
     
