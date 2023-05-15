@@ -96,9 +96,30 @@ function setWinner(r, c) {
     gameOver = true;
 }
 
-function updateGame(mossa){
-   
-}
+function aggiornaGioco(mossa, idStanza){
+
+
+    console.log("R: ", mossa[0]);
+    console.log("C: ", mossa[1]);
+    let r = mossa[0];
+    let c = mossa[1];
+    /*r = currColumns[c]; 
+  
+    if (r < 0) { 
+        board[r][c] != ' '
+        return;
+    }*/
+  
+    let tile = document.getElementById(r.toString() + "-" + c.toString());
+    
+    tile.classList.add("red-piece");
+    tile.classList.add("yellow-piece");
+  
+    r -= 1; //update the row height for that column
+    currColumns[c] = r; //update the array
+  
+    //checkWinner();*/
+  }
 
 
 
@@ -153,6 +174,7 @@ function cambio_turno(idStanza){
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G2'];
                 io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
                 io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
+                
             }
 
             else{
@@ -261,16 +283,13 @@ io.on('connection', socket => {
 
     socket.on("inizio-gioco", (idStanza) => {   
         let giocatoreCorrenteID = inizio_turno(idStanza);      
-        console.log("ID_GIOCATORECORR: ",giocatoreCorrenteID);
         io.to(giocatoreCorrenteID).emit("giocatore-corrente", idStanza);
 
     });
 
-    socket.on("mossa", (mossa, idStanza) => { 
-        console.log("MOSSA: ", mossa);
-        console.log("IDSTANZA: ", idStanza);
-        cambio_turno(idStanza);
-        //io.to(giocatoreCorrente).emit("mossa", idStanza);
+    socket.on("mossa", (mossa, idStanza) => {  
+        cambio_turno(idStanza);   
+        io.to(idStanza).emit("aggiorna-gioco", mossa)
     });
 
 

@@ -28,6 +28,29 @@ let currColumns = [5, 5, 5, 5, 5, 5, 5];
 let gameOver = false;
 let mossaRicevuta;
 
+export function aggiornaGioco(mossa){
+
+  let r = mossa[0];
+  let c = mossa[1];
+  /*r = currColumns[c]; 
+
+  if (r < 0) { 
+      board[r][c] != ' '
+      return;
+  }*/
+
+  let tile = document.getElementById(r.toString() + "-" + c.toString());
+  
+  tile.classList.add("red-piece");
+  tile.classList.add("yellow-piece");
+
+  r -= 1; //update the row height for that column
+  currColumns[c] = r; //update the array
+
+  //checkWinner();*/
+}
+
+
 export function mossa() {
   
   //if (gameOver) {
@@ -50,32 +73,6 @@ export function mossa() {
     console.log("CURR CULUMNS:", currColumns[c]);
     console.log("BOARD: ", board[r][c]);
   }
-
-  /*
-
-  // figure out which row the current column should be on
-  r = currColumns[c]; 
-
-  if (r < 0) { // board[r][c] != ' '
-      return;
-  }
-
-  console.log("BOARD:", board[r][c]);
-  board[r][c] = currPlayer; //update JS board
-  let tile = document.getElementById(r.toString() + "-" + c.toString());
-  if (currPlayer == playerRed) {
-      tile.classList.add("red-piece");
-      currPlayer = playerYellow;
-  }
-  else {
-      tile.classList.add("yellow-piece");
-      currPlayer = playerRed;
-  }
-
-  r -= 1; //update the row height for that column
-  currColumns[c] = r; //update the array
-
-  //checkWinner();*/
 
 }
 
@@ -102,6 +99,8 @@ function setGame() {
       board.push(row);
   }
 }
+
+
 
 
 //CONNESSIONE AL SERVER CHE HA PORTA 3000
@@ -145,14 +144,16 @@ socket.on("naviga-a-gioco", () => {
    console.log(socket.id);
 
   setGame();
-
-
 });
 
 socket.on("creatore", (idStanza) => {
   socket.emit("inizio-gioco", idStanza); //In modo che solo il "creatore" manda un solo segnale di inizio-gioco, altrimenti ne avremmo 2
   idStanzaClient = idStanza;
   console.log("IDSTANZA: ", idStanzaClient);
+});
+
+socket.on("aggiorna-gioco", (mossa) =>{
+  aggiornaGioco(mossa);
 });
 
 
