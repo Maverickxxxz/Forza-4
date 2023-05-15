@@ -1,1 +1,35 @@
-{}
+{
+  "0.0olbvv9rjwva": {
+    "nomeStanza": "ciao",
+    "giocatori": {
+      "socketID_G1": "EEhXUftio5ptL9JtAAA1",
+      "giocatore1": "maaappf",
+      "turnoG1": null,
+      "giocatore2": "maaappf",
+      "socketID_G2": "EEhXUftio5ptL9JtAAA1",
+      "turnoG2": null
+    }
+  },
+  "0.qhb3szzcayb": {
+    "nomeStanza": "stanzamaffo",
+    "giocatori": {
+      "socketID_G1": "EEhXUftio5ptL9JtAAA1",
+      "giocatore1": "maaappf",
+      "turnoG1": null,
+      "giocatore2": "maaappf",
+      "socketID_G2": "EEhXUftio5ptL9JtAAA1",
+      "turnoG2": null
+    }
+  },
+  "0.8ibju9hbgp5": {
+    "nomeStanza": "prova2",
+    "giocatori": {
+      "socketID_G1": "o_l7AFaG-6Kh6O_qAAA3",
+      "giocatore1": "maaappf",
+      "turnoG1": false,
+      "giocatore2": "maaappf2",
+      "socketID_G2": "NKGWPn-GXLHxcJ9qAAA5",
+      "turnoG2": true
+    }
+  }
+}
