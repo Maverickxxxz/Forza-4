@@ -36,12 +36,14 @@ export function aggiornaGioco(mossa, colore){
 
   let r = mossa[0];
   let c = mossa[1];
-  /*r = currColumns[c]; 
+  r = currColumns[c]; 
 
   if (r < 0) { 
       board[r][c] != ' '
       return;
-  }*/
+  }
+
+  console.log(board[r][c]);
 
 
   let tile = document.getElementById(r.toString() + "-" + c.toString());
@@ -58,7 +60,6 @@ export function aggiornaGioco(mossa, colore){
   r -= 1; //update the row height for that column
   currColumns[c] = r; //update the array
 
-  //checkWinner();*/
 }
 
 
@@ -140,6 +141,12 @@ socket.on("messaggi-al-client", (messaggio) =>{
 socket.on('stanza-creata', (idStanza, nomeStanza) => {
   //alert(`Stanza creata con successo! Codice: ${idStanza}`);
   document.getElementById("nomeStanzaUnione").value = nomeStanza;
+  let div_crea = document.getElementById("crea");
+  let div_unisciti = document.getElementById("unisciti");
+  let div_attesa = document.getElementById("attesa");
+  div_crea.style.display = "none";
+  div_unisciti.style.display = "none";
+  div_attesa.style.display = "block";
 });
 
 

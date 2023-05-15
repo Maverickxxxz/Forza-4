@@ -34,9 +34,8 @@ function scritturaDati(data){
     });
 
 }
-
-
-function checkWinner() {
+/*
+function verifica_vincita() {
     // horizontal
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++){
@@ -94,7 +93,7 @@ function setWinner(r, c) {
         winner.innerText = "Yellow Wins";
     }
     gameOver = true;
-}
+}*/
 
 function inizio_turno(idStanza) {
     // Genera un numero casuale tra 0 e 1
@@ -284,6 +283,7 @@ io.on('connection', socket => {
 
     
     socket.on("mossa", (mossa, idStanza) => {  
+        //verifica_vincita();
         cambio_turno(idStanza);   
         colore = cambio_colore(colore);
         io.to(idStanza).emit("aggiorna-gioco", mossa, colore)
