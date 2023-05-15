@@ -14,13 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <!-- BOOTSTRAP -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
-    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> -->
-	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
 
     <script src="./client.js" type="module"></script>
 
@@ -30,8 +24,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
     <!-- ICONE -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../../Profile/fontawesome/css/all.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+
 
 
     <title>Stanza</title>
@@ -113,22 +108,5 @@
             <h2 id="winner"></h2>
             <div id="board"></div>
     </div>
-
-
-    <!--AJAX-->
-   <!-- <script>
-        $(document).ready(function(){
-            $.ajax({
-                url: "../server/stanzeAttive.json",
-                dataType: "json",
-                success: function(data){
-                    var lista = $("#stanze");
-                    var stanza = data.nomeStanza;
-                    var div = $("div").text(stanza);
-                    lista.append(div);
-                }
-            })
-        })
-    </script> --> 
 </body>
 </html>
