@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./stanza.css">
 
+    <!--JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
     <!--ANIMAZIONI-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
@@ -98,7 +102,9 @@
                 </div>
             </div>
         </div>
-        <div class="stanze"></div>
+        <div class="stanze" id="stanze">
+
+        </div>
     </div>
          
 
@@ -107,5 +113,22 @@
             <h2 id="winner"></h2>
             <div id="board"></div>
     </div>
+
+
+    <!--AJAX-->
+   <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: "../server/stanzeAttive.json",
+                dataType: "json",
+                success: function(data){
+                    var lista = $("#stanze");
+                    var stanza = data.nomeStanza;
+                    var div = $("div").text(stanza);
+                    lista.append(div);
+                }
+            })
+        })
+    </script> 
 </body>
 </html>
