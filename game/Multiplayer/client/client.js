@@ -121,6 +121,10 @@ socket.on("messaggi-al-client", (messaggio) =>{
   if(messaggio === "errore_creazione_nome"){
     alert("Questo nome è già stato utilizzato! Scegline un altro.");
   }
+
+  if(messaggio === "stanza-piena"){
+    alert("Questa stanza è già piena!");
+  }
   
 });
 

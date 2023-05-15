@@ -251,11 +251,18 @@ io.on('connection', socket => {
         let stanzaTrovata = false;
         let idStanza;
         let creatore_stanza;
+        let clients;
+        
         
         for(let x in old_data){
             if(old_data[x]["nomeStanza"] == nomeStanzaUnione){
                 stanzaTrovata = true; 
                 idStanza = x;
+                clients = io.sockets.adapter.rooms.get(idStanza);
+                if(clients.size == 2){
+                    socket.emit("messaggi-al-client", "stanza-piena");
+                    return;
+                }
                 old_data[x]["giocatori"]["giocatore2"] = nome_ut;
                 old_data[x]["giocatori"]["socketID_G2"] = socket.id;
                 creatore_stanza = old_data[x]["giocatori"]["giocatore1"];
@@ -269,12 +276,13 @@ io.on('connection', socket => {
             console.log("'" + nome_ut + "'" + " si è connesso correttamente alla stanza di " +  "'" + creatore_stanza + "'");
 
             // Controlla se ci sono almeno due giocatori nella stanza
-            const clients = io.sockets.adapter.rooms.get(idStanza); //VERIFICA I CLIENT CONNESSI IN QUELLA DETERMINATA STANZA RIDANDOMI IL SOCKET.ID DI OGNUNO DI ESSI
+            //const clients = io.sockets.adapter.rooms.get(idStanza); //VERIFICA I CLIENT CONNESSI IN QUELLA DETERMINATA STANZA RIDANDOMI IL SOCKET.ID DI OGNUNO DI ESSI
 
             if (clients.size == 2) { //VERIFICHIAMO CHE LA SIZE SIA == 2  
                 io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);
                 io.to(creatore_stanza_ID).emit("creatore", idStanza);
             }
+            
             
         } else {
             socket.emit("stanza-sbagliata", nomeStanzaUnione);
