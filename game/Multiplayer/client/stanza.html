@@ -33,14 +33,13 @@
     <title>Stanza</title>
 </head>
 <body>
-
     <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block">
             <div class="container-fluid">
                 <!-- Navbar brand -->
                 <a class="navbar-brand nav-link" target="_blank" href="../Home/index.php">
-                    <img class = "animato "src="../../../sources/logo-connect4.png" width="130px">
+                    <img class = "animato" src="../../../sources/logo-connect4.png" width="130px">
                 </a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
                     aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,39 +75,15 @@
             </div>
         </nav>
     </header>
-
-    <!-- <div class="cont">
-        <div id="prima-pagina" class="prima-pagina">
-            <div class="container">
-                <h1>Stanze di Chat</h1>
-                <div class="room-list">
-                        Qui verranno aggiunte le stanze dinamicamente
-
-                </div>
-                <form id="crea_stanza">
-                    <input type="text" id="nomeStanza" placeholder="Nome della stanza">
-                    <button type="button" onclick="import('./client.js').then(module => module.creaStanza())">Crea stanza</button>
-                
-                </form>
-                <form id="unisciti_stanza" onsubmit="return false;">
-                    <input type="text" id="nomeStanzaUnione" placeholder="Codice della stanza">
-                    <button type="button" onclick="import('./client.js').then(module => module.uniscitiStanza())">Unisciti</button>
-                </form>
-
-
-                <p id="id_utente"></p>
-                <p id="id_avversario"></p>
-
-            </div>
-        </div>
-    </div> -->
-    <div class="container">
+    
+   
+    <div id="prima-pagina" class="container">
         <div class="codice">
             <div class="crea">
                 <i class="fa fa-chess-board fa-beat mb-1"></i><h1>CREA UNA STANZA:</h1>
                 <div class="form">
                     <form id="crea_stanza">
-                        <input type="text" class="cod" placeholder="Nome della stanza">
+                        <input type="text" id="nomeStanza" class="cod" placeholder="Nome della stanza">
                         <button class="btn btn-outline-warning" type="button" onclick="import('./client.js').then(module => module.creaStanza())">Crea stanza</button>
                     </form>
                 </div>
@@ -117,7 +92,7 @@
                 <i class="fa fa-gamepad fa-beat mb-1"></i><h1>UNISCITI A UNA STANZA:</h1>
                 <div class="form">
                     <form id="unisciti_stanza" onsubmit="return false;">
-                        <input type="text" class="cod" placeholder="Codice della stanza">
+                        <input type="text" id="nomeStanzaUnione" class="cod" placeholder="Codice della stanza">
                         <button class="btn btn-outline-danger" type="button" onclick="import('./client.js').then(module => module.uniscitiStanza())">Unisciti</button>
                     </form>
                 </div>
@@ -127,7 +102,7 @@
     </div>
          
 
-    <div id="seconda-pagina" class="seconda-pagina" style="display: none;">   
+    <div id="seconda-pagina" style="display: none;">   
             <h1>Connect 4</h1>
             <h2 id="winner"></h2>
             <div id="board"></div>
