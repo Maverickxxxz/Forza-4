@@ -1,5 +1,3 @@
-var contatore;
-
 //Rimozione messaggio CORS permettendo l'origine del localhost
 const io = require('socket.io')(3000, {
     cors: {
@@ -8,7 +6,6 @@ const io = require('socket.io')(3000, {
 })
 
 //MAP con nomeStanza e idStanza
-const stanzeAttive = new Map();
 var fs = require('fs');
 
 fs.writeFile('stanzeAttive.json', "{}", (err) => {
@@ -21,10 +18,11 @@ fs.writeFile('stanzeAttive.json', "{}", (err) => {
 
 
 function letturaDati(){
-    const dati = fs.readFileSync('stanzeAttive.json', 'utf-8');
+    let dati = fs.readFileSync('stanzeAttive.json', 'utf-8');
     let data =  JSON.parse(dati);
     return data;
 }
+
 
 function scritturaDati(data){
     fs.writeFile('stanzeAttive.json', JSON.stringify(data, null, 2), (err) => {
@@ -36,19 +34,6 @@ function scritturaDati(data){
     });
 
 }
-
-function scritturaTurno(idStanza, giocatore1STATO, giocatore2STATO){
-    let data = letturaDati();
-
-    for(let id in data){
-        if(id == idStanza){
-            data[id]['giocatori']['turnoG1'] = giocatore1STATO;
-            data[id]['giocatori']['turnoG2'] = giocatore2STATO;
-        }
-    }
-    scritturaDati(data);
-}
-
 
 
 function checkWinner() {
@@ -111,49 +96,23 @@ function setWinner(r, c) {
     gameOver = true;
 }
 
-function setPiece() {
-  
-  
-    //if (gameOver) {
-    //    return;
-    //}
-  
-    //get coords of that tile clicked
-    let coords = this.id.split("-");
-    let r = parseInt(coords[0]);
-    let c = parseInt(coords[1]);
-  
-    // figure out which row the current column should be on
-    r = currColumns[c]; 
-  
-    if (r < 0) { // board[r][c] != ' '
-        return;
-    }
-  
-    board[r][c] = currPlayer; //update JS board
-    let tile = document.getElementById(r.toString() + "-" + c.toString());
-    if (currPlayer == playerRed) {
-        tile.classList.add("red-piece");
-        currPlayer = playerYellow;
-    }
-    else {
-        tile.classList.add("yellow-piece");
-        currPlayer = playerRed;
-    }
-  
-    r -= 1; //update the row height for that column
-    currColumns[c] = r; //update the array
-  
-    //checkWinner();
-  
-  }
+function updateGame(mossa){
+   
+}
+
+
+
 
 function inizio_turno(idStanza) {
     // Genera un numero casuale tra 0 e 1
     var num = Math.random();
+    let data = letturaDati();
     let giocatore1;
     let giocatore2;
+    let giocatore1_SID;
+    let giocatore2_SID;
 
+    
     if (num < 0.5) {
         giocatore1  = true;
         giocatore2  = false;
@@ -163,9 +122,56 @@ function inizio_turno(idStanza) {
         giocatore2  = true;
     }
 
-    scritturaTurno(idStanza, giocatore1, giocatore2);
+    for(let id in data){
+        if(id == idStanza){
+            
+            data[id]['giocatori']['turnoG1'] = giocatore1;
+            giocatore1_SID = data[id]['giocatori']['socketID_G1'];
+            data[id]['giocatori']['turnoG2'] = giocatore2;
+            giocatore2_SID = data[id]['giocatori']['socketID_G2']; 
+        }
+    }
+
+    scritturaDati(data);
+
+    if(giocatore1){return giocatore1_SID;}
+    else{return giocatore2_SID;}
+
 }
 
+function cambio_turno(idStanza){
+    let data = letturaDati();
+    let giocatoreCorrente;
+
+    for(let id in data){
+        if(id == idStanza){       
+            if(data[id]['giocatori']['turnoG1'] == false){  
+                console.log("G1 ORA GIOCA");
+                data[id]['giocatori']['turnoG1'] = true;
+                data[id]['giocatori']['turnoG2'] = false;
+                giocatoreCorrente = data[id]['giocatori']['socketID_G1'];
+                giocatoreNonCorrente = data[id]['giocatori']['socketID_G2'];
+                io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
+                io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
+            }
+
+            else{
+                console.log("G2 ORA GIOCA");
+                data[id]['giocatori']['turnoG1'] = false;
+                data[id]['giocatori']['turnoG2'] = true;
+                giocatoreCorrente = data[id]['giocatori']['socketID_G2'];
+                giocatoreNonCorrente = data[id]['giocatori']['socketID_G1'];
+                io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
+                io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
+                
+            }
+        }
+
+    }
+
+    scritturaDati(data);
+    return giocatoreCorrente;
+}
 
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
@@ -254,8 +260,19 @@ io.on('connection', socket => {
     });
 
     socket.on("inizio-gioco", (idStanza) => {   
-        inizio_turno(idStanza);
+        let giocatoreCorrenteID = inizio_turno(idStanza);      
+        console.log("ID_GIOCATORECORR: ",giocatoreCorrenteID);
+        io.to(giocatoreCorrenteID).emit("giocatore-corrente", idStanza);
+
     });
+
+    socket.on("mossa", (mossa, idStanza) => { 
+        console.log("MOSSA: ", mossa);
+        console.log("IDSTANZA: ", idStanza);
+        cambio_turno(idStanza);
+        //io.to(giocatoreCorrente).emit("mossa", idStanza);
+    });
+
 
 
 
