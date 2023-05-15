@@ -28,7 +28,7 @@ let currColumns = [5, 5, 5, 5, 5, 5, 5];
 let gameOver = false;
 let mossaRicevuta;
 
-export function aggiornaGioco(mossa){
+export function aggiornaGioco(mossa, colore){
 
   let r = mossa[0];
   let c = mossa[1];
@@ -39,10 +39,17 @@ export function aggiornaGioco(mossa){
       return;
   }*/
 
+
   let tile = document.getElementById(r.toString() + "-" + c.toString());
-  
-  tile.classList.add("red-piece");
-  tile.classList.add("yellow-piece");
+
+  if(colore=="rosso"){
+    tile.classList.add("red-piece");
+  }
+
+  if(colore=="giallo"){
+    tile.classList.add("yellow-piece");
+  }
+
 
   r -= 1; //update the row height for that column
   currColumns[c] = r; //update the array
@@ -70,8 +77,6 @@ export function mossa() {
     mossaRicevuta = [r,c];
     socket.emit("mossa", mossaRicevuta, idStanzaClient);
 
-    console.log("CURR CULUMNS:", currColumns[c]);
-    console.log("BOARD: ", board[r][c]);
   }
 
 }
@@ -99,8 +104,6 @@ function setGame() {
       board.push(row);
   }
 }
-
-
 
 
 //CONNESSIONE AL SERVER CHE HA PORTA 3000
@@ -145,7 +148,6 @@ socket.on("naviga-a-gioco", () => {
    primaPagina.style.display = "none";  
    // Mostro la seconda pagina
    secondaPagina.style.display = "block";
-   console.log(socket.id);
 
   setGame();
 });
@@ -153,12 +155,12 @@ socket.on("naviga-a-gioco", () => {
 socket.on("creatore", (idStanza) => {
   socket.emit("inizio-gioco", idStanza); //In modo che solo il "creatore" manda un solo segnale di inizio-gioco, altrimenti ne avremmo 2
   idStanzaClient = idStanza;
-  console.log("IDSTANZA: ", idStanzaClient);
 });
 
-socket.on("aggiorna-gioco", (mossa) =>{
-  aggiornaGioco(mossa);
+socket.on("aggiorna-gioco", (mossa, colore) =>{
+  aggiornaGioco(mossa, colore);
 });
+
 
 
 socket.on("giocatore-corrente", (idStanza) => {
@@ -170,5 +172,7 @@ socket.on("giocatore-non-corrente", (idStanza) => {
   giocatoreCorrente = false;
   idStanzaClient = idStanza;
 });
+
+
 
 });
