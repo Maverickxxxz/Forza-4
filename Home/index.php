@@ -29,14 +29,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../game/Multiplayer/client/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../game/Multiplayer/client/bootstrap/css/bootstrap.min.css">
+    <script src="../game/Multiplayer/client/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Home/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./home.js" type="text/javascript"></script>
     
-    <link rel="stylesheet" href="../Profile/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../game/Multiplayer/client/fontawesome/css/all.css">
 
     <!-- FRAMEWORK CSS ESTERNI -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -60,7 +60,7 @@
 
     <!-- HEADER CON LOGO E BOTTONI -->
     <header class="mt-3" id="header">
-        <img class="logo" src="../sources/logo-connect4.png"> 
+        <img class="logo" src="../game/Multiplayer/client/sources/logo-connect4.png"> 
 
         <ul class="navlist">
             <li><a id="elem1" href="index.php" class="active">Home</a></li>
@@ -71,20 +71,20 @@
                 <li>
                     <div class="action">
                         <div class="profile" onclick="menuToggle();">
-                            <img src="../sources/av1.png" />
+                            <img src="../game/Multiplayer/client/sources/av1.png" />
                         </div>
                         <div class="menu">
                             <h3><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a><br /></h3>
                             <ul>
                             <li>
-                                <img src="../sources/user2.png" /><a href="../Profile/profile.html">Il mio profilo</a>
+                                <img src="../game/Multiplayer/client/sources/user2.png" /><a href="../Profile/profile.html">Il mio profilo</a>
                             </li>
                             <li>
-                                <img src="../sources/envelope.png" /><a href="#">Messaggi</a>
+                                <img src="../game/Multiplayer/client/sources/envelope.png" /><a href="#">Messaggi</a>
                             </li>
-                            <li><img src="../sources/question.png" /><a href="#">Help</a></li>
+                            <li><img src="../game/Multiplayer/client/sources/question.png" /><a href="#">Help</a></li>
                             <li>
-                                <img src="../sources/logout.png" /><a href="../Login/logout.php">Logout</a>
+                                <img src="../game/Multiplayer/client/sources/logout.png" /><a href="../Login/logout.php">Logout</a>
                             </li>
                             </ul>
                         </div>
@@ -146,7 +146,7 @@
         </div>
 
         <div class="hero-img">
-            <img id = "board" src="../sources/board-mod.png">
+            <img id = "board" src="../game/Multiplayer/client/sources/board-mod.png">
         </div>
     </section>
 
