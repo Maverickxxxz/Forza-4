@@ -1,13 +1,13 @@
 {
-  "0.m1rps05krf": {
-    "nomeStanza": "ae",
+  "0.0oh5ox46r57f": {
+    "nomeStanza": "prova",
     "giocatori": {
-      "socketID_G1": "TXsZqccV7nX1n3ICAAAL",
-      "giocatore1": "prova45",
-      "turnoG1": false,
-      "giocatore2": "prova456",
-      "socketID_G2": "1vl3HJ80PTzshVMJAAAN",
-      "turnoG2": true
+      "socketID_G1": "gCxo_h8bYfsBDEv2AAAD",
+      "giocatore1": "maaa",
+      "turnoG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null
     }
   }
 }
