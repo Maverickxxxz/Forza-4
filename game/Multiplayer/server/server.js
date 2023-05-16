@@ -51,29 +51,23 @@ function inizio_turno(idStanza) {
 
     for(let id in data){
         if(id == idStanza){
-            idTemp = id;
             data[id]['giocatori']['turnoG1'] = giocatore1;
             giocatore1_SID = data[id]['giocatori']['socketID_G1'];
             data[id]['giocatori']['turnoG2'] = giocatore2;
             giocatore2_SID = data[id]['giocatori']['socketID_G2']; 
-            scritturaDati(data);
+            scritturaDati(data);         
         }
     }
 
-    if(giocatore1){return giocatore1_SID;}
+    if(giocatore1){return giocatore1_SID;
+    }
     else{return giocatore2_SID;}
 
 }
 
-let colore = "giallo";
 function cambio_colore(colore){
-    if(colore=="rosso"){
-        return "giallo";
-    } else if(colore=="giallo"){
-        return "rosso";
-    } else {
-        return "rosso";
-    }
+    if(colore=="rosso"){return "giallo";} 
+    if(colore=="giallo"){return "rosso";}
 }
 
 
@@ -90,22 +84,22 @@ function cambio_turno(idStanza){
                 data[id]['giocatori']['turnoG2'] = false;
                 giocatoreCorrente = data[id]['giocatori']['socketID_G1'];
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G2'];
-                io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
-                io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
-            }
+            //     io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
+                 io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
+             }
 
             else{
                 data[id]['giocatori']['turnoG1'] = false;
                 data[id]['giocatori']['turnoG2'] = true;
                 giocatoreCorrente = data[id]['giocatori']['socketID_G2'];
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G1'];
-                io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
+                // io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
                 io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);  
             }
         }
     }
     scritturaDati(data);
-    //return giocatoreCorrente;
+    return giocatoreCorrente;
 }
 
 //Ascolto del server di messaggi in arrivo
@@ -131,7 +125,7 @@ io.on('connection', socket => {
 
     function setWinner(r, c) {
     
-        socket.emit("messaggi-al-client", "hai vinto!!");
+        
         console.log("OKOKWIN");
         // if (board[r][c] == playerRed) {
         //     winner.innerText = "Red Wins";             
@@ -150,7 +144,7 @@ io.on('connection', socket => {
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r][c+1] && board[r][c+1] == board[r][c+2] && board[r][c+2] == board[r][c+3]) {
                        setWinner(r, c);
-                       return;
+                       return true;;
                    }
                }
             }
@@ -162,7 +156,7 @@ io.on('connection', socket => {
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]) {
                        setWinner(r, c);
-                       return;
+                       return true;
                    }
                }
            }
@@ -174,7 +168,7 @@ io.on('connection', socket => {
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board[r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]) {
                        setWinner(r, c);
-                       return;
+                       return true;
                    }
                }
            }
@@ -186,7 +180,7 @@ io.on('connection', socket => {
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board[r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]) {
                        setWinner(r, c);
-                       return;
+                       return true;
                    }
                }
            }
@@ -279,13 +273,11 @@ io.on('connection', socket => {
             }
         }
 
-        //var tavola;
-        //tavola[idStanza] = "";
-        
         if (stanzaTrovata) {
             socket.join(idStanza);
             console.log("'" + nome_ut + "'" + " si è connesso correttamente alla stanza di " +  "'" + creatore_stanza + "'");
-            io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);
+            io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);     
+
             io.to(creatore_stanza_ID).emit("creatore", idStanza);
    
         } else {
@@ -295,18 +287,26 @@ io.on('connection', socket => {
 
     socket.on("inizio-gioco", (idStanza) => {   
         let giocatoreCorrenteID = inizio_turno(idStanza);   
-        io.to(giocatoreCorrenteID).emit("giocatore-corrente", idStanza);
+        let colore = "rosso";
+        io.to(giocatoreCorrenteID).emit("primo-giocatore", idStanza, colore);
     });
 
       
     
-    socket.on("mossa", (mossa, idStanza, board) => {  
-        verifica_vincita(board);
-        //console.log(board)
+    socket.on("mossa", (mossa, idStanza, board, colore) => {  
         
-        cambio_turno(idStanza);   
+        io.to(idStanza).emit("aggiorna-gioco", mossa, colore);
+
+        if(verifica_vincita(board)){
+            socket.emit("messaggi-al-client", "hai vinto!!");
+            return;
+        }
+        
+        giocatoreCorrente = cambio_turno(idStanza); 
+        
         colore = cambio_colore(colore);
-        io.to(idStanza).emit("aggiorna-gioco", mossa, colore)
+        io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza, colore);  
+        
     });
 
 

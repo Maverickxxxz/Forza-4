@@ -26,10 +26,12 @@ export function uniscitiStanza() {
 let giocatoreCorrente = false;
 let board = [];
 let currColumns = [5, 5, 5, 5, 5, 5, 5];
-let gameOver = false;
 let mossaRicevuta;
+let colore_client;
 
 export function aggiornaGioco(mossa, colore){
+
+  colore_client = colore; // COLORE ROSSO!! ALL'INIZIO PER TUTTI E DUE I CLIENT
 
   let r = mossa[0];
   let c = mossa[1];
@@ -44,12 +46,12 @@ export function aggiornaGioco(mossa, colore){
 
   if(colore=="rosso"){
     tile.classList.add("red-piece");
-    board[r][c] = "rosso";
+    //board[r][c] = "rosso";
   }
 
   if(colore=="giallo"){
     tile.classList.add("yellow-piece");
-    board[r][c] = "giallo";
+    //board[r][c] = "giallo";
   }
 
   r -= 1; //update the row height for that column
@@ -59,22 +61,28 @@ export function aggiornaGioco(mossa, colore){
 
 export function mossa() {
   
-  //if (gameOver) {
-  //    return;
-  //}
-
   if(giocatoreCorrente==false){
     alert("Non è ancora il tuo turno, aspetta!");
   }
 
+  
   else{
     // prende le coordinate del click
     let coords = this.id.split("-");
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
 
+    if(colore_client=="rosso"){
+      board[r][c] = "rosso";
+    }
+  
+    if(colore_client=="giallo"){
+      board[r][c] = "giallo";
+    }
+  
+
     mossaRicevuta = [r,c];
-    socket.emit("mossa", mossaRicevuta, idStanzaClient, board); //emette al server le coordinate della mossa ricevuta
+    socket.emit("mossa", mossaRicevuta, idStanzaClient, board, colore_client); //emette al server le coordinate della mossa ricevuta
   }
 }
 
@@ -84,7 +92,6 @@ function setGame() {
   currColumns = [5, 5, 5, 5, 5, 5, 5];
   let rows = 6;
   let columns = 7;
-  gameOver = false;
 
     for (let r = 0; r < rows; r++) {
       let row = [];
@@ -98,9 +105,6 @@ function setGame() {
       }
       board.push(row);
   }
-
-
-
 }
 
 
@@ -142,7 +146,6 @@ socket.on("messaggi-al-client", (messaggio) =>{
 
 //RICEZIONE DEI MESSAGGI DAL SERVER DI AVVENUTA CREAZIONE STANZA.
 socket.on('stanza-creata', (idStanza, nomeStanza) => {
-  //alert(`Stanza creata con successo! Codice: ${idStanza}`);
   document.getElementById("nomeStanzaUnione").value = nomeStanza;
   let div_crea = document.getElementById("crea");
   let div_unisciti = document.getElementById("unisciti");
@@ -180,9 +183,15 @@ socket.on("aggiorna-gioco", (mossa, colore) =>{
   aggiornaGioco(mossa, colore);
 });
 
+socket.on("primo-giocatore", (idStanza, colore) =>{
+  giocatoreCorrente = true;
+  idStanzaClient = idStanza;
+  colore_client = colore;
+});
 
 
-socket.on("giocatore-corrente", (idStanza) => {
+socket.on("giocatore-corrente", (idStanza, colore) => {
+  colore_client = colore;
   giocatoreCorrente = true;
   idStanzaClient = idStanza;
 });
