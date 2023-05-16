@@ -46,12 +46,10 @@ export function aggiornaGioco(mossa, colore){
 
   if(colore=="rosso"){
     tile.classList.add("red-piece");
-    //board[r][c] = "rosso";
   }
 
   if(colore=="giallo"){
     tile.classList.add("yellow-piece");
-    //board[r][c] = "giallo";
   }
 
   r -= 1; //update the row height for that column
@@ -126,7 +124,8 @@ socket.on("messaggi-al-client", (messaggio) =>{
   }
 
   if(messaggio === "hai vinto!!"){
-    alert("Hai vinto!!");
+    //alert("Hai vinto!!");
+    console.log("HAI VINTO!");
   }
 
   if(messaggio === "stanza-piena"){
