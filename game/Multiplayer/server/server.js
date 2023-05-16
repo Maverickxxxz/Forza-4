@@ -11,8 +11,6 @@ var fs = require('fs');
 fs.writeFile('stanzeAttive.json', "{}", (err) => {
     if (err) {
         console.error('Errore durante la scrittura del file:', err);
-    } else {
-        //console.log('Dati aggiornati con successo nel file stanzeAttive.json');
     }
 });
 
@@ -27,11 +25,8 @@ function scritturaDati(data){
     fs.writeFile('stanzeAttive.json', JSON.stringify(data, null, 2), (err) => {
         if (err) {
             console.error('Errore durante la scrittura del file:', err);
-        } else {
-            //console.log('Dati aggiornati con successo nel file stanzeAttive.json');
         }
     });
-
 }
 
 
@@ -105,7 +100,6 @@ function inizio_turno(idStanza) {
     let giocatore1_SID;
     let giocatore2_SID;
 
-
     if (num < 0.5) {
         giocatore1  = true;
         giocatore2  = false;
@@ -122,19 +116,12 @@ function inizio_turno(idStanza) {
             giocatore1_SID = data[id]['giocatori']['socketID_G1'];
             data[id]['giocatori']['turnoG2'] = giocatore2;
             giocatore2_SID = data[id]['giocatori']['socketID_G2']; 
+            scritturaDati(data);
         }
     }
 
-    if(giocatore1){
-        data[idTemp]['giocatori']['coloreG1'] = "rosso";
-        data[idTemp]['giocatori']['coloreG2'] = "giallo";
-        scritturaDati(data);
-        return giocatore1_SID;}
-    else{
-        data[idTemp]['giocatori']['coloreG1'] = "giallo";
-        data[idTemp]['giocatori']['coloreG2'] = "rosso";
-        scritturaDati(data);
-        return giocatore2_SID;}
+    if(giocatore1){return giocatore1_SID;}
+    else{return giocatore2_SID;}
 
 }
 
@@ -156,7 +143,8 @@ function cambio_turno(idStanza){
     let giocatoreCorrente;
 
     for(let id in data){
-        if(id == idStanza){       
+        if(id == idStanza){  
+
             if(data[id]['giocatori']['turnoG1'] == false){  
                 data[id]['giocatori']['turnoG1'] = true;
                 data[id]['giocatori']['turnoG2'] = false;
@@ -164,7 +152,6 @@ function cambio_turno(idStanza){
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G2'];
                 io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
                 io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
-                
             }
 
             else{
@@ -173,15 +160,12 @@ function cambio_turno(idStanza){
                 giocatoreCorrente = data[id]['giocatori']['socketID_G2'];
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G1'];
                 io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
-                io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
-                
+                io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);  
             }
         }
-
     }
-
     scritturaDati(data);
-    return giocatoreCorrente;
+    //return giocatoreCorrente;
 }
 
 //Ascolto del server di messaggi in arrivo
@@ -190,7 +174,6 @@ io.on('connection', socket => {
     socket.on("messaggi-al-server", messaggio =>{
         console.log(messaggio);
     })
-
     
     function letturaStanzeAttive(data){
         for(let id in data){
@@ -200,14 +183,13 @@ io.on('connection', socket => {
 
     function eliminaStanzeAttive(data, nomeStanza){
         for(let id in data){
-            if(id==nomeStanza){
-                
+            if(id==nomeStanza){    
                 socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1']);
-            }
-            
+            }         
         }
     }
 
+    // Lettura delle stanze attive in modo che altri giocatori possano connettersi senza sapere il codice
     let data_stanze = letturaDati();
     letturaStanzeAttive(data_stanze);
 
@@ -215,7 +197,6 @@ io.on('connection', socket => {
     socket.on("crea-stanza", (nomeStanza, nome_utente) => {
         const idStanza = Math.random().toString(36);
        
-        
         let data = {
             [idStanza]: {
                 nomeStanza: nomeStanza,
@@ -250,10 +231,8 @@ io.on('connection', socket => {
                 //AGGIUNTA DEL DATA AL FILE .JSON
                 Object.assign(old_data, data)
                 scritturaDati(old_data); 
-                //letturaStanzeAttive(old_data);
                 socket.join(idStanza); //LA SOCKET SI CONNETTE A QUELLA STANZA
                 socket.emit("stanza-creata", idStanza, nomeStanza);
-                //letturaStanzeAttive();
                 console.log("Stanza " + "'" + nomeStanza + "'"  + " creata correttamente da " + "'" + nome_utente + "'" );
             }
     });
@@ -288,12 +267,9 @@ io.on('connection', socket => {
         if (stanzaTrovata) {
             socket.join(idStanza);
             console.log("'" + nome_ut + "'" + " si è connesso correttamente alla stanza di " +  "'" + creatore_stanza + "'");
-
             io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);
             io.to(creatore_stanza_ID).emit("creatore", idStanza);
-
-            
-            
+   
         } else {
             socket.emit("stanza-sbagliata", nomeStanzaUnione);
         }
@@ -303,7 +279,6 @@ io.on('connection', socket => {
         let giocatoreCorrenteID = inizio_turno(idStanza);   
         io.to(giocatoreCorrenteID).emit("giocatore-corrente", idStanza);
     });
-
     
     socket.on("mossa", (mossa, idStanza) => {  
         //verifica_vincita();
