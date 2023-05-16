@@ -149,7 +149,7 @@ socket.on('stanza-creata', (idStanza, nomeStanza) => {
   let div_attesa = document.getElementById("attesa");
   div_crea.style.display = "none";
   div_unisciti.style.display = "none";
-  div_attesa.style.display = "block";
+  div_attesa.style.display = "flex";
 });
 
 socket.on('stanze-attive', (stanza, giocatore) => {
