@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "0.oe0oe6ia8p": {
     "nomeStanza": "asd",
     "giocatori": {
@@ -9,6 +10,18 @@
       "giocatore2": "prova4588",
       "socketID_G2": "udR7KA82zPRbfb8QAAAJ",
       "turnoG2": true,
+=======
+  "0.jc4mdolz01": {
+    "nomeStanza": "ciao",
+    "giocatori": {
+      "socketID_G1": "R0vs2BqD-K9tpK6LAAAB",
+      "giocatore1": "maaa",
+      "turnoG1": true,
+      "coloreG1": null,
+      "giocatore2": "maaa2",
+      "socketID_G2": "kM18Wb4Ne-Pf0cquAAAD",
+      "turnoG2": false,
+>>>>>>> 1f49e4cab36e338c911f8a5dbe02660da2212224
       "coloreG2": null
     },
     "gameOver": false
