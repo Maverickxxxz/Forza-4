@@ -34,9 +34,8 @@ function scritturaDati(data){
     });
 
 }
-
-
-function checkWinner() {
+/*
+function verifica_vincita() {
     // horizontal
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++){
@@ -94,35 +93,7 @@ function setWinner(r, c) {
         winner.innerText = "Yellow Wins";
     }
     gameOver = true;
-}
-
-function aggiornaGioco(mossa, idStanza){
-
-
-    console.log("R: ", mossa[0]);
-    console.log("C: ", mossa[1]);
-    let r = mossa[0];
-    let c = mossa[1];
-    /*r = currColumns[c]; 
-  
-    if (r < 0) { 
-        board[r][c] != ' '
-        return;
-    }*/
-  
-    let tile = document.getElementById(r.toString() + "-" + c.toString());
-    
-    tile.classList.add("red-piece");
-    tile.classList.add("yellow-piece");
-  
-    r -= 1; //update the row height for that column
-    currColumns[c] = r; //update the array
-  
-    //checkWinner();*/
-  }
-
-
-
+}*/
 
 function inizio_turno(idStanza) {
     // Genera un numero casuale tra 0 e 1
@@ -133,7 +104,7 @@ function inizio_turno(idStanza) {
     let giocatore1_SID;
     let giocatore2_SID;
 
-    
+
     if (num < 0.5) {
         giocatore1  = true;
         giocatore2  = false;
@@ -145,7 +116,7 @@ function inizio_turno(idStanza) {
 
     for(let id in data){
         if(id == idStanza){
-            
+            idTemp = id;
             data[id]['giocatori']['turnoG1'] = giocatore1;
             giocatore1_SID = data[id]['giocatori']['socketID_G1'];
             data[id]['giocatori']['turnoG2'] = giocatore2;
@@ -153,12 +124,31 @@ function inizio_turno(idStanza) {
         }
     }
 
-    scritturaDati(data);
-
-    if(giocatore1){return giocatore1_SID;}
-    else{return giocatore2_SID;}
+    if(giocatore1){
+        data[idTemp]['giocatori']['coloreG1'] = "rosso";
+        data[idTemp]['giocatori']['coloreG2'] = "giallo";
+        scritturaDati(data);
+        return giocatore1_SID;}
+    else{
+        data[idTemp]['giocatori']['coloreG1'] = "giallo";
+        data[idTemp]['giocatori']['coloreG2'] = "rosso";
+        scritturaDati(data);
+        return giocatore2_SID;}
 
 }
+
+let colore = "giallo";
+function cambio_colore(colore){
+    if(colore=="rosso"){
+        return "giallo";
+    } else if(colore=="giallo"){
+        return "rosso";
+    } else {
+        return "rosso";
+    }
+}
+
+
 
 function cambio_turno(idStanza){
     let data = letturaDati();
@@ -167,7 +157,6 @@ function cambio_turno(idStanza){
     for(let id in data){
         if(id == idStanza){       
             if(data[id]['giocatori']['turnoG1'] == false){  
-                console.log("G1 ORA GIOCA");
                 data[id]['giocatori']['turnoG1'] = true;
                 data[id]['giocatori']['turnoG2'] = false;
                 giocatoreCorrente = data[id]['giocatori']['socketID_G1'];
@@ -178,7 +167,6 @@ function cambio_turno(idStanza){
             }
 
             else{
-                console.log("G2 ORA GIOCA");
                 data[id]['giocatori']['turnoG1'] = false;
                 data[id]['giocatori']['turnoG2'] = true;
                 giocatoreCorrente = data[id]['giocatori']['socketID_G2'];
@@ -214,10 +202,13 @@ io.on('connection', socket => {
                     socketID_G1: socket.id,
                     giocatore1: nome_utente,
                     turnoG1: null,
+                    coloreG1: null,
                     giocatore2: null,
                     socketID_G2: null,
                     turnoG2: null,
-                }
+                    coloreG2: null,
+                },
+                gameOver: false,
             }
         }
 
@@ -275,13 +266,9 @@ io.on('connection', socket => {
             socket.join(idStanza);
             console.log("'" + nome_ut + "'" + " si è connesso correttamente alla stanza di " +  "'" + creatore_stanza + "'");
 
-            // Controlla se ci sono almeno due giocatori nella stanza
-            //const clients = io.sockets.adapter.rooms.get(idStanza); //VERIFICA I CLIENT CONNESSI IN QUELLA DETERMINATA STANZA RIDANDOMI IL SOCKET.ID DI OGNUNO DI ESSI
+            io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);
+            io.to(creatore_stanza_ID).emit("creatore", idStanza);
 
-            if (clients.size == 2) { //VERIFICHIAMO CHE LA SIZE SIA == 2  
-                io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);
-                io.to(creatore_stanza_ID).emit("creatore", idStanza);
-            }
             
             
         } else {
@@ -290,14 +277,16 @@ io.on('connection', socket => {
     });
 
     socket.on("inizio-gioco", (idStanza) => {   
-        let giocatoreCorrenteID = inizio_turno(idStanza);      
+        let giocatoreCorrenteID = inizio_turno(idStanza);   
         io.to(giocatoreCorrenteID).emit("giocatore-corrente", idStanza);
-
     });
 
+    
     socket.on("mossa", (mossa, idStanza) => {  
+        //verifica_vincita();
         cambio_turno(idStanza);   
-        io.to(idStanza).emit("aggiorna-gioco", mossa)
+        colore = cambio_colore(colore);
+        io.to(idStanza).emit("aggiorna-gioco", mossa, colore)
     });
 
 

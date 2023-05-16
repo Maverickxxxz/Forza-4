@@ -37,7 +37,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block">
             <div class="container-fluid">
                 <!-- Navbar brand -->
-                <a class="navbar-brand nav-link" target="_blank" href="#">
+                <a class="navbar-brand nav-link" target="_blank" href="http://localhost/Progetto/Home/">
                     <img class = "animato" src="logo-connect4.png" width="130px">
                 </a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
@@ -78,7 +78,7 @@
    
     <div id="prima-pagina" class="container">
         <div class="codice">
-            <div class="crea">
+            <div id="crea" class="crea">
                 <i class="fa fa-chess-board fa-beat mb-1"></i><h1>CREA UNA STANZA:</h1>
                 <div class="form">
                     <form id="crea_stanza">
@@ -87,7 +87,7 @@
                     </form>
                 </div>
             </div>
-            <div class="unisciti">
+            <div id="unisciti" class="unisciti">
                 <i class="fa fa-gamepad fa-beat mb-1"></i><h1>UNISCITI A UNA STANZA:</h1>
                 <div class="form">
                     <form id="unisciti_stanza" onsubmit="return false;">
@@ -95,6 +95,11 @@
                         <button class="btn btn-outline-danger" type="button" onclick="import('./client.js').then(module => module.uniscitiStanza())">Unisciti</button>
                     </form>
                 </div>
+            </div>
+
+            <div id="attesa" class="attesa">
+                <i class="fa-thin fa-spinner-third fa-spin"></i>
+                Sei in attesa che un altro giocatore si connetti.
             </div>
         </div>
         <div class="stanze" id="stanze">

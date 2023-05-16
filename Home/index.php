@@ -160,7 +160,7 @@
                 <div class="card mt-5 ms-5" style="width: 18rem;">
                     <h4 class="mt-1">1</h4>
                     <div class="card-body">
-                        <p class="card-text">Avrete davanti una scacchiera 5x5 come quella nella figura sopra. Tu avrai delle pedine blu, il tuo avversario rosse.</p>
+                        <p class="card-text">Avrete davanti una scacchiera 6x7. DA CORREGGERE!:!:!:!:.</p>
                     </div>
                 </div>
                 <div class="card mt-5 ms-5" style="width: 18rem;">

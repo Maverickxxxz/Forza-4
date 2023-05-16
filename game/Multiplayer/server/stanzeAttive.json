@@ -1,35 +1,142 @@
 {
-  "0.0olbvv9rjwva": {
-    "nomeStanza": "ciao",
+  "0.p1np9qtcwt": {
+    "nomeStanza": "aa",
     "giocatori": {
-      "socketID_G1": "EEhXUftio5ptL9JtAAA1",
-      "giocatore1": "maaappf",
-      "turnoG1": null,
-      "giocatore2": "maaappf",
-      "socketID_G2": "EEhXUftio5ptL9JtAAA1",
-      "turnoG2": null
-    }
-  },
-  "0.qhb3szzcayb": {
-    "nomeStanza": "stanzamaffo",
-    "giocatori": {
-      "socketID_G1": "EEhXUftio5ptL9JtAAA1",
-      "giocatore1": "maaappf",
-      "turnoG1": null,
-      "giocatore2": "maaappf",
-      "socketID_G2": "EEhXUftio5ptL9JtAAA1",
-      "turnoG2": null
-    }
-  },
-  "0.8ibju9hbgp5": {
-    "nomeStanza": "prova2",
-    "giocatori": {
-      "socketID_G1": "o_l7AFaG-6Kh6O_qAAA3",
-      "giocatore1": "maaappf",
+      "socketID_G1": "ome9JEljaQSB4Z5MAAAR",
+      "giocatore1": "prova4577",
       "turnoG1": false,
-      "giocatore2": "maaappf2",
-      "socketID_G2": "NKGWPn-GXLHxcJ9qAAA5",
-      "turnoG2": true
-    }
+      "coloreG1": "giallo",
+      "giocatore2": "prova4577",
+      "socketID_G2": "BQurR4bJ7MyLlnZCAAAT",
+      "turnoG2": true,
+      "coloreG2": "rosso"
+    },
+    "gameOver": false
+  },
+  "0.g25qpq3kczr": {
+    "nomeStanza": "aabb",
+    "giocatori": {
+      "socketID_G1": "xGMhLozx8sMcBB_xAAA5",
+      "giocatore1": "prova45",
+      "turnoG1": false,
+      "coloreG1": "rosso",
+      "giocatore2": "prova45",
+      "socketID_G2": "xGMhLozx8sMcBB_xAAA5",
+      "turnoG2": true,
+      "coloreG2": "giallo"
+    },
+    "gameOver": false
+  },
+  "0.q0mnw9o7my": {
+    "nomeStanza": "a",
+    "giocatori": {
+      "socketID_G1": "R4698jrA1WoZwX0oAABB",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "coloreG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "coloreG2": null
+    },
+    "gameOver": false
+  },
+  "0.1x14u3jmhdy": {
+    "nomeStanza": "ab",
+    "giocatori": {
+      "socketID_G1": "c_Q81xcIcutTwQEQAABD",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "coloreG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "coloreG2": null
+    },
+    "gameOver": false
+  },
+  "0.lctmpuha5ca": {
+    "nomeStanza": "asdf",
+    "giocatori": {
+      "socketID_G1": "ljXrIegtkg6a0JxkAABJ",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "coloreG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "coloreG2": null
+    },
+    "gameOver": false
+  },
+  "0.unji6k6u6h": {
+    "nomeStanza": "aasd",
+    "giocatori": {
+      "socketID_G1": "6XzXaf0SEFa3easpAABc",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "coloreG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "coloreG2": null
+    },
+    "gameOver": false
+  },
+  "0.k1hoy4bhz3k": {
+    "nomeStanza": "asdasd",
+    "giocatori": {
+      "socketID_G1": "zuEiRiEYXtzvmXg5AABh",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "coloreG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "coloreG2": null
+    },
+    "gameOver": false
+  },
+  "0.7f37af3xcno": {
+    "nomeStanza": "asdbasdb",
+    "giocatori": {
+      "socketID_G1": "q42iBCzFcTWZxf2BAABr",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "coloreG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "coloreG2": null
+    },
+    "gameOver": false
+  },
+  "0.p3aiz313lf": {
+    "nomeStanza": "lol",
+    "giocatori": {
+      "socketID_G1": "Xs8xXZJ2ugnys4UMAABv",
+      "giocatore1": "prova45",
+      "turnoG1": false,
+      "coloreG1": "giallo",
+      "giocatore2": "prova4577",
+      "socketID_G2": "wxVDT99ozrNyi2J5AABt",
+      "turnoG2": true,
+      "coloreG2": "rosso"
+    },
+    "gameOver": false
+  },
+  "0.sk9stjlcxvn": {
+    "nomeStanza": "esrser",
+    "giocatori": {
+      "socketID_G1": "_5E7sHoEAsbPi1s-AABx",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "coloreG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "coloreG2": null
+    },
+    "gameOver": false
   }
 }
