@@ -20,7 +20,7 @@ if (isset($_SESSION["utente_id"])) {
     }
 
     $utente = $result->fetch_assoc();
-    echo json_encode($utente["email"]);
+    echo json_encode($utente);
 
     $mysqli->close();
 }
