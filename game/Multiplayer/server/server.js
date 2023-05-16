@@ -31,66 +31,6 @@ function scritturaDati(data){
 
 
 
-function verifica_vincita() {
-    // horizontal
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < columns - 3; c++){
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r][c+1] && board[r][c+1] == board[r][c+2] && board[r][c+2] == board[r][c+3]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-        }
-   }
-  
-   // vertical
-   for (let c = 0; c < columns; c++) {
-       for (let r = 0; r < rows - 3; r++) {
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-       }
-   }
-  
-   // anti diagonal
-   for (let r = 0; r < rows - 3; r++) {
-       for (let c = 0; c < columns - 3; c++) {
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board[r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-       }
-   }
-  
-   // diagonal
-   for (let r = 3; r < rows; r++) {
-       for (let c = 0; c < columns - 3; c++) {
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board[r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-       }
-   }
-  }
-
-function setWinner(r, c) {
-    let winner = document.getElementById("winner");
-    if (board[r][c] == playerRed) {
-        winner.innerText = "Red Wins";             
-    } else {
-        winner.innerText = "Yellow Wins";
-    }
-    gameOver = true;
-}
-
 function inizio_turno(idStanza) {
     // Genera un numero casuale tra 0 e 1
     var num = Math.random();
@@ -189,6 +129,70 @@ io.on('connection', socket => {
         }
     }
 
+    function setWinner(r, c) {
+    
+        socket.emit("messaggi-al-client", "hai vinto!!");
+        console.log("OKOKWIN");
+        // if (board[r][c] == playerRed) {
+        //     winner.innerText = "Red Wins";             
+        // } else {
+        //     winner.innerText = "Yellow Wins";
+        // }
+        gameOver = true;
+    }
+
+    function verifica_vincita(board) {
+        let rows = 6;
+        let columns = 7;
+    
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < columns - 3; c++){
+               if (board[r][c] != ' ') {
+                   if (board[r][c] == board[r][c+1] && board[r][c+1] == board[r][c+2] && board[r][c+2] == board[r][c+3]) {
+                       setWinner(r, c);
+                       return;
+                   }
+               }
+            }
+       }
+      
+       // vertical
+       for (let c = 0; c < columns; c++) {
+           for (let r = 0; r < rows - 3; r++) {
+               if (board[r][c] != ' ') {
+                   if (board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]) {
+                       setWinner(r, c);
+                       return;
+                   }
+               }
+           }
+       }
+      
+       // anti diagonal
+       for (let r = 0; r < rows - 3; r++) {
+           for (let c = 0; c < columns - 3; c++) {
+               if (board[r][c] != ' ') {
+                   if (board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board[r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]) {
+                       setWinner(r, c);
+                       return;
+                   }
+               }
+           }
+       }
+      
+       // diagonal
+       for (let r = 3; r < rows; r++) {
+           for (let c = 0; c < columns - 3; c++) {
+               if (board[r][c] != ' ') {
+                   if (board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board[r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]) {
+                       setWinner(r, c);
+                       return;
+                   }
+               }
+           }
+       }
+      }
+
     // Lettura delle stanze attive in modo che altri giocatori possano connettersi senza sapere il codice
     let data_stanze = letturaDati();
     letturaStanzeAttive(data_stanze);
@@ -221,6 +225,10 @@ io.on('connection', socket => {
             if(old_data[x]["nomeStanza"] == nomeStanza){
                 stanzaEsiste = true; 
             }
+            if(old_data[x]["giocatori"]["giocatore1"] == nome_utente){
+                socket.emit("messaggi-al-client", "stesso-utente-creazione");
+                return;
+            }
         }
 
         if(stanzaEsiste){   
@@ -250,8 +258,15 @@ io.on('connection', socket => {
         for(let x in old_data){
             if(old_data[x]["nomeStanza"] == nomeStanzaUnione){
                 stanzaTrovata = true; 
+                if(old_data[x]["giocatori"]["giocatore1"] == nome_ut){
+                    //socket.emit("messaggi-al-client", "stesso-utente");
+                    //return;
+                }
+
                 idStanza = x;
                 clients = io.sockets.adapter.rooms.get(idStanza);
+
+                // DA RIMODIFICARE CON LETTURA DI GIOCATORE 1 E GIOCATORE 2
                 if(clients.size == 2){
                     socket.emit("messaggi-al-client", "stanza-piena");
                     return;
@@ -263,6 +278,9 @@ io.on('connection', socket => {
                 scritturaDati(old_data);
             }
         }
+
+        //var tavola;
+        //tavola[idStanza] = "";
         
         if (stanzaTrovata) {
             socket.join(idStanza);
@@ -279,15 +297,17 @@ io.on('connection', socket => {
         let giocatoreCorrenteID = inizio_turno(idStanza);   
         io.to(giocatoreCorrenteID).emit("giocatore-corrente", idStanza);
     });
+
+      
     
-    socket.on("mossa", (mossa, idStanza) => {  
-        //verifica_vincita();
+    socket.on("mossa", (mossa, idStanza, board) => {  
+        verifica_vincita(board);
+        //console.log(board)
+        
         cambio_turno(idStanza);   
         colore = cambio_colore(colore);
         io.to(idStanza).emit("aggiorna-gioco", mossa, colore)
     });
-
-
 
 
 })

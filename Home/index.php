@@ -59,10 +59,6 @@
 
 <body>
 
-    
-    
-
-
     <!-- HEADER CON LOGO E BOTTONI -->
     <header class="mt-3" id="header">
         <img class="logo" src="../sources/logo-connect4.png"> 
