@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION["utente_id"])) {
+    $utente_id = $_SESSION["utente_id"];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -428,6 +437,19 @@
         })
     </script>
     <script>
+        var utente_id = "<?php echo isset($utente_id) ? $utente_id : ''; ?>";
+        $.ajax({
+            url: "data.php?id=" + utente_id,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                // Manipola i dati ottenuti come desideri
+                console.log(data);
+            },
+            error: function(xhr, status, error) {
+                console.error("Errore nella richiesta AJAX:", status, error);
+            }
+        });
 
     </script>
 </body>
