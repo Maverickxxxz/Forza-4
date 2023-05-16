@@ -17,6 +17,12 @@
       
     }
 
+    if (!isset($_SESSION["utente_id"])) {
+        $nome_utente = "null";
+    }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +82,7 @@
                             <h3><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a><br /></h3>
                             <ul>
                             <li>
-                                <img src="../sources/user2.png" /><a href="../Profile/profile.html">Il mio profilo</a>
+                                <img src="../sources/user2.png" /><a href="../Profile/profile.php">Il mio profilo</a>
                             </li>
                             <li>
                                 <img src="../sources/envelope.png" /><a href="#">Messaggi</a>

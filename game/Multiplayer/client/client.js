@@ -4,9 +4,6 @@ import 'bootstrap';
 import $ from 'jquery';
 
 
-// FUNZIONI PER LA MECCANICA DEL GIOCO
-
-
 //ACQUISIZIONE DEL NOME UTENTE
 var idStanzaClient;
 const valorichiave = window.location.search;
@@ -43,9 +40,6 @@ export function aggiornaGioco(mossa, colore){
       return;
   }
 
-  console.log(board[r][c]);
-
-
   let tile = document.getElementById(r.toString() + "-" + c.toString());
 
   if(colore=="rosso"){
@@ -56,10 +50,8 @@ export function aggiornaGioco(mossa, colore){
     tile.classList.add("yellow-piece");
   }
 
-
   r -= 1; //update the row height for that column
   currColumns[c] = r; //update the array
-
 }
 
 
@@ -74,20 +66,18 @@ export function mossa() {
   }
 
   else{
-    //get coords of that tile clicked
+    // prende le coordinate del click
     let coords = this.id.split("-");
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
 
     mossaRicevuta = [r,c];
-    socket.emit("mossa", mossaRicevuta, idStanzaClient);
-
+    socket.emit("mossa", mossaRicevuta, idStanzaClient); //emette al server le coordinate della mossa ricevuta
   }
-
 }
 
 function setGame() {
-
+  // Funzione che inizializza la tavola da gioco
   board = [];
   currColumns = [5, 5, 5, 5, 5, 5, 5];
   let rows = 6;
@@ -97,9 +87,7 @@ function setGame() {
     for (let r = 0; r < rows; r++) {
       let row = [];
       for (let c = 0; c < columns; c++) {
-          // JS
           row.push(' ');
-          // HTML
           let tile = document.createElement("div");
           tile.id = r.toString() + "-" + c.toString();
           tile.classList.add("tile");
@@ -115,12 +103,10 @@ function setGame() {
 const socket = io('http://localhost:3000');
 
 socket.on('connect', () => {
-    
 
-  const idUtenteElement = document.getElementById("id_utente");
-
-  if (idUtenteElement){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
-    idUtenteElement.innerHTML = nome_utente + `, il tuo id è: ${socket.id}`; //STAMPA DEL PROPRIO ID
+  if (nome_utente == "null"){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
+    alert("Devi prima registrarti per poter giocare!"); //STAMPA DEL PROPRIO ID
+    window.location.href = "http://localhost/Progetto/Home/" ;
   }
 
 
@@ -147,6 +133,12 @@ socket.on('stanza-creata', (idStanza, nomeStanza) => {
   div_crea.style.display = "none";
   div_unisciti.style.display = "none";
   div_attesa.style.display = "block";
+});
+
+socket.on('stanze-attive', (data, giocatore) => {
+  let stanze = document.getElementById("stanze");
+  let aggiungere = "STANZA " + data + " CREATA DA " + giocatore + "<br>";
+  stanze.insertAdjacentHTML("beforeend", aggiungere);
 });
 
 
