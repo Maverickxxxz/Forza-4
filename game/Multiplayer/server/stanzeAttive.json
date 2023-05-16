@@ -1,14 +1,14 @@
 {
-  "0.1g3ybsx84a2": {
-    "nomeStanza": "ciao",
+  "0.8f8ahi3zmwk": {
+    "nomeStanza": "prova333",
     "giocatori": {
-      "socketID_G1": "x5PgyYRiGuMVZdhDAACZ",
-      "giocatore1": "maffo22343",
-      "turnoG1": null,
+      "socketID_G1": "0Nc7-VbWv7U89omAAAAB",
+      "giocatore1": "maffo223433",
+      "turnoG1": false,
       "coloreG1": null,
-      "giocatore2": null,
-      "socketID_G2": null,
-      "turnoG2": null,
+      "giocatore2": "maffo2234333",
+      "socketID_G2": "VJ79rQA3LwkPAsT6AAAF",
+      "turnoG2": true,
       "coloreG2": null
     },
     "gameOver": false
