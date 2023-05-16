@@ -79,7 +79,7 @@ if (isset($_SESSION["utente_id"])) {
 						<div class="img-circle text-center mb-3">
 							<img src="../sources/user2.jpg" alt="Image" class="shadow">
 						</div>
-						<h4 class="text-center">Mattia Maffongelli</h4>
+						<h4 class="text-center" id="nomeu"></h4>
 					</div>
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
@@ -123,7 +123,7 @@ if (isset($_SESSION["utente_id"])) {
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Email:</label>
-								  	<input disabled id="email" type="text" class="form-control" value="kiranacharya287@gmail.com">
+								  	<input disabled id="email" type="text" class="form-control" value="">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -336,7 +336,6 @@ if (isset($_SESSION["utente_id"])) {
             $("#tag").removeAttr('disabled');
             $("#bio").removeAttr('disabled');
             $("#num").removeAttr('disabled');
-            $("#email").removeAttr('disabled');
             $("#old").removeAttr('disabled');
             $("#new").removeAttr('disabled');
             $("#confirm").removeAttr('disabled');
@@ -346,7 +345,6 @@ if (isset($_SESSION["utente_id"])) {
             $aggiorna.removeAttr('disabled');
             $("#nome").prop('disabled',true);
             $("#cognome").prop('disabled',true);
-            $("#email").prop('disabled',true);
             $("#tag").prop('disabled',true);
             $("#bio").prop('disabled',true);
             $("#num").prop('disabled',true);
@@ -438,6 +436,7 @@ if (isset($_SESSION["utente_id"])) {
     </script>
     <script>
         var utente_id = "<?php echo isset($utente_id) ? $utente_id : ''; ?>";
+        var nomeu = "";
         $.ajax({
             url: "data.php?id=" + utente_id,
             type: "GET",
@@ -445,6 +444,11 @@ if (isset($_SESSION["utente_id"])) {
             success: function(data) {
                 // Manipola i dati ottenuti come desideri
                 console.log(data);
+                nomeu = data["nome_utente"];
+                email = data["email"];
+                document.getElementById("email").value = email;
+                document.getElementById("nomeu").textContent = nomeu;
+                
             },
             error: function(xhr, status, error) {
                 console.error("Errore nella richiesta AJAX:", status, error);

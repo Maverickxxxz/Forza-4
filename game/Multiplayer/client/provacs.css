@@ -87,11 +87,11 @@ input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%;
 
 .cod{border: 0; padding: 7px 0; border-bottom: 1px solid #0a1955;}
 
-.container .btn{
+.btn{
     margin-top: 8%;
 }
 
-.container .btn:hover{
+.btn:hover{
     transform: translateX(4px);
     transition: 0.5s ease-in-out;
 }
@@ -119,22 +119,14 @@ input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
     animation: backInUp; /* referring directly to the animation's @keyframe declaration */
     animation-duration: 1s; /* don't forget to set a duration! */
-    display: flex; /*andrà messo none */
+    display: flex;
 }
 
-.list-group{
-    width: 100%;
+.container-sx{
+    background-color: rgba(0, 0, 0, 0);
+    display: grid;
 }
 
-.gioc{
-    margin-left: 17px;
-    margin-bottom: 0;
-}
-
-.stanze .btn{
-    margin-top: 0.5%;
-    margin-right: 2%;
-}
 
  #seconda-pagina h1{
     font-family: Arial, Helvetica, sans-serif;
@@ -144,7 +136,7 @@ input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%;
 
 #seconda-pagina #board {
     height: 540px;
-    width: 585px;
+    width: 630px;
     background-color: blue;
     border: 10px solid navy;
 
@@ -194,4 +186,3 @@ input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%;
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-
