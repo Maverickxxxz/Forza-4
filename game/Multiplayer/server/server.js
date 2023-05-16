@@ -23,7 +23,6 @@ function letturaDati(){
     return data;
 }
 
-
 function scritturaDati(data){
     fs.writeFile('stanzeAttive.json', JSON.stringify(data, null, 2), (err) => {
         if (err) {
@@ -34,7 +33,9 @@ function scritturaDati(data){
     });
 
 }
-/*
+
+
+
 function verifica_vincita() {
     // horizontal
     for (let r = 0; r < rows; r++) {
@@ -93,7 +94,7 @@ function setWinner(r, c) {
         winner.innerText = "Yellow Wins";
     }
     gameOver = true;
-}*/
+}
 
 function inizio_turno(idStanza) {
     // Genera un numero casuale tra 0 e 1
@@ -190,6 +191,26 @@ io.on('connection', socket => {
         console.log(messaggio);
     })
 
+    
+    function letturaStanzeAttive(data){
+        for(let id in data){
+            socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1']);
+        }
+    }
+
+    function eliminaStanzeAttive(data, nomeStanza){
+        for(let id in data){
+            if(id==nomeStanza){
+                
+                socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1']);
+            }
+            
+        }
+    }
+
+    let data_stanze = letturaDati();
+    letturaStanzeAttive(data_stanze);
+
     // Gestione della creazione delle stanze
     socket.on("crea-stanza", (nomeStanza, nome_utente) => {
         const idStanza = Math.random().toString(36);
@@ -229,8 +250,10 @@ io.on('connection', socket => {
                 //AGGIUNTA DEL DATA AL FILE .JSON
                 Object.assign(old_data, data)
                 scritturaDati(old_data); 
+                //letturaStanzeAttive(old_data);
                 socket.join(idStanza); //LA SOCKET SI CONNETTE A QUELLA STANZA
                 socket.emit("stanza-creata", idStanza, nomeStanza);
+                //letturaStanzeAttive();
                 console.log("Stanza " + "'" + nomeStanza + "'"  + " creata correttamente da " + "'" + nome_utente + "'" );
             }
     });

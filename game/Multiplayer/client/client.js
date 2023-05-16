@@ -149,6 +149,13 @@ socket.on('stanza-creata', (idStanza, nomeStanza) => {
   div_attesa.style.display = "block";
 });
 
+socket.on('stanze-attive', (data, giocatore) => {
+  let stanze = document.getElementById("stanze");
+  let aggiungere = "STANZA " + data + " CREATA DA " + giocatore + "<br>";
+  stanze.insertAdjacentHTML("beforeend", aggiungere);
+  //console.log("Stanze attive: ", data, "creata da: ", giocatore);
+});
+
 
 
 // Listener per l'evento "naviga-a-gioco"
