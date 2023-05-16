@@ -44,10 +44,12 @@ export function aggiornaGioco(mossa, colore){
 
   if(colore=="rosso"){
     tile.classList.add("red-piece");
+    board[r][c] = "rosso";
   }
 
   if(colore=="giallo"){
     tile.classList.add("yellow-piece");
+    board[r][c] = "giallo";
   }
 
   r -= 1; //update the row height for that column
@@ -72,7 +74,7 @@ export function mossa() {
     let c = parseInt(coords[1]);
 
     mossaRicevuta = [r,c];
-    socket.emit("mossa", mossaRicevuta, idStanzaClient); //emette al server le coordinate della mossa ricevuta
+    socket.emit("mossa", mossaRicevuta, idStanzaClient, board); //emette al server le coordinate della mossa ricevuta
   }
 }
 
@@ -96,6 +98,9 @@ function setGame() {
       }
       board.push(row);
   }
+
+
+
 }
 
 
@@ -116,8 +121,20 @@ socket.on("messaggi-al-client", (messaggio) =>{
     alert("Questo nome è già stato utilizzato! Scegline un altro.");
   }
 
+  if(messaggio === "hai vinto!!"){
+    alert("Hai vinto!!");
+  }
+
   if(messaggio === "stanza-piena"){
     alert("Questa stanza è già piena!");
+  }
+
+  if(messaggio === "stesso-utente"){
+    alert("Hai già creato una stanza! Non puoi unirti ad un'altra.");
+  }
+
+  if(messaggio === "stesso-utente-creazione"){
+    alert("Hai già creato una stanza! Non puoi crearne un'altra.");
   }
   
 });
@@ -135,22 +152,21 @@ socket.on('stanza-creata', (idStanza, nomeStanza) => {
   div_attesa.style.display = "block";
 });
 
-socket.on('stanze-attive', (data, giocatore) => {
+socket.on('stanze-attive', (stanza, giocatore) => {
   let stanze = document.getElementById("stanze");
-  let aggiungere = "STANZA " + data + " CREATA DA " + giocatore + "<br>";
+  let aggiungere = "STANZA " + stanza + " CREATA DA " + giocatore + "<br>";
   stanze.insertAdjacentHTML("beforeend", aggiungere);
 });
-
 
 
 // Listener per l'evento "naviga-a-gioco"
 socket.on("naviga-a-gioco", () => {
   const primaPagina = document.getElementById("prima-pagina");
   const secondaPagina = document.getElementById("seconda-pagina");
-   // Nascondo la prima pagina
-   primaPagina.style.display = "none";  
-   // Mostro la seconda pagina
-   secondaPagina.style.display = "block";
+  // Nascondo la prima pagina
+  primaPagina.style.display = "none";  
+  // Mostro la seconda pagina
+  secondaPagina.style.display = "block";
 
   setGame();
 });
