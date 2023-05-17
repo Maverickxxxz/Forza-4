@@ -29,6 +29,10 @@ let currColumns = [5, 5, 5, 5, 5, 5, 5];
 let mossaRicevuta;
 let colore_client;
 
+export function uniscitiStanzaSotto(){
+
+}
+
 export function aggiornaGioco(mossa, colore){
 
   colore_client = colore; // COLORE ROSSO!! ALL'INIZIO PER TUTTI E DUE I CLIENT
@@ -124,7 +128,7 @@ socket.on("messaggi-al-client", (messaggio) =>{
   }
 
   if(messaggio === "hai vinto!!"){
-    //alert("Hai vinto!!");
+    alert("Hai vinto!!");
     console.log("HAI VINTO!");
   }
 
@@ -154,10 +158,44 @@ socket.on('stanza-creata', (idStanza, nomeStanza) => {
   div_attesa.style.display = "flex";
 });
 
-socket.on('stanze-attive', (stanza, giocatore) => {
-  let stanze = document.getElementById("stanze");
-  let aggiungere = "STANZA " + stanza + " CREATA DA " + giocatore + "<br>";
-  stanze.insertAdjacentHTML("beforeend", aggiungere);
+socket.on('stanze-attive', (stanza, creatore, numero) => {
+  let stanze_div = document.getElementById("stanze");
+  let ol_html = document.getElementById("creatore_lista");
+  //ol_html.className = "list-group list-group";
+
+  let nuovaStanza = document.createElement('li');
+  nuovaStanza.className = "list-group-item d-flex justify-content-between align-items-start";
+
+  if(numero==2){
+    nuovaStanza.innerHTML = `
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">
+        <i class="fa-solid fa-house" style="margin-right: 10px; margin-left: -10px;"></i>${stanza}
+      </div>
+      <p class="gioc">Creata da ${creatore}</p>
+    </div>
+
+   
+    <i class="fa-solid fa-user" style="margin-top:1.3%; margin-right: 0.8%; color: #132981;"></i>
+    <span class="badge bg-primary rounded-pill" style="margin-top: 1.2%">${numero}</span>`;
+  }
+
+  else{
+    nuovaStanza.innerHTML = `
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">
+        <i class="fa-solid fa-house" style="margin-right: 10px; margin-left: -10px;"></i>${stanza}
+      </div>
+      <p class="gioc">Creata da ${creatore}</p>
+    </div>
+
+    <button class="btn btn-outline-danger" type="button" onclick="import('./client.js').then(module => module.uniscitiStanzaSotto())">Unisciti</button>
+    <i class="fa-solid fa-user" style="margin-top:1.3%; margin-right: 0.8%; color: #132981;"></i>
+    <span class="badge bg-primary rounded-pill" style="margin-top: 1.2%">${numero}</span>`;
+  }
+
+  ol_html.appendChild(nuovaStanza);
+  
 });
 
 

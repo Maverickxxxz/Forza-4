@@ -1,28 +1,27 @@
 {
-<<<<<<< HEAD
-  "0.oe0oe6ia8p": {
+  "0.75bt7ngj6sv": {
     "nomeStanza": "asd",
     "giocatori": {
-      "socketID_G1": "mbLiE-BZd9wJ4gk4AAAL",
+      "socketID_G1": "vGUgPYVr4IZgGa8_AAAJ",
       "giocatore1": "prova45",
       "turnoG1": false,
-      "coloreG1": null,
-      "giocatore2": "prova4588",
-      "socketID_G2": "udR7KA82zPRbfb8QAAAJ",
+      "giocatore2": "prova4589888809",
+      "socketID_G2": "L5OI16XOyHgGABFRAAAL",
       "turnoG2": true,
-=======
-  "0.jc4mdolz01": {
-    "nomeStanza": "ciao",
+      "numero": 2
+    },
+    "gameOver": false
+  },
+  "0.js5oznld65n": {
+    "nomeStanza": "we",
     "giocatori": {
-      "socketID_G1": "R0vs2BqD-K9tpK6LAAAB",
-      "giocatore1": "maaa",
-      "turnoG1": true,
-      "coloreG1": null,
-      "giocatore2": "maaa2",
-      "socketID_G2": "kM18Wb4Ne-Pf0cquAAAD",
-      "turnoG2": false,
->>>>>>> 1f49e4cab36e338c911f8a5dbe02660da2212224
-      "coloreG2": null
+      "socketID_G1": "8d7S0l_-k7s_aGruAAAN",
+      "giocatore1": "prova4589888",
+      "turnoG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "numero": 1
     },
     "gameOver": false
   }

@@ -29,8 +29,6 @@ function scritturaDati(data){
     });
 }
 
-
-
 function inizio_turno(idStanza) {
     // Genera un numero casuale tra 0 e 1
     var num = Math.random();
@@ -84,7 +82,6 @@ function cambio_turno(idStanza){
                 data[id]['giocatori']['turnoG2'] = false;
                 giocatoreCorrente = data[id]['giocatori']['socketID_G1'];
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G2'];
-            //     io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
                  io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
              }
 
@@ -93,7 +90,6 @@ function cambio_turno(idStanza){
                 data[id]['giocatori']['turnoG2'] = true;
                 giocatoreCorrente = data[id]['giocatori']['socketID_G2'];
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G1'];
-                // io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza);
                 io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);  
             }
         }
@@ -111,7 +107,7 @@ io.on('connection', socket => {
     
     function letturaStanzeAttive(data){
         for(let id in data){
-            socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1']);
+            socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1'], data[id]['giocatori']['numero']);
         }
     }
 
@@ -202,11 +198,10 @@ io.on('connection', socket => {
                     socketID_G1: socket.id,
                     giocatore1: nome_utente,
                     turnoG1: null,
-                    coloreG1: null,
                     giocatore2: null,
                     socketID_G2: null,
                     turnoG2: null,
-                    coloreG2: null,
+                    numero: 1,
                 },
                 gameOver: false,
             }
@@ -252,6 +247,7 @@ io.on('connection', socket => {
         for(let x in old_data){
             if(old_data[x]["nomeStanza"] == nomeStanzaUnione){
                 stanzaTrovata = true; 
+
                 if(old_data[x]["giocatori"]["giocatore1"] == nome_ut){
                     //socket.emit("messaggi-al-client", "stesso-utente");
                     //return;
@@ -261,10 +257,12 @@ io.on('connection', socket => {
                 clients = io.sockets.adapter.rooms.get(idStanza);
 
                 // DA RIMODIFICARE CON LETTURA DI GIOCATORE 1 E GIOCATORE 2
-                if(clients.size == 2){
+                if(old_data[x]["giocatori"]["numero"] == 2){
                     socket.emit("messaggi-al-client", "stanza-piena");
                     return;
                 }
+
+                old_data[x]["giocatori"]["numero"] = 2;
                 old_data[x]["giocatori"]["giocatore2"] = nome_ut;
                 old_data[x]["giocatori"]["socketID_G2"] = socket.id;
                 creatore_stanza = old_data[x]["giocatori"]["giocatore1"];
