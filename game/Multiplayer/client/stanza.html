@@ -22,10 +22,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- ICONE -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
 
 
 
@@ -103,16 +109,86 @@
             </div>
         </div>
         <div class="stanze" id="stanze">
-            <ol id="creatore_lista" class="list-group list-group">
-                 </ol>
+            <div class="cont-sx">
+                <div id="header">
+                    <h1>STANZE ATTIVE:</h1>
+                </div>
+                <ol id="creatore_lista" class="list-group list-group mt-3">
+                </ol>
+            </div>
+            <div class="cont-dx">
+                <div class="cont-cl">
+                    <div id="header">
+                        <h1>CLASSIFICA:</h1>
+                    </div>
+                      <div id="leaderboard">
+                        <div class="ribbon"></div>
+                        <table>
+                          <tr>
+                            <td class="number">1</td>
+                            <td class="name">Mattia Maffo</td>
+                            <td class="points">
+                              258.244 <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="number">2</td>
+                            <td class="name">Giulio Di Gregorio</td>
+                            <td class="points">258.242</td>
+                          </tr>
+                          <tr>
+                            <td class="number">3</td>
+                            <td class="name">Marika Fuccio</td>
+                            <td class="points">258.223</td>
+                          </tr>
+                          <tr>
+                            <td class="number">4</td>
+                            <td class="name">Andrea Lacava</td>
+                            <td class="points">258.212</td>
+                          </tr>
+                          <tr>
+                            <td class="number">5</td>
+                            <td class="name">Alessio Croce</td>
+                            <td class="points">258.208</td>
+                          </tr>
+                          <tr>
+                            <td class="number">6</td>
+                            <td class="name">Simone Di Cocco</td>
+                            <td class="points">252.208</td>
+                          </tr>
+                          <tr>
+                            <td class="number">7</td>
+                            <td class="name">Noemi Giustini</td>
+                            <td class="points">252.100</td>
+                          </tr>
+                        </table>
+                      </div>
+                </div>
+                
+            </div>
         </div>
     </div>
          
 
     <div id="seconda-pagina" style="display: none;">   
-            <h1>Connect 4</h1>
             <h2 id="winner"></h2>
-            <div id="board"></div>
+            <div id="bord" class="bord">
+                <h1>E' il turno di <span class="nome">_nome_</span></h1>
+                <div id="board"></div>
+            </div>
+
+            <div class="mosse">
+                <h1>MOSSE ESEGUITE:</h1>
+                <div class="listamosse">
+                    <ul>
+                        <li>MOSSA 1</li>
+                        <li>MOSSA 2</li>
+                        <li>MOSSA 3</li>
+                        <li>MOSSA 4</li>
+                        <li>MOSSA 5</li>
+                    </ul>
+                </div>
+            </div>
     </div>
 </body>
 </html>

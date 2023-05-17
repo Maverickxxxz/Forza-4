@@ -170,30 +170,30 @@ socket.on('stanze-attive', (stanza, creatore, numero) => {
 
   if(numero==2){
     nuovaStanza.innerHTML = `
-    <div class="ms-2 me-auto">
+    <div class="ms-2 me-auto mt-3">
       <div class="fw-bold">
-        <i class="fa-solid fa-house" style="margin-right: 10px; margin-left: -10px;"></i>${stanza}
+        <i class="fa-solid fa-house fa-xl" style="margin-right: 10px; margin-left: -10px;"></i>${stanza}
       </div>
       <p class="gioc">Creata da ${creatore}</p>
     </div>
 
    
-    <i class="fa-solid fa-user" style="margin-top:1.3%; margin-right: 0.8%; color: #132981;"></i>
-    <span class="badge bg-primary rounded-pill" style="margin-top: 1.2%">${numero}</span>`;
+    <i class="fa-solid fa-user" style="margin-top:6.2%; margin-right: 0.8%; color: #132981;"></i>
+    <span class="badge bg-primary rounded-pill" style="margin-top: 5.8%">${numero}</span>`;
   }
 
   else{
     nuovaStanza.innerHTML = `
-    <div class="ms-2 me-auto">
+    <div class="ms-2 me-auto mt-3">
       <div class="fw-bold">
-        <i class="fa-solid fa-house" style="margin-right: 10px; margin-left: -10px;"></i>${stanza}
+        <i class="fa-solid fa-house fa-xl" style="margin-right: 10px; margin-left: -10px;"></i>${stanza}
       </div>
       <p class="gioc">Creata da ${creatore}</p>
     </div>
 
     <button id="${stanza}" class="btn btn-outline-danger" type="button" onclick="import('./client.js').then(module => module.uniscitiStanzaSotto('${stanza}'))">Unisciti</button>
-    <i class="fa-solid fa-user" style="margin-top:1.3%; margin-right: 0.8%; color: #132981;"></i>
-    <span class="badge bg-primary rounded-pill" style="margin-top: 1.2%">${numero}</span>`;
+    <i class="fa-solid fa-user" style="margin-top:6.2%; margin-right: 0.8%; color: #132981;"></i>
+    <span class="badge bg-primary rounded-pill" style="margin-top: 5.8%">${numero}</span>`;
   }
 
   ol_html.appendChild(nuovaStanza);
@@ -208,7 +208,7 @@ socket.on("naviga-a-gioco", () => {
   // Nascondo la prima pagina
   primaPagina.style.display = "none";  
   // Mostro la seconda pagina
-  secondaPagina.style.display = "block";
+  secondaPagina.style.display = "grid";
 
   setGame();
 });
