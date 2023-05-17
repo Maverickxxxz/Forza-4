@@ -133,7 +133,7 @@ socket.on("messaggi-al-client", (messaggio) =>{
 
   if(messaggio === "hai vinto!!"){
     alert("Hai vinto!!");
-    console.log("HAI VINTO!");
+    window.location.href = "http://localhost:8080/stanza.html?nome_utente=" + acquisizione_utente();
   }
 
   if(messaggio === "stanza-piena"){

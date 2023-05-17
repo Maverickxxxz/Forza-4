@@ -8,6 +8,7 @@ const io = require('socket.io')(3000, {
 //MAP con nomeStanza e idStanza
 var fs = require('fs');
 
+
 fs.writeFile('stanzeAttive.json', "{}", (err) => {
     if (err) {
         console.error('Errore durante la scrittura del file:', err);
@@ -111,18 +112,19 @@ io.on('connection', socket => {
         }
     }
 
+    //Elimina la stanza una volta che il gioco finisce
     function eliminaStanzeAttive(data, nomeStanza){
         for(let id in data){
-            if(id==nomeStanza){    
-                socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1']);
+            if(id==nomeStanza){        
+                delete data[id];
+                scritturaDati(data);
+                console.log(data);
             }         
         }
     }
 
     function setWinner(r, c) {
     
-        
-        console.log("OKOKWIN");
         // if (board[r][c] == playerRed) {
         //     winner.innerText = "Red Wins";             
         // } else {
@@ -203,7 +205,6 @@ io.on('connection', socket => {
                     turnoG2: null,
                     numero: 1,
                 },
-                gameOver: false,
             }
         }
 
@@ -241,9 +242,7 @@ io.on('connection', socket => {
         let stanzaTrovata = false;
         let idStanza;
         let creatore_stanza;
-
-        console.log("NS:", nomeStanzaUnione, " ---- ", nome_ut);
-        
+     
         for(let x in old_data){
             if(old_data[x]["nomeStanza"] == nomeStanzaUnione){
                 stanzaTrovata = true; 
@@ -293,8 +292,9 @@ io.on('connection', socket => {
         
         io.to(idStanza).emit("aggiorna-gioco", mossa, colore);
 
-        if(verifica_vincita(board)){
+        if(verifica_vincita(board)){      
             socket.emit("messaggi-al-client", "hai vinto!!");
+            eliminaStanzeAttive(letturaDati(), idStanza)
             return;
         }
         
