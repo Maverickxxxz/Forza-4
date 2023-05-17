@@ -241,8 +241,8 @@ io.on('connection', socket => {
         let stanzaTrovata = false;
         let idStanza;
         let creatore_stanza;
-        let clients;
-        
+
+        console.log("NS:", nomeStanzaUnione, " ---- ", nome_ut);
         
         for(let x in old_data){
             if(old_data[x]["nomeStanza"] == nomeStanzaUnione){
@@ -254,9 +254,7 @@ io.on('connection', socket => {
                 }
 
                 idStanza = x;
-                clients = io.sockets.adapter.rooms.get(idStanza);
 
-                // DA RIMODIFICARE CON LETTURA DI GIOCATORE 1 E GIOCATORE 2
                 if(old_data[x]["giocatori"]["numero"] == 2){
                     socket.emit("messaggi-al-client", "stanza-piena");
                     return;

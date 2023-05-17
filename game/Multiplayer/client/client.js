@@ -6,32 +6,36 @@ import $ from 'jquery';
 
 //ACQUISIZIONE DEL NOME UTENTE
 var idStanzaClient;
-const valorichiave = window.location.search;
-const urlParams = new URLSearchParams(valorichiave);
-const nome_utente = urlParams.get("nome_utente"); //RITORNA IL PRIMO VALORE NEI PARAMETRI DELL'URL 
-
+export function acquisizione_utente(){
+  const valorichiave = window.location.search;
+  const urlParams = new URLSearchParams(valorichiave);
+  const nome_utente = urlParams.get("nome_utente"); //RITORNA IL PRIMO VALORE NEI PARAMETRI DELL'URL 
+  return nome_utente;
+}
 
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {
   const nomeStanza = document.getElementById("nomeStanza").value;
-  socket.emit("crea-stanza", nomeStanza, nome_utente); //MANDA AL SERER IL NOME DELLA STANZA
+  socket.emit("crea-stanza", nomeStanza, acquisizione_utente()); //MANDA AL SERER IL NOME DELLA STANZA
 }
 
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Unisciti"
 export function uniscitiStanza() {
   const nomeStanzaUnione = document.getElementById("nomeStanzaUnione").value;
-  socket.emit("unisciti-stanza", nomeStanzaUnione, nome_utente);
+  socket.emit("unisciti-stanza", nomeStanzaUnione, acquisizione_utente());
 }
+
+export function uniscitiStanzaSotto(nomeStanzaUnione){
+  console.log(nomeStanzaUnione);
+  socket.emit("unisciti-stanza", nomeStanzaUnione, acquisizione_utente());
+}
+
 
 let giocatoreCorrente = false;
 let board = [];
 let currColumns = [5, 5, 5, 5, 5, 5, 5];
 let mossaRicevuta;
 let colore_client;
-
-export function uniscitiStanzaSotto(){
-
-}
 
 export function aggiornaGioco(mossa, colore){
 
@@ -115,7 +119,7 @@ const socket = io('http://localhost:3000');
 
 socket.on('connect', () => {
 
-  if (nome_utente == "null"){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
+  if (acquisizione_utente() == "null"){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
     alert("Devi prima registrarti per poter giocare!"); //STAMPA DEL PROPRIO ID
     window.location.href = "http://localhost/Progetto/Home/" ;
   }
@@ -159,9 +163,7 @@ socket.on('stanza-creata', (idStanza, nomeStanza) => {
 });
 
 socket.on('stanze-attive', (stanza, creatore, numero) => {
-  let stanze_div = document.getElementById("stanze");
   let ol_html = document.getElementById("creatore_lista");
-  //ol_html.className = "list-group list-group";
 
   let nuovaStanza = document.createElement('li');
   nuovaStanza.className = "list-group-item d-flex justify-content-between align-items-start";
@@ -189,7 +191,7 @@ socket.on('stanze-attive', (stanza, creatore, numero) => {
       <p class="gioc">Creata da ${creatore}</p>
     </div>
 
-    <button class="btn btn-outline-danger" type="button" onclick="import('./client.js').then(module => module.uniscitiStanzaSotto())">Unisciti</button>
+    <button id="${stanza}" class="btn btn-outline-danger" type="button" onclick="import('./client.js').then(module => module.uniscitiStanzaSotto('${stanza}'))">Unisciti</button>
     <i class="fa-solid fa-user" style="margin-top:1.3%; margin-right: 0.8%; color: #132981;"></i>
     <span class="badge bg-primary rounded-pill" style="margin-top: 1.2%">${numero}</span>`;
   }
