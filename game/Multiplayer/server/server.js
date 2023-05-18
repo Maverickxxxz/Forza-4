@@ -134,8 +134,13 @@ io.on('connection', socket => {
                 }
             }
 
-            delete data[x];
-            scritturaDati(data);
+            if(socket.id==data[x]["giocatori"]["socketID_G2"] || socket.id ==data[x]["giocatori"]["socketID_G1"]){
+                delete data[x];
+                scritturaDati(data);
+            }
+
+            
+            
             letturaStanzeAttive(data);
 
             break;
@@ -258,10 +263,6 @@ io.on('connection', socket => {
         if (!già_connesso) {
             giocatori_attivi[socket_id] = id;
         }
-
-        
-
-        
         
     });
 
