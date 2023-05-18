@@ -33,7 +33,7 @@ function query_classifica(callback){
 
 
 function aggiornamento(nome_utente, callback){
-  con.query(`UPDATE utente SET puntiClassifica = puntiClassifica + 1 where nome_utente = "${nome_utente}"`, function(err, result) {
+  con.query(`UPDATE utente SET puntiClassifica = puntiClassifica + 3 where nome_utente = "${nome_utente}"`, function(err, result) {
     if (err) throw err;
     callback(result);
   })

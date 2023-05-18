@@ -13,7 +13,7 @@ export function acquisizione_id(){
   return id_;
 }
 
-
+let in_attesa = false;
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {
   const nomeStanza = document.getElementById("nomeStanza").value;
@@ -123,13 +123,14 @@ socket.on('connect', () => {
   let id = acquisizione_id();
   let condizione = false;
 
+  // CONTROLLA SE L'ID DELL'UTENTE ESISTE NEL DATABASE
   socket.on("utenti", (result) => {
     
     for(let x in result){
       if(id == x){
         utente = result[x];
         condizione = true;
-        socket.emit("sono-connesso", id);
+        socket.emit("sono-connesso", socket.id, id);
       }
     }
 
@@ -142,7 +143,7 @@ socket.on('connect', () => {
 
   socket.on("doppia-connessione", ()=>{
     alert("Non puoi connetterti da due pagine diverse, chiudine una!");
-    //window.location.href = "http://localhost/Progetto/Home/index.php";
+    window.location.href = "http://localhost/Progetto/Home/index.php";
   });
 
   
@@ -165,12 +166,22 @@ socket.on('connect', () => {
     if(messaggio === "stesso-utente-creazione"){
       alert("Hai già creato una stanza! Non puoi crearne un'altra.");
     }
+
+    if(messaggio == "sbagliata"){
+      alert("La stanza non esiste!")
+    }
     
   });
 
 
 //RICEZIONE DEI MESSAGGI DAL SERVER DI AVVENUTA CREAZIONE STANZA.
 socket.on('stanza-creata', (idStanza, nomeStanza) => {
+  in_attesa = true;
+
+  if(in_attesa){
+    let stanze = document.getElementById("stanze");
+    stanze.style.display = "none";
+  }
   document.getElementById("nomeStanzaUnione").value = nomeStanza;
   let div_crea = document.getElementById("crea");
   let div_unisciti = document.getElementById("unisciti");
@@ -264,6 +275,11 @@ socket.on('classifica', (risultato) => {
   top6.textContent = array[5];
   const punto6 = document.getElementById("punto6");
   punto6.textContent = classifica[array[5]];
+});
+
+socket.on("avversario-disconnesso", () =>{
+  alert("Il tuo avversario si è disconnesso :(");
+  window.location.href = "http://localhost:8080/stanza.html?id=" + acquisizione_id();
 });
 
 

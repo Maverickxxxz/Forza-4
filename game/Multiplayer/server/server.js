@@ -105,9 +105,44 @@ function cambio_turno(idStanza){
 
 
 
-let giocatori_attivi = [];
+let giocatori_attivi = {};
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
+
+    socket.on("disconnect", () => {
+        let data = letturaDati();
+        for(let x in data){
+            if(data[x]["giocatori"]["socketID_G1"] == socket.id){
+                if(data[x]["giocatori"]["numero"] == 2){
+                    let socketG2 = data[x]["giocatori"]["socketID_G2"];
+                    delete data[x];
+                    io.to(socketG2).emit("avversario-disconnesso");          
+                    scritturaDati(data);
+                    letturaStanzeAttive(data);
+                    break;
+                }
+            }
+            if(data[x]["giocatori"]["socketID_G2"] == socket.id){
+                
+                if(data[x]["giocatori"]["numero"] == 2){
+                    let socketG1 = data[x]["giocatori"]["socketID_G1"];
+                    delete data[x];
+                    io.to(socketG1).emit("avversario-disconnesso");       
+                    scritturaDati(data);
+                    letturaStanzeAttive(data);
+                    break;
+                }
+            }
+
+            delete data[x];
+            scritturaDati(data);
+            letturaStanzeAttive(data);
+
+            break;
+        }
+        delete giocatori_attivi[socket.id];
+      });
+    
 
 
     function letturaUtenti(){
@@ -209,21 +244,23 @@ io.on('connection', socket => {
         return coppia;
     }
 
-    socket.on("sono-connesso", (id) =>{
+    socket.on("sono-connesso", (socket_id, id) =>{
+        
+        console.log("ID", id);
+        let già_connesso = false;     
 
-        let già_connesso = false;
-
-        for (let i = 0; i < giocatori_attivi.length; i++) {
-        if (giocatori_attivi[i] === id) {   
-            socket.emit("doppia-connessione");  
-            già_connesso = true;
-            break; // Esce dal ciclo se l'ID è già presente
+        for(let x in giocatori_attivi){
+            if (giocatori_attivi[x] === id) {   
+                socket.emit("doppia-connessione");  
+                già_connesso = true;
+            }        
         }
-    }
 
-    if (!già_connesso) {
-        giocatori_attivi.push(id);
-    }
+        if (!già_connesso) {
+            giocatori_attivi[socket_id] = id;
+        }
+
+        console.log(giocatori_attivi);
         
 
         
@@ -240,6 +277,7 @@ io.on('connection', socket => {
     // Gestione della creazione delle stanze
     socket.on("crea-stanza", (nomeStanza, nome_utente) => {
         const idStanza = Math.random().toString(36);
+        let numero_g = 1;
        
         let data = {
             [idStanza]: {
@@ -251,7 +289,7 @@ io.on('connection', socket => {
                     giocatore2: null,
                     socketID_G2: null,
                     turnoG2: null,
-                    numero: 1,
+                    numero: numero_g,
                 },
             }
         }
@@ -280,6 +318,7 @@ io.on('connection', socket => {
                 socket.join(idStanza); //LA SOCKET SI CONNETTE A QUELLA STANZA
                 socket.emit("stanza-creata", idStanza, nomeStanza);
                 console.log("Stanza " + "'" + nomeStanza + "'"  + " creata correttamente da " + "'" + nome_utente + "'" );
+                io.emit("stanze-attive", nomeStanza, nome_utente, numero_g)
             }
     });
 
@@ -320,11 +359,18 @@ io.on('connection', socket => {
             socket.join(idStanza);
             console.log("'" + nome_ut + "'" + " si è connesso correttamente alla stanza di " +  "'" + creatore_stanza + "'");
             io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);     
-
             io.to(creatore_stanza_ID).emit("creatore", idStanza);
    
         } else {
-            socket.emit("stanza-sbagliata", nomeStanzaUnione);
+            socket.emit("messaggi-al-client", "sbagliata");
+            let data = letturaDati();
+            for(x in data){
+                if(x==nomeStanzaUnione){
+                delete data[x];
+                break;
+                }  
+            }
+            
         }
     });
 
@@ -368,4 +414,3 @@ io.on('connection', socket => {
 
 
 })
-
