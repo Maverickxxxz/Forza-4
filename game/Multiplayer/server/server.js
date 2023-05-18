@@ -110,6 +110,16 @@ function cambio_turno(idStanza){
 
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
+
+    function letturaUtenti(){
+        db.utenti(function(result) {
+            
+            console.log(result);
+            //socket.emit("classifica", result);
+            });
+    }
+
+    letturaUtenti();
     
     function letturaStanzeAttive(data){
         for(let id in data){
@@ -122,8 +132,6 @@ io.on('connection', socket => {
             socket.emit("classifica", result);
             });
     }
-
-   
 
     
     //Elimina la stanza una volta che il gioco finisce

@@ -8,23 +8,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $sql = sprintf("SELECT * FROM utente
                     WHERE email = '%s'",
-                   $mysqli->real_escape_string($_POST["email_l"]));
+                    $mysqli->real_escape_string($_POST["email_l"])  //recupera la mail inserita dall'utente  
+                   );     
     
     $result = $mysqli->query($sql); //si fa partire la query sql e la inizializziamo in result
     
-    $user = $result->fetch_assoc(); //se trovata una corrispondenza assegniamo a user il result
+    $utente = $result->fetch_assoc(); //se trovata una corrispondenza assegniamo a user il result
     
-    if ($user) { // contiene dati validi? se sì, verifica se è uguale la password
+    if ($utente) { // contiene dati validi? se sì, verifica se è uguale la password
         
-        if (password_verify($_POST["password_l"], $user["password_hash"])) {
+        if (password_verify($_POST["password_l"], $utente["password_hash"])) {
             
             session_start();
             
             session_regenerate_id();
             
-            $_SESSION["utente_id"] = $user["id"]; //memorizziamo nella sessione corrente l'id dell'utente
+            $_SESSION["utente_id"] = $utente["ID"]; //memorizziamo nella sessione corrente l'id dell'utente
             
-            header("Location: signin-success.html");
+            header("Location: ../Home/index.php");
             exit;
         }
     }

@@ -1,7 +1,6 @@
 import io from "socket.io-client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import $ from 'jquery';
 
 var idStanzaClient;
 
@@ -13,7 +12,6 @@ export function acquisizione_utente(){
   return nome_utente;
 }
 
-let nome_utente =  acquisizione_utente();
 
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {

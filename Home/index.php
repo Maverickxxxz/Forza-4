@@ -14,6 +14,7 @@
         $utente = $result->fetch_assoc();
 
         $nome_utente = $utente["nome_utente"];
+        $id = $utente["ID"];
       
     }
 
@@ -40,7 +41,6 @@
     <link rel="stylesheet" type="text/css" href="../Home/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./home.js" type="text/javascript"></script>
-    <script src="./utente.js" type="module"></script>
 
     <link rel="stylesheet" href="../Profile/fontawesome/css/all.css">
 
@@ -133,7 +133,7 @@
                                 </a>
                             </button>
                             <button class="btn" id="multiplayer">
-                                <a href="http://localhost:8080/stanza.html?nome_utente=<?=urlencode($nome_utente) ?>">
+                                <a href="http://localhost:8080/stanza.html?id=<?=urlencode($id) ?>">
                                     Multiplayer
                                 </a>
                             </button>
