@@ -123,26 +123,44 @@ socket.on('connect', () => {
     window.location.href = "http://localhost/Progetto/Home/" ;
   }
 
+  socket.on("utenti-registrati", (utenti) =>{
 
-socket.on("messaggi-al-client", (messaggio) =>{
+    let utente_esistente = false;
 
-  if(messaggio === "errore_creazione_nome"){
-    alert("Questo nome è già stato utilizzato! Scegline un altro.");
-  }
+    for(let i = 0; i < utenti.length; i++){
 
-  if(messaggio === "stanza-piena"){
-    alert("Questa stanza è già piena!");
-  }
+       if(utenti[i]==acquisizione_utente()){
+         utente_esistente = true;
+         break;
+       }
+    }
 
-  if(messaggio === "stesso-utente"){
-    alert("Hai già creato una stanza! Non puoi unirti ad un'altra.");
-  }
+    if(!utente_esistente){
+      alert("Questo utente non è registrato.");
+      window.location.href = "http://localhost/Progetto/Home/"
+    }
+  });
 
-  if(messaggio === "stesso-utente-creazione"){
-    alert("Hai già creato una stanza! Non puoi crearne un'altra.");
-  }
-  
-});
+
+  socket.on("messaggi-al-client", (messaggio) =>{
+
+    if(messaggio === "errore_creazione_nome"){
+      alert("Questo nome è già stato utilizzato! Scegline un altro.");
+    }
+
+    if(messaggio === "stanza-piena"){
+      alert("Questa stanza è già piena!");
+    }
+
+    if(messaggio === "stesso-utente"){
+      alert("Hai già creato una stanza! Non puoi unirti ad un'altra.");
+    }
+
+    if(messaggio === "stesso-utente-creazione"){
+      alert("Hai già creato una stanza! Non puoi crearne un'altra.");
+    }
+    
+  });
 
 
 //RICEZIONE DEI MESSAGGI DAL SERVER DI AVVENUTA CREAZIONE STANZA.
@@ -194,8 +212,7 @@ socket.on('stanze-attive', (stanza, creatore, numero) => {
   
 });
 
-socket.on('risultato', (risultato) => {
-  //console.log(risultato);
+socket.on('classifica', (risultato) => {
   let classifica = {}
   let array = [];
   let contatore = 0;
