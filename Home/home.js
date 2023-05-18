@@ -3,7 +3,6 @@ var cont = 0;
 
 window.onload = function(){
     let nomeUtente = document.getElementById("nome_utente");
-    console.log(nomeUtente);
     if (!nomeUtente) {
         document.getElementById('gioca_ora').disabled = true;
 

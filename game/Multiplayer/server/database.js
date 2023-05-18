@@ -37,8 +37,23 @@ function aggiornamento(nome_utente, callback){
   })
 }
 
+function utenti_registrati(callback){
+  con.query(`select nome_utente from utente`, function(err, result) {
+    if (err) throw err;
+
+    let utenti = [];
+    for(let i = 0; i < result.length;i++){
+      let utente = result[i].nome_utente;
+      utenti.push(utente);
+    }
+    callback(utenti);
+  });
+}
+
+
 module.exports = {
   connect: connectToDatabase,
   classifica: query_classifica,
   update: aggiornamento,
+  utenti: utenti_registrati
 }
