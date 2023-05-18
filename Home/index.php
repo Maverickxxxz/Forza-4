@@ -46,11 +46,14 @@
     <!-- FRAMEWORK CSS ESTERNI -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <!-- FONT SCARICATI DA GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <link rel="stylesheet" href="mystyle.css">
     
@@ -66,7 +69,7 @@
         <ul class="navlist">
             <li><a id="elem1" href="index.php" class="active">Home</a></li>
             <li><a id="elem2" href="#img-down" class="">Come si gioca</a></li>
-            <li><a id="elem3" href="#" class="">Classifica</a></li>
+            <li><a id="elem3" href="#sezione4" class="">Classifica</a></li>
 
             <?php if(isset($utente)):?>
                 <li>
@@ -129,7 +132,7 @@
                                 </a>
                             </button>
                             <button class="btn" id="multiplayer">
-                                <a href="http://localhost:8080/stanza.html?nome_utente=<?=urlencode($nome_utente) ?>">Gioca
+                                <a href="http://localhost:8080/stanza.html?nome_utente=<?=urlencode($nome_utente) ?>">
                                     Multiplayer
                                 </a>
                             </button>
@@ -151,7 +154,7 @@
         </div>
     </section>
 
-    <script></script>
+    <!-- COME SI GIOCA -->
 
     <section id="img-down" class="how">
         <div class="container text-center text-md-left mt-auto mb-auto" data-aos="fade-up">
@@ -179,11 +182,71 @@
                     </div>
                 </div>
             </div>
-            <!-- <a href="#header" class="btn-get-started scrollto">GIOCA ORA!</a>-->
         </div>
     </section>
 
-    <footer id="#sezione3">
+    <!-- CLASSIFICA -->
+
+    <div id="sezione4">
+        <div class="testocl">
+            <h1>CLASSIFICA:</h1>
+        </div>
+        <div class="crown"><img src="../sources/crown.png" class="coronaimg" alt=""></div>
+        <div class="contcl">
+            <div id="leaderboard">
+                <div class="ribbon"></div>
+                    <table>
+                        <tr>
+                        <td class="number">1</td>
+                        <td class="name">Mattia Maffo</td>
+                        <td class="points">
+                            258.244 <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal"/>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td class="number">2</td>
+                        <td class="name">Giulio Di Gregorio</td>
+                        <td class="points">258.242</td>
+                        </tr>
+                        <tr>
+                        <td class="number">3</td>
+                        <td class="name">Marika Fuccio</td>
+                        <td class="points">258.223</td>
+                        </tr>
+                        <tr>
+                        <td class="number">4</td>
+                        <td class="name">Andrea Lacava</td>
+                        <td class="points">258.212</td>
+                        </tr>
+                        <tr>
+                        <td class="number">5</td>
+                        <td class="name">Alessio Croce</td>
+                        <td class="points">258.208</td>
+                        </tr>
+                        <tr>
+                        <td class="number">6</td>
+                        <td class="name">Simone Di Cocco</td>
+                        <td class="points">252.208</td>
+                        </tr>
+                        <tr>
+                        <td class="number">7</td>
+                        <td class="name">Noemi Giustini</td>
+                        <td class="points">252.100</td>
+                        </tr>
+                        <tr>
+                        <td class="number">8</td>
+                        <td class="name">Sergio Mattarella</td>
+                        <td class="points">100</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--NEWSLETTER-->
+
+    <footer id="sezione3">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mx-auto text-center">

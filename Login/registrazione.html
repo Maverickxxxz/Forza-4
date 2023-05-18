@@ -8,14 +8,187 @@
     <script src="./form-sign.js"></script>
     <link rel="stylesheet" href="./form-sign.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Profile/fontawesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 
+    <style media="screen">*,
+        *:before,
+        *:after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .background{
+            width: 430px;
+            height: 520px;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+        }
+        .background .shape{
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .shape:first-child{
+            background: linear-gradient(
+                #1845ad,
+                #23a2f6
+            );
+            left: -80px;
+            top: -80px;
+        }
+        .shape:last-child{
+            background: linear-gradient(
+                to right,
+                #ff512f,
+                #f09819
+            );
+            right: -30px;
+            bottom: -80px;
+        }
+        
+        .contenitore1{
+            animation: backInUp;
+            animation-duration: 2s;
+            width: 100%;
+            height: 93.5vh;
+        }
 
+        form i{
+            display: flex;
+            position: relative;
+            bottom: -10%;
+        }
+        form{
+            height: 650px;
+            width: 400px;
+            background-color: rgba(255,255,255,0.13);
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 55%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(8,7,16,0.6);
+            padding: 50px 35px;
+        }
+        form *{
+            font-family: 'Poppins',sans-serif;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+        form h3{
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+        }
+        
+        label{
+            position: relative;
+            display: flex;
+            right: -6%;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        input{
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255,255,255,0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        ::placeholder{
+            color: #e5e5e5;
+        }
+        button{
+            margin-top: 50px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #080710;
+            padding: 15px 0;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10%;
+            transition: all .5s ease-in-out;;
+        }
+        
+        button:hover{
+            transition: all .5s ease-in-out;
+            transform: translateY(4px);
+        }
+        </style>
 
 </head>
 
 <body>
+
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block">
+            <div class="container-fluid">
+                <!-- Navbar brand -->
+                <a class="navbar-brand nav-link" target="_blank" href="http://localhost/Progetto/Home/">
+                    <img class = "animato" src="../sources/logo-connect4.png" width="130px">
+                </a>
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+                    aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarExample01">
+      
+                    <ul class="navbar-nav list-inline">
+                      <!-- Icons -->
+                    <li class="nav-item2">
+                        <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+                        target="_blank">
+                        <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
+                        <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="contenitore1">
-        <div class="form-box">
+        <!-- <div class="form-box">
             <h1 id="titolo">REGISTRATI</h1>
 
             <form name="form_registrazione" action="./signup-process.php" method="post">
@@ -46,8 +219,49 @@
                 </div>
             </form>
 
-        </div>
+        </div> -->
+        <form name="form_registrazione" method="post" action="./signup-process.php">
+            <h3>REGISTRATI QUI</h3>
+            
+            <i class="ri-account-circle-fill"></i>
+            <label for="nome_utente_r">Nome utente</label>
+            <input name="nome_utente_r" id="nome_utente_r" type="text" placeholder="Nome utente" oninput="verifica_vuoto();">
+
+            <i class="ri-mail-fill"></i>
+            <label for="email_r">Email</label>
+            <input name="email_r" id="email_r" type="email" placeholder="Email" oninput="verifica_vuoto();">
+    
+            <i class="ri-key-fill"></i>
+            <label for="password_r">Password</label>
+            <input name="password_r" type="password" placeholder="Password" id="password_r" oninput="verifica_vuoto();">
+    
+            <button type="submit" id="bottoneRegistrati" onclick="return presa_elementi_registrazione();">REGISTRATI</button>
+        </form>
     </div>
+
+
+    <footer id="#sezione3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mx-auto text-center">
+                    <h4 class="titleFooter">Contatti</h4>
+                    <ul class="list-unstyled">
+                    <li id="indirizzo">Indirizzo: <a style="cursor:pointer;" onmouseover="this.style.color='#162975'" onmouseout="this.style.color='#1e3386'">Viale Scalo San Lorenzo, Roma <i class="fa fa-map-marker fa-fw"></i></a></li>
+                    <li>Telefono: <a href="tel:06-1234567">06-1234567 <i class = "fa fa-phone fa-fw"></i></a></li>
+                    <li>Email: <a href="mailto:info@connectfour.com">info@connectfour.com <i class="fa fa-mail-bulk fa-fw"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mx-auto text-center">
+                <h4 class="titleFooter">Social</h4>
+                    <ul class="list-unstyled-icon">
+                        <li><a href="https://it-it.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/?lang=it" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
