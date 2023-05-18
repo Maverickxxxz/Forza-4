@@ -2,31 +2,32 @@ import io from "socket.io-client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
+
 var idStanzaClient;
+let utente;
 
-
-export function acquisizione_utente(){
+export function acquisizione_id(){
   const valorichiave = window.location.search;
   const urlParams = new URLSearchParams(valorichiave);
-  const nome_utente = urlParams.get("nome_utente"); //RITORNA IL PRIMO VALORE NEI PARAMETRI DELL'URL 
-  return nome_utente;
+  const id_ = urlParams.get("id"); //RITORNA IL PRIMO VALORE NEI PARAMETRI DELL'URL 
+  return id_;
 }
 
 
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {
   const nomeStanza = document.getElementById("nomeStanza").value;
-  socket.emit("crea-stanza", nomeStanza, acquisizione_utente()); //MANDA AL SERER IL NOME DELLA STANZA
+  socket.emit("crea-stanza", nomeStanza, utente); //MANDA AL SERER IL NOME DELLA STANZA
 }
 
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Unisciti"
 export function uniscitiStanza() {
   const nomeStanzaUnione = document.getElementById("nomeStanzaUnione").value;
-  socket.emit("unisciti-stanza", nomeStanzaUnione, acquisizione_utente());
+  socket.emit("unisciti-stanza", nomeStanzaUnione, utente);
 }
 
 export function uniscitiStanzaSotto(nomeStanzaUnione){
-  socket.emit("unisciti-stanza", nomeStanzaUnione, acquisizione_utente());
+  socket.emit("unisciti-stanza", nomeStanzaUnione, utente);
 }
 
 
@@ -87,7 +88,7 @@ export function mossa() {
   
 
     mossaRicevuta = [r,c];
-    socket.emit("mossa", mossaRicevuta, idStanzaClient, board, colore_client, acquisizione_utente()); //emette al server le coordinate della mossa ricevuta
+    socket.emit("mossa", mossaRicevuta, idStanzaClient, board, colore_client, utente); //emette al server le coordinate della mossa ricevuta
   }
 }
 
@@ -116,16 +117,35 @@ function setGame() {
 //CONNESSIONE AL SERVER CHE HA PORTA 3000
 const socket = io('http://localhost:3000');
 
+
 socket.on('connect', () => {
 
-  if (nome_utente == null){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
-    alert("Devi prima registrarti per poter giocare!"); //STAMPA DEL PROPRIO ID
-    window.location.href = "http://localhost/Progetto/Home/" ;
-  }
+  let id = acquisizione_id();
+  let condizione = false;
+
+  socket.on("utenti", (result) => {
+    
+    for(let x in result){
+      if(id == x){
+        utente = result[x];
+        condizione = true;
+        socket.emit("sono-connesso", id);
+      }
+    }
+
+    if(!condizione){
+      alert("Devi essere un utente registrato per poter giocare!");
+      window.location.href = "http://localhost/Progetto/Home/index.php";
+    }
+    
+  });
+
+  socket.on("doppia-connessione", ()=>{
+    alert("Non puoi connetterti da due pagine diverse, chiudine una!");
+    //window.location.href = "http://localhost/Progetto/Home/index.php";
+  });
+
   
-
-
-  //window.history.pushState("new", "titolo", "stanza.html");
 
 
   socket.on("messaggi-al-client", (messaggio) =>{
@@ -288,13 +308,13 @@ socket.on("giocatore-non-corrente", (idStanza) => {
 
 socket.on("vincitore", () => {
   alert("HAI VINTO!");
-  window.location.href = "http://localhost:8080/stanza.html?nome_utente=" + acquisizione_utente();
+  window.location.href = "http://localhost:8080/stanza.html?id=" + acquisizione_id();
 });
 
 
 socket.on("perdente", () => {
   alert("HAI PERSO!");
-  window.location.href = "http://localhost:8080/stanza.html?nome_utente=" + acquisizione_utente();
+  window.location.href = "http://localhost:8080/stanza.html?id=" + acquisizione_id();
 });
 
 

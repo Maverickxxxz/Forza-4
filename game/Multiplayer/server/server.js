@@ -105,22 +105,17 @@ function cambio_turno(idStanza){
 
 
 
-   
-
-
+let giocatori_attivi = [];
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
 
-    function letturaUtenti(){
-        db.utenti(function(result) {
-            
-            console.log(result);
-            //socket.emit("classifica", result);
-            });
-    }
 
-    letturaUtenti();
-    
+    function letturaUtenti(){
+        db.utenti(function(result) {    
+            socket.emit("utenti", result);
+        });
+    }
+     
     function letturaStanzeAttive(data){
         for(let id in data){
             socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1'], data[id]['giocatori']['numero']);
@@ -144,10 +139,6 @@ io.on('connection', socket => {
         }
     }
 
-    function setWinner(r, c) {
-
-    }
-
     function verifica_vincita(board) {
         let rows = 6;
         let columns = 7;
@@ -156,8 +147,7 @@ io.on('connection', socket => {
             for (let c = 0; c < columns - 3; c++){
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r][c+1] && board[r][c+1] == board[r][c+2] && board[r][c+2] == board[r][c+3]) {
-                       setWinner(r, c);
-                       return true;;
+                       return true;
                    }
                }
             }
@@ -168,7 +158,6 @@ io.on('connection', socket => {
            for (let r = 0; r < rows - 3; r++) {
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]) {
-                       setWinner(r, c);
                        return true;
                    }
                }
@@ -180,7 +169,6 @@ io.on('connection', socket => {
            for (let c = 0; c < columns - 3; c++) {
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board[r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]) {
-                       setWinner(r, c);
                        return true;
                    }
                }
@@ -192,7 +180,6 @@ io.on('connection', socket => {
            for (let c = 0; c < columns - 3; c++) {
                if (board[r][c] != ' ') {
                    if (board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board[r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]) {
-                       setWinner(r, c);
                        return true;
                    }
                }
@@ -222,10 +209,33 @@ io.on('connection', socket => {
         return coppia;
     }
 
+    socket.on("sono-connesso", (id) =>{
+
+        let già_connesso = false;
+
+        for (let i = 0; i < giocatori_attivi.length; i++) {
+        if (giocatori_attivi[i] === id) {   
+            socket.emit("doppia-connessione");  
+            già_connesso = true;
+            break; // Esce dal ciclo se l'ID è già presente
+        }
+    }
+
+    if (!già_connesso) {
+        giocatori_attivi.push(id);
+    }
+        
+
+        
+        
+    });
+
+    letturaUtenti();
     // Lettura delle stanze attive in modo che altri giocatori possano connettersi senza sapere il codice
     let data_stanze = letturaDati();
     letturaStanzeAttive(data_stanze);
     letturaClassifica();
+    
 
     // Gestione della creazione delle stanze
     socket.on("crea-stanza", (nomeStanza, nome_utente) => {
