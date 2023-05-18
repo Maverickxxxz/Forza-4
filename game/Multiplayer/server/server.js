@@ -246,7 +246,6 @@ io.on('connection', socket => {
 
     socket.on("sono-connesso", (socket_id, id) =>{
         
-        console.log("ID", id);
         let già_connesso = false;     
 
         for(let x in giocatori_attivi){
@@ -260,7 +259,6 @@ io.on('connection', socket => {
             giocatori_attivi[socket_id] = id;
         }
 
-        console.log(giocatori_attivi);
         
 
         
@@ -394,7 +392,7 @@ io.on('connection', socket => {
 
             
             db.update(nome_utente, function(result) {
-                console.log("Aggiornata correttamente la classifica");
+                
               });
 
             eliminaStanzeAttive(letturaDati(), idStanza);
