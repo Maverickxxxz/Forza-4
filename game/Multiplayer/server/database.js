@@ -1,7 +1,5 @@
 var mysql = require('mysql'); 
 
-var mysql = require('mysql');
-
 var con = mysql.createConnection({
   host: "127.0.0.1",
   user: "root",
@@ -9,14 +7,38 @@ var con = mysql.createConnection({
   database: "register_database",
 });
 
-con.connect(function(err) {
+
+function connectToDatabase() {
+  con.connect(function(err) {
     if (err) throw err;
-    console.log("Connected to database!");
+    console.log("Connesso al database!");
+  });
+}
 
+function query_classifica(callback){
+  con.query(`select nome_utente, puntiClassifica from utente order by puntiClassifica DESC`, function(err, result) {
+    if (err) throw err;
 
-    con.query("SELECT email FROM utente WHERE nome_utente='Mavarick'", function (err, result) {
-        if (err) throw err;
-        console.log(result[0].email); // stampa tutte le righe
-   });
+    let punti = {};
 
-});
+    for(i = 0;i < 6;i++){
+      let nome_utente = result[i].nome_utente
+      let puntiClassifica = result[i].puntiClassifica;
+      punti[nome_utente] = puntiClassifica;     
+    }
+    callback(punti);
+  });
+}
+
+function aggiornamento(nome_utente, callback){
+  con.query(`UPDATE utente SET puntiClassifica = puntiClassifica + 1 where nome_utente = "${nome_utente}"`, function(err, result) {
+    if (err) throw err;
+    callback(result);
+  })
+}
+
+module.exports = {
+  connect: connectToDatabase,
+  classifica: query_classifica,
+  update: aggiornamento,
+}

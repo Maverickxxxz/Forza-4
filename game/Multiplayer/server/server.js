@@ -7,13 +7,17 @@ const io = require('socket.io')(3000, {
 
 //MAP con nomeStanza e idStanza
 var fs = require('fs');
+//Importiamo il file database
+var db = require('./database');
 
+db.connect();
 
 fs.writeFile('stanzeAttive.json', "{}", (err) => {
     if (err) {
         console.error('Errore durante la scrittura del file:', err);
     }
 });
+
 
 
 function letturaDati(){
@@ -99,6 +103,12 @@ function cambio_turno(idStanza){
     return giocatoreCorrente;
 }
 
+   
+
+
+
+
+
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
     
@@ -112,25 +122,26 @@ io.on('connection', socket => {
         }
     }
 
+    function letturaClassifica(){
+        db.classifica(function(result) {
+            socket.emit("risultato", result);
+            });
+    }
+
+
+    
     //Elimina la stanza una volta che il gioco finisce
     function eliminaStanzeAttive(data, nomeStanza){
         for(let id in data){
             if(id==nomeStanza){        
                 delete data[id];
                 scritturaDati(data);
-                console.log(data);
             }         
         }
     }
 
     function setWinner(r, c) {
-    
-        // if (board[r][c] == playerRed) {
-        //     winner.innerText = "Red Wins";             
-        // } else {
-        //     winner.innerText = "Yellow Wins";
-        // }
-        gameOver = true;
+
     }
 
     function verifica_vincita(board) {
@@ -185,9 +196,32 @@ io.on('connection', socket => {
        }
       }
 
+    function vincitore(nome_utente){
+        let vince;
+        let perde;      
+        let data = letturaDati();
+
+        for(let x in data){
+            if(data[x]["giocatori"]["giocatore1"] == nome_utente){
+                vince = data[x]["giocatori"]["socketID_G1"];
+                perde = data[x]["giocatori"]["socketID_G2"];
+            }
+
+            if(data[x]["giocatori"]["giocatore2"] == nome_utente){
+                vince = data[x]["giocatori"]["socketID_G2"];
+                perde = data[x]["giocatori"]["socketID_G1"];
+            }
+        }
+
+        let coppia = [vince, perde];
+
+        return coppia;
+    }
+
     // Lettura delle stanze attive in modo che altri giocatori possano connettersi senza sapere il codice
     let data_stanze = letturaDati();
     letturaStanzeAttive(data_stanze);
+    letturaClassifica();
 
     // Gestione della creazione delle stanze
     socket.on("crea-stanza", (nomeStanza, nome_utente) => {
@@ -288,13 +322,22 @@ io.on('connection', socket => {
 
       
     
-    socket.on("mossa", (mossa, idStanza, board, colore) => {  
+    socket.on("mossa", (mossa, idStanza, board, colore, nome_utente) => {  
         
         io.to(idStanza).emit("aggiorna-gioco", mossa, colore);
 
         if(verifica_vincita(board)){      
-            socket.emit("messaggi-al-client", "hai vinto!!");
-            eliminaStanzeAttive(letturaDati(), idStanza)
+            let coppia = vincitore(nome_utente);
+
+            io.to(coppia[0]).emit("vincitore", idStanza, colore);
+            io.to(coppia[1]).emit("perdente", idStanza, colore);
+
+            db.connect();
+            db.update(nome_utente, function(result) {
+                console.log("Aggiornata correttamente la classifica");
+              });
+
+            eliminaStanzeAttive(letturaDati(), idStanza);
             return;
         }
         
@@ -304,6 +347,10 @@ io.on('connection', socket => {
         io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza, colore);  
         
     });
+
+
+
+    
 
 
 })
