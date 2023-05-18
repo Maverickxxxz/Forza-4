@@ -110,13 +110,6 @@ function cambio_turno(idStanza){
 
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
-
-    function letturaUtenti(){
-        db.utenti(function (result){
-            socket.emit("utenti-registrati", result);
-        });
-    }
-    
     
     function letturaStanzeAttive(data){
         for(let id in data){
@@ -221,7 +214,6 @@ io.on('connection', socket => {
         return coppia;
     }
 
-    letturaUtenti();
     // Lettura delle stanze attive in modo che altri giocatori possano connettersi senza sapere il codice
     let data_stanze = letturaDati();
     letturaStanzeAttive(data_stanze);

@@ -7,7 +7,8 @@ $password_hash = password_hash($_POST["password_r"], PASSWORD_DEFAULT); //hashed
 
 $mysqli = require __DIR__ . "/database.php";
 
-$sql = "INSERT INTO register_database . utente (nome_utente, email, password_hash)
+$sql = "INSERT INTO register_database . utente (nome_utente, email, password_hash
+
         VALUES (?, ?, ?)";
         
 $stmt = $mysqli->stmt_init();

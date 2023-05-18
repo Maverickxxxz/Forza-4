@@ -1,13 +1,13 @@
-
 var cont = 0;
 
 window.onload = function(){
     let nomeUtente = document.getElementById("nome_utente");
     if (!nomeUtente) {
         document.getElementById('gioca_ora').disabled = true;
-
     }
 }
+
+
 
 function menuTo(){
     const toggle = document.querySelector(".navlist");
@@ -83,6 +83,9 @@ function menuToggle() {
         cont = 0;
     }  
 }
+
+
+
 
 
 

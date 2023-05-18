@@ -3,15 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import $ from 'jquery';
 
-
-//ACQUISIZIONE DEL NOME UTENTE
 var idStanzaClient;
+
+
 export function acquisizione_utente(){
   const valorichiave = window.location.search;
   const urlParams = new URLSearchParams(valorichiave);
   const nome_utente = urlParams.get("nome_utente"); //RITORNA IL PRIMO VALORE NEI PARAMETRI DELL'URL 
   return nome_utente;
 }
+
+let nome_utente =  acquisizione_utente();
 
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {
@@ -118,28 +120,14 @@ const socket = io('http://localhost:3000');
 
 socket.on('connect', () => {
 
-  if (acquisizione_utente() == "null"){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
+  if (nome_utente == null){     //CONTROLLA SE IDUTENTE ESISTE, QUESTO PERCHè ABBIAMO DUE PAGINE HTML CHE USANO IL MEDESIMO SCRIPT, E NON ESISTE NELLA PAGINA gioco.html 
     alert("Devi prima registrarti per poter giocare!"); //STAMPA DEL PROPRIO ID
     window.location.href = "http://localhost/Progetto/Home/" ;
   }
+  
 
-  socket.on("utenti-registrati", (utenti) =>{
 
-    let utente_esistente = false;
-
-    for(let i = 0; i < utenti.length; i++){
-
-       if(utenti[i]==acquisizione_utente()){
-         utente_esistente = true;
-         break;
-       }
-    }
-
-    if(!utente_esistente){
-      alert("Questo utente non è registrato.");
-      window.location.href = "http://localhost/Progetto/Home/"
-    }
-  });
+  //window.history.pushState("new", "titolo", "stanza.html");
 
 
   socket.on("messaggi-al-client", (messaggio) =>{

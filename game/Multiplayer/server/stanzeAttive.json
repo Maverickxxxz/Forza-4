@@ -1,1 +1,26 @@
-{}
+{
+  "0.46t8dexjl1g": {
+    "nomeStanza": "ff",
+    "giocatori": {
+      "socketID_G1": "0BVtfxmlSNS8I9-ZAAAH",
+      "giocatore1": null,
+      "turnoG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "numero": 1
+    }
+  },
+  "0.frgzx3b969c": {
+    "nomeStanza": "fff",
+    "giocatori": {
+      "socketID_G1": "vG8mySH83gYL9OM0AAAZ",
+      "giocatore1": "prova45",
+      "turnoG1": null,
+      "giocatore2": null,
+      "socketID_G2": null,
+      "turnoG2": null,
+      "numero": 1
+    }
+  }
+}

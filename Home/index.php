@@ -40,7 +40,8 @@
     <link rel="stylesheet" type="text/css" href="../Home/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./home.js" type="text/javascript"></script>
-    
+    <script src="./utente.js" type="module"></script>
+
     <link rel="stylesheet" href="../Profile/fontawesome/css/all.css">
 
     <!-- FRAMEWORK CSS ESTERNI -->
@@ -136,6 +137,8 @@
                                     Multiplayer
                                 </a>
                             </button>
+
+
                             <button disabled class="btn" id="ia">
                                 <a href="">
                                     IA
