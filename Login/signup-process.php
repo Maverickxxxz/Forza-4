@@ -7,9 +7,8 @@ $password_hash = password_hash($_POST["password_r"], PASSWORD_DEFAULT); //hashed
 
 $mysqli = require __DIR__ . "/database.php";
 
-$sql = "INSERT INTO register_database . utente (nome_utente, email, password_hash
-
-        VALUES (?, ?, ?)";
+$sql = "INSERT INTO register_database . utente (nome_utente, email, password_hash, puntiClassifica)
+        VALUES (?, ?, ?, ?)"; //aggiunto puntiClassifica
         
 $stmt = $mysqli->stmt_init();
 
@@ -17,10 +16,14 @@ if ( ! $stmt->prepare($sql)) {          //SE FALLISCE LA PREPARAZIONE DELLA QUER
     die("ERRORE SQL: " . $mysqli->error);
 }
 
-$stmt->bind_param("sss",                //ASSOCIA AI VALORI ? ? ? RISPETTIVAMENTE, NAME, EMAIL E PASSWORD(hashed), sss specifica il tipo di dato delle variabili, tutte stringhe
-                  $_POST["nome_utente_r"],
-                  $_POST["email_r"],
-                  $password_hash);
+$puntiClassifica = 0; // Imposta un valore predefinito per il campo "puntiClassifica"
+
+$stmt->bind_param("sssi",       // ASSOCIA AI VALORI ? ? ? ? RISPETTIVAMENTE, NAME, EMAIL, PASSWORD(hashed) E puntiClassifica
+    $_POST["nome_utente_r"],
+    $_POST["email_r"],
+    $password_hash,
+    $puntiClassifica //aggiunto puntiClassifica
+);
                   
 if ($stmt->execute()) { //VIENE ESEGUITA LA QUERY
 

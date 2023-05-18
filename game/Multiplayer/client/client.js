@@ -212,11 +212,15 @@ socket.on('classifica', (risultato) => {
   }
 
   classifica[array[0]]
-
+  var immagine = document.createElement("img");
+  immagine.src = "https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true";
+  immagine.alt = "gold medal";
+  immagine.className = "gold-medal";
   const top1 = document.getElementById("top1");
   top1.textContent = array[0];
   const punto1 = document.getElementById("punto1");
   punto1.textContent = classifica[array[0]];
+  punto1.appendChild(immagine);
 
   const top2 = document.getElementById("top2");
   top2.textContent = array[1];
