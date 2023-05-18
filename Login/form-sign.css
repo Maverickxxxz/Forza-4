@@ -1,15 +1,38 @@
 body {
-    background-image: url(../Sources/Sfondo_sign.png);
+    background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
 }
 
-.WebContainer {
+.animato:hover{
+    -webkit-animation: tada 1s;
+    animation: tada 1s;
+} 
+
+.navbar{
+  background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
+  animation: fadeIn;
+  animation-duration: 3s;
+}
+
+.navbar-brand{
+  width: 140px;
+}
+
+.navbar .nav-link {
+  color: #1e3386  !important;
+}
+
+.navbar .nav-link:hover {
+  color: #0a1955 !important;
+}
+
+
+/* .WebContainer {
     width: 100%;
     height: auto;
 }
 
 .articles {
     width: 90%;
-    /*Takes 90% width from WebContainer*/
     height: auto;
     margin: auto;
 }
@@ -36,7 +59,6 @@ body {
     text-align: center;
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.374);
-    /*USIAMO I VALORI RGB PER NON INTACCARE GLI ELEMENTI FIGLIO DI FORM-BOX*/
     backdrop-filter: blur(8px);
 
 }
@@ -117,10 +139,65 @@ input:focus+label {
     cursor: pointer;
 }
 
-/*SUCCESSO SIGNUP NON FUNZIONANTE ????*/
 .titolo_signup-success h1{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 80px;
     text-align: center;
     color: red;
-}
+} */
+
+footer {
+    padding: 63px 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
+  }
+  
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+footer ul li {
+    margin-bottom: 10px;
+  }
+  
+footer ul li a {
+    color: #1e3386;
+    text-decoration: none;
+  }
+  
+footer ul li a:hover {
+    color: #162975;
+  }
+  
+footer form {
+    margin-top: 20px;
+  }
+  
+@media (max-width: 767px) {
+    footer h4 {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+  }
+  
+.list-unstyled-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 24px; 
+  }
+  
+.list-unstyled li {
+    margin: 10px 0;
+    color: #1e3386;
+  }
+  
+.titleFooter{
+    text-align: center;
+    color: #1e3386;
+  }
