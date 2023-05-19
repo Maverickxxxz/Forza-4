@@ -1,5 +1,7 @@
 <?php
 
+$mysqli = require __DIR__ . "/database.php";
+
 $id = rand(111111111,999999999);
 $nome_utente = $_POST["nome_utente_r"];
 $nome = $_POST["nome"];
@@ -8,7 +10,20 @@ $email = $_POST["email_r"];
 $password = $_POST["password_r"];
 $password_hash = password_hash($_POST["password_r"], PASSWORD_DEFAULT); //hashed, crittografata
 
-$mysqli = require __DIR__ . "/database.php";
+//CONTROLLA PRIMA SE L'UTENTE O L'EMAIL GIà ESISTONO NEL DATABASE.
+$sql = "SELECT * FROM utente WHERE nome_utente = ? OR email = ?";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("ss", $nome_utente, $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    echo '<script type="text/javascript">';
+        echo 'alert("Il nome utente o l\'email esistono già.");';
+        echo 'window.location.href = "registrazione.html";';  // Reindirizzamento alla pagina di registrazione dopo l'alert
+        echo '</script>';
+        exit;
+}
 
 $sql = "INSERT INTO register_database . utente (id, nome_utente, nome, cognome, email, password_hash, puntiClassifica)
         VALUES (?, ?, ?, ?, ?, ?, ?)"; 
