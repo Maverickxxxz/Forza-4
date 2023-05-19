@@ -1,10 +1,10 @@
 var cont = 0;
 
 
+//FUNZIONE PER LA CLASSIFICA
 
 /*function classifica_home(){ 
     let array = [];
-
 
   const top1 = document.getElementById("top1");
   top1.textContent = array[0];
@@ -41,7 +41,6 @@ var cont = 0;
 
 
 window.onload = function(){
-    classifica_home();
     let nomeUtente = document.getElementById("nome_utente");
     if (!nomeUtente) {
         document.getElementById('gioca_ora').disabled = true;
