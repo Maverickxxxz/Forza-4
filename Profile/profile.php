@@ -111,13 +111,13 @@ if (isset($_SESSION["utente_id"])) {
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Nome:</label>
-								  	<input id="nome" disabled type="text" class="form-control">
+								  	<input disabled value="" id="nome" disabled type="text" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Cognome:</label>
-								  	<input disabled id="cognome" type="text" class="form-control" value="Achaaarya">
+								  	<input disabled id="cognome" type="text" class="form-control" value="">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -129,27 +129,13 @@ if (isset($_SESSION["utente_id"])) {
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Numero di Telefono:</label>
-								  	<input disabled id="num" type="text" class="form-control" value="+36 9876543215">
+								  	<input disabled id="num" type="text" class="form-control" value="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Data di nascita:</label>
 								  	<input disabled id="data" type="date" id="eta" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Tag di gioco:</label>
-								  	<div class="mt-1">
-                                        <select disabled id="tag" name="Tag" id="tag" size="1" cols="3">
-                                            <option selected value="nessuno"></option>
-                                            <option value="L'ingegnere">L'ingegnere</option>
-                                            <option value="L'assassino">L'assassino</option>
-                                            <option value="Il mago">Il mago</option>
-                                            <option value="Il maestro">Il maestro</option>
-                                        </select>
-                                    </div>
 								</div>
 							</div>
 							<!--<div class="col-md-12">
@@ -225,26 +211,30 @@ if (isset($_SESSION["utente_id"])) {
 						</div>
 					</div>
 					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
-						<h3 class="mb-4">Application Settings</h3>
+						<h3 class="mb-4">Dati di gioco:</h3>
 						<div class="row">
 							<div class="col-md-6">
+                                <div class="form-group">
+								  	<label>Punti di gioco:</label>
+								  	<input disabled value="" id="punti" disabled type="text" class="form-control">
+								</div>
+							</div>
+                            <div class="col-md-6">
 								<div class="form-group">
-									<div class="form-check">
-										<input id="app" disabled class="form-check-input" type="checkbox" value="" id="app-check">
-										<label class="form-check-label" for="app-check">
-										App check
-										</label>
-									</div>
-									<div class="form-check">
-										<input id="lor" disabled class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-										<label class="form-check-label" for="defaultCheck2">
-										Lorem ipsum dolor sit.
-										</label>
-									</div>
+								  	<label>Tag di gioco:</label>
+								  	<div class="mt-1">
+                                        <select disabled id="tag" name="Tag" id="tag" size="1" cols="3">
+                                            <option selected value="nessuno"></option>
+                                            <option value="L'ingegnere">L'ingegnere</option>
+                                            <option value="L'assassino">L'assassino</option>
+                                            <option value="Il mago">Il mago</option>
+                                            <option value="Il maestro">Il maestro</option>
+                                        </select>
+                                    </div>
 								</div>
 							</div>
 						</div>
-						<div>
+                        <div>
 							<button disabled id ="conferma4" class="btn btn-primary">Conferma Modifiche</button>
 							<button id="aggiorna4" class="btn">Aggiorna</button>
 						</div>
@@ -330,8 +320,6 @@ if (isset($_SESSION["utente_id"])) {
         var $conferma5 = $("#conferma4");
         $aggiorna.on("click", function(){
             $conferma.removeAttr('disabled');
-            $("#nome").removeAttr('disabled');
-            $("#cognome").removeAttr('disabled');
             $("#data").removeAttr('disabled');
             $("#tag").removeAttr('disabled');
             $("#bio").removeAttr('disabled');
@@ -381,14 +369,12 @@ if (isset($_SESSION["utente_id"])) {
         })
         $aggiorna4.on("click", function(){
             $conferma4.removeAttr('disabled');
-            $("#app").removeAttr('disabled');
-            $("#lor").removeAttr('disabled');
+            $("#tag").removeAttr('disabled');
             $aggiorna4.prop("disabled", true);
         })
         $conferma4.on("click", function(){
             $aggiorna4.removeAttr('disabled');
-            $("#app").prop('disabled',true);
-            $("#lor").prop('disabled',true);
+            $("#tag").prop('disabled',true);
             $conferma4.prop("disabled", true);
         })
         $aggiorna5.on("click", function(){
@@ -444,10 +430,17 @@ if (isset($_SESSION["utente_id"])) {
             success: function(data) {
                 // Manipola i dati ottenuti come desideri
                 console.log(data);
+                nome = data["nome"];
+                cognome = data["cognome"];
                 nomeu = data["nome_utente"];
                 email = data["email"];
+                punti = data["puntiClassifica"];
                 document.getElementById("email").value = email;
                 document.getElementById("nomeu").textContent = nomeu;
+                document.getElementById("nome").value = nome;
+                document.getElementById("cognome").value = cognome;
+                document.getElementById("punti").value = punti;
+                
                 
             },
             error: function(xhr, status, error) {

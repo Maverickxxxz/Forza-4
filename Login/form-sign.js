@@ -98,11 +98,23 @@ function presa_elementi_registrazione(){
 
     let nome_utente = document.form_registrazione.nome_utente_r.value;
     let email = document.form_registrazione.email_r.value;
-    let password = document.form_registrazione.password_r.value;  
+    let password = document.form_registrazione.password_r.value;
+    let nome = document.form_registrazione.nome.value;
+    let cognome = document.form_registrazione.cognome.value;
 
     //CONTROLLA SE I CAMPI SONO VUOTI
     if(nome_utente==""){
         alert("Non hai inserito il nome utente!");
+        return false;
+    }
+
+    if(nome==""){
+        alert("Non hai inserito il nome!");
+        return false;
+    }
+
+    if(cognome==""){
+        alert("Non hai inserito il cognome!");
         return false;
     }
 

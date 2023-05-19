@@ -40,13 +40,13 @@ var cont = 0;
 
 
 
-window.onload = function(){
+/*window.onload = function(){
     classifica_home();
     let nomeUtente = document.getElementById("nome_utente");
     if (!nomeUtente) {
         document.getElementById('gioca_ora').disabled = true;
     }
-}
+} */
 
 
 
