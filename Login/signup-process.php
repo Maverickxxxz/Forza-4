@@ -33,7 +33,9 @@ $stmt->bind_param("isssssi",       // ASSOCIA AI VALORI ? ? ? ? RISPETTIVAMENTE,
                   
 if ($stmt->execute()) { //VIENE ESEGUITA LA QUERY
 
-    header("Location: signup-success.html"); //L'UTENTE VIENE REINDIRIZZATO A QUESTA PAGINA
+
+
+    header("Location: ../Home/index.php"); //L'UTENTE VIENE REINDIRIZZATO A QUESTA PAGINA
     exit;
     
 } else {

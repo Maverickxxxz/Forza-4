@@ -1,99 +1,3 @@
-function getCurrentURL () {
-    return window.location.href;
- 
-  }
-
-function verifica_vuoto(){ // CORREGGE GLI ERRORI DEL PLACEHOLDER
-    var url = getCurrentURL();
-  
-    //VERIFICA SE IL CAMPO è VUOTO PER L'URL DI REGISTRAZIONE, ABBIAMO DOVUTO DIVIDERLI PERCHè ALTRIMENTI NON LEGGEVA QUELLI DI UN FORM E VICEVERSA
-    if(url.endsWith("Login/registrazione.html")){
-
-    let nome_utente_r = document.form_registrazione.nome_utente_r.value;
-    nome_utente_r = nome_utente_r.replace(/\s/g, ''); //RIMUOVE GLI SPAZI A NOME_UTENTE
-
-    let email_r = document.form_registrazione.email_r.value;
-    email_r = email_r.replace(/\s/g, '');
-
-    let password_r = document.form_registrazione.password_r.value; 
-    password_r = password_r.replace(/\s/g, '');
-
-        if(nome_utente_r!=""){
-            document.getElementById("label_utente").style.marginTop = "-30px";
-            document.getElementById("label_utente").style.fontSize = ".75em";     
-        }
-
-        // QUALORA UN UTENTE CANCELLASSE, IL TESTO TORNA AD ESSERE NORMALE
-        if(nome_utente_r==""){
-            document.getElementById("label_utente").style.marginTop = "2px";
-            document.getElementById("label_utente").style.fontSize = "1em"; 
-        }
-
-        if(email_r!=""){
-            document.getElementById("label_email").style.marginTop = "-30px";
-            document.getElementById("label_email").style.fontSize = ".75em";    
-        }
-
-        // QUALORA UN UTENTE CANCELLASSE, IL TESTO TORNA AD ESSERE NORMALE
-        if(email_r==""){
-            document.getElementById("label_email").style.marginTop = "2px";
-            document.getElementById("label_email").style.fontSize = "1em"; 
-        }
-
-        if(password_r!=""){
-            document.getElementById("label_password").style.marginTop = "-30px";
-            document.getElementById("label_password").style.fontSize = ".75em";     
-        }
-
-        // QUALORA UN UTENTE CANCELLASSE, IL TESTO TORNA AD ESSERE NORMALE
-        if(password_r==""){
-            document.getElementById("label_password").style.marginTop = "2px";
-            document.getElementById("label_password").style.fontSize = "1em"; 
-        }
-        return true;
-    }
-    
-
-
-    // VERIFICA CAMPI VUOTI DEL FORM LOGIN
-    if(url.endsWith("Login/login.html")){
-        let email_l = document.form_login.email_l.value;
-        email_l = email_l.replace(/\s/g, '');
-  
-        let password_l = document.form_login.password_l.value; 
-        password_l = password_l.replace(/\s/g, '');
-
-        if(email_l!=""){ 
-            document.getElementById("label_email_l").style.marginTop = "-30px";
-            document.getElementById("label_email_l").style.fontSize = ".75em";  
-        }
-
-        // QUALORA UN UTENTE CANCELLASSE, IL TESTO TORNA AD ESSERE NORMALE
-        if(email_l==""){
-            document.getElementById("label_email_l").style.marginTop = "2px";
-            document.getElementById("label_email_l").style.fontSize = "1em"; 
-        }
-
-        if(password_l!=""){
-            document.getElementById("label_password_l").style.marginTop = "-30px";
-            document.getElementById("label_password_l").style.fontSize = ".75em";     
-        }
-
-        // QUALORA UN UTENTE CANCELLASSE, IL TESTO TORNA AD ESSERE NORMALE
-        if(password_l==""){
-            document.getElementById("label_password_l").style.marginTop = "2px";
-            document.getElementById("label_password_l").style.fontSize = "1em"; 
-        }
-        return true;
-     
-    }
-    else{return false;}
-
-}
-    
-       
-   
-
 function presa_elementi_registrazione(){
 
     let nome_utente = document.form_registrazione.nome_utente_r.value;
@@ -106,6 +10,16 @@ function presa_elementi_registrazione(){
         return false;
     }
 
+    if(nome_utente.length < 4){
+        alert("Il nome deve essere almeno di 4 caratteri!");
+        return false;
+    }
+
+    if(nome_utente.length > 12){
+        alert("Il nome deve essere massimo di 12 caratteri!");
+        return false;
+    }
+
     if(email==""){
         alert("Non hai inserito l'email!");
         return false;
@@ -113,6 +27,11 @@ function presa_elementi_registrazione(){
 
     if(password==""){
         alert("Non hai inserito la password!");
+        return false;
+    }
+
+    if(password.length < 6){
+        alert("La password deve essere almeno di 6 caratteri!");
         return false;
     }
 
