@@ -272,7 +272,7 @@
                     <h4 class="titleFooter">Contatti</h4>
                     <ul class="list-unstyled">
                     <li id="indirizzo">Indirizzo: <a style="cursor:pointer;" onmouseover="this.style.color='#aaa'" onmouseout="this.style.color='#fff'" onclick="openMap();">Viale Scalo San Lorenzo, Roma <i class="fa fa-map-marker fa-fw"></i></a></li>
-                    <li>Telefono: <a href="tel:06-1234567">06-1234567 <i class = "fa fa-phone fa-fw"></i></a></li>
+                    <li>Telefono: <a href="tel:06-1234567">06-123456789 <i class = "fa fa-phone fa-fw"></i></a></li>
                     <li>Email: <a href="mailto:info@connectfour.com">info@connectfour.com <i class="fa fa-mail-bulk fa-fw"></i></a></li>
                     </ul>
                 </div>
@@ -313,7 +313,7 @@
             dataType: "json",
             success: function(data) {
                 // Manipola i dati ottenuti come desideri
-                console.log(data);
+                //console.log(data);
             },
             error: function(xhr, status, error) {
                 console.error("Errore nella richiesta AJAX:", status, error);
