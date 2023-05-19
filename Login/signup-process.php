@@ -33,7 +33,9 @@ $stmt->bind_param("isssssi",       // ASSOCIA AI VALORI ? ? ? ? RISPETTIVAMENTE,
                   
 if ($stmt->execute()) { //VIENE ESEGUITA LA QUERY
 
-
+    session_start(); // Avvia una nuova sessione
+    session_regenerate_id(); // Rigenera l'ID di sessione per prevenire attacchi di session fixation
+    $_SESSION["utente_id"] = $id; // Memorizza l'ID dell'utente nella sessione
 
     header("Location: ../Home/index.php"); //L'UTENTE VIENE REINDIRIZZATO A QUESTA PAGINA
     exit;

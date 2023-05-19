@@ -1,7 +1,7 @@
 <?php
+    //GESTIONE SESSIONE DEGLI UTENTI
     session_start(); 
-    
-    
+      
     if (isset($_SESSION["utente_id"])) {
     
         $mysqli = require __DIR__ . "/../Login/database.php";
@@ -15,16 +15,32 @@
 
         $nome_utente = $utente["nome_utente"];
         $id = $utente["ID"];
-      
-    }
-
-    if (!isset($_SESSION["utente_id"])) {
-        $nome_utente = "null";
     }
 
 
+    // GESTIONE DELLA CLASSIFICA
+    $mysqli = new mysqli("localhost", "root", "", "register_database");
+    $sql_classifica = "SELECT nome_utente, puntiClassifica FROM utente ORDER BY puntiClassifica DESC";
+    $result_classifica = $mysqli->query($sql_classifica);
 
+    if (!$result_classifica) {
+        echo "Errore nella query: " . $mysqli->error;
+        exit;
+    }
+
+    $utenti = array(); // Array per memorizzare i record degli utenti
+
+    while ($row = $result_classifica->fetch_assoc()) {
+        $utenti[] = $row; // Aggiungi il record all'array
+    }
+
+    json_encode($utenti); //File json con le informazioni degli utenti e i relativi punti classifica.
+    
+    $mysqli->close();
+    
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -305,7 +321,6 @@
         });
 
     </script>
-
 
 </body>
 
