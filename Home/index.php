@@ -201,25 +201,25 @@
                     <table>
                         <tr>
                         <td class="number">1</td>
-                        <td class="name">Mattia Maffo</td>
-                        <td class="points">
-                            258.244 <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal"/>
+                        <td id="top1" class="name"></td>
+                        <td id="punto1" class="points">
+                             <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal"/>
                         </td>
                         </tr>
                         <tr>
                         <td class="number">2</td>
-                        <td class="name">Giulio Di Gregorio</td>
-                        <td class="points">258.242</td>
+                        <td id="top2" class="name"></td>
+                        <td id="punto2" class="points"></td>
                         </tr>
                         <tr>
                         <td class="number">3</td>
-                        <td class="name">Marika Fuccio</td>
-                        <td class="points">258.223</td>
+                        <td id="top3" class="name"></td>
+                        <td id="punto3" class="points"></td>
                         </tr>
                         <tr>
                         <td class="number">4</td>
-                        <td class="name">Andrea Lacava</td>
-                        <td class="points">258.212</td>
+                        <td id="top4" class="name"></td>
+                        <td id="punto4" class="points"></td>
                         </tr>
                         <tr>
                         <td class="number">5</td>
@@ -288,7 +288,7 @@
     </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="./home.js" type="text/javascript"></script>
+    <script src="./home.js" type="module"></script>
 
 </body>
 

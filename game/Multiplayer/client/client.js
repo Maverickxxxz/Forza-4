@@ -2,6 +2,14 @@ import io from "socket.io-client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
+var input_stanza = document.getElementById("nomeStanza");
+    input_stanza.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // fa in modo che alla pressione del tasto Enter, la pagina non si ricarichi
+        return null;
+      }
+    });
+
 
 var idStanzaClient;
 let utente;
@@ -17,6 +25,12 @@ let in_attesa = false;
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {
   const nomeStanza = document.getElementById("nomeStanza").value;
+
+  if(nomeStanza.length < 5){
+    alert("Il nome deve avere almeno 5 lettere!");
+    return;
+  }
+
   socket.emit("crea-stanza", nomeStanza, utente); //MANDA AL SERER IL NOME DELLA STANZA
 }
 
@@ -240,7 +254,6 @@ socket.on('classifica', (risultato) => {
     contatore += 1;
   }
 
-  classifica[array[0]]
   var immagine = document.createElement("img");
   immagine.src = "https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true";
   immagine.alt = "gold medal";
