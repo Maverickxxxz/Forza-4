@@ -45,7 +45,7 @@ window.onload = function(){
     if (!nomeUtente) {
         document.getElementById('gioca_ora').disabled = true;
     }
-}
+} 
 
 
 

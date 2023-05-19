@@ -2,8 +2,8 @@
 
 $id = rand(111111111,999999999);
 $nome_utente = $_POST["nome_utente_r"];
-$nome = "paolo";
-$cognome = "massari";
+$nome = $_POST["nome"];
+$cognome = $_POST["cognome"];
 $email = $_POST["email_r"];
 $password = $_POST["password_r"];
 $password_hash = password_hash($_POST["password_r"], PASSWORD_DEFAULT); //hashed, crittografata

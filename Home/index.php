@@ -290,6 +290,23 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./home.js" type="module"></script>
 
+    <script>
+        $.ajax({
+            url: "data.php",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                // Manipola i dati ottenuti come desideri
+                console.log(data);
+            },
+            error: function(xhr, status, error) {
+                console.error("Errore nella richiesta AJAX:", status, error);
+            }
+        });
+
+    </script>
+
+
 </body>
 
 </html>

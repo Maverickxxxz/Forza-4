@@ -1,5 +1,6 @@
-body {
-    background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
+
+body{  
+  background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%,  #12215b 75.52%);
 }
 
 .animato:hover{
