@@ -17,7 +17,7 @@
         $id = $utente["ID"];
     }
 
-
+    /*
     // GESTIONE DELLA CLASSIFICA
     $mysqli = new mysqli("localhost", "root", "", "register_database");
     $sql_classifica = "SELECT nome_utente, puntiClassifica FROM utente ORDER BY puntiClassifica DESC";
@@ -36,7 +36,7 @@
 
     json_encode($utenti); //File json con le informazioni degli utenti e i relativi punti classifica.
     
-    $mysqli->close();
+    $mysqli->close();*/
     
 ?>
 
@@ -319,7 +319,6 @@
                 console.error("Errore nella richiesta AJAX:", status, error);
             }
         });
-
     </script>
 
 </body>
