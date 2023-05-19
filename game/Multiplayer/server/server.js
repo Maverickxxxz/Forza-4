@@ -40,6 +40,8 @@ function inizio_turno(idStanza) {
     let data = letturaDati();
     let giocatore1;
     let giocatore2;
+    let giocatore1_ut;
+    let giocatore2_ut;
     let giocatore1_SID;
     let giocatore2_SID;
 
@@ -52,19 +54,21 @@ function inizio_turno(idStanza) {
         giocatore2  = true;
     }
 
+    let utenti = [];
     for(let id in data){
         if(id == idStanza){
             data[id]['giocatori']['turnoG1'] = giocatore1;
             giocatore1_SID = data[id]['giocatori']['socketID_G1'];
+            giocatore1_ut = data[id]['giocatori']['giocatore1'];
             data[id]['giocatori']['turnoG2'] = giocatore2;
             giocatore2_SID = data[id]['giocatori']['socketID_G2']; 
-            scritturaDati(data);         
+            giocatore2_ut = data[id]['giocatori']['giocatore2'];
+            scritturaDati(data);     
+            utenti.push(id, giocatore1_SID, giocatore2_SID, giocatore1_ut, giocatore2_ut, giocatore1, giocatore2);    
         }
     }
 
-    if(giocatore1){return giocatore1_SID;
-    }
-    else{return giocatore2_SID;}
+    return utenti;
 
 }
 
@@ -77,7 +81,9 @@ function cambio_colore(colore){
 
 function cambio_turno(idStanza){
     let data = letturaDati();
+    let primo;
     let giocatoreCorrente;
+    let utente = [];
 
     for(let id in data){
         if(id == idStanza){  
@@ -85,6 +91,7 @@ function cambio_turno(idStanza){
             if(data[id]['giocatori']['turnoG1'] == false){  
                 data[id]['giocatori']['turnoG1'] = true;
                 data[id]['giocatori']['turnoG2'] = false;
+                primo = data[id]['giocatori']['giocatore1'];
                 giocatoreCorrente = data[id]['giocatori']['socketID_G1'];
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G2'];
                  io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);
@@ -93,14 +100,17 @@ function cambio_turno(idStanza){
             else{
                 data[id]['giocatori']['turnoG1'] = false;
                 data[id]['giocatori']['turnoG2'] = true;
+                primo = data[id]['giocatori']['giocatore2'];
                 giocatoreCorrente = data[id]['giocatori']['socketID_G2'];
                 giocatoreNonCorrente = data[id]['giocatori']['socketID_G1'];
                 io.to(giocatoreNonCorrente).emit("giocatore-non-corrente", idStanza);  
             }
         }
     }
+
+    utente.push(giocatoreCorrente, primo)
     scritturaDati(data);
-    return giocatoreCorrente;
+    return utente;
 }
 
 
@@ -333,11 +343,6 @@ io.on('connection', socket => {
             if(old_data[x]["nomeStanza"] == nomeStanzaUnione){
                 stanzaTrovata = true; 
 
-                if(old_data[x]["giocatori"]["giocatore1"] == nome_ut){
-                    //socket.emit("messaggi-al-client", "stesso-utente");
-                    //return;
-                }
-
                 idStanza = x;
 
                 if(old_data[x]["giocatori"]["numero"] == 2){
@@ -357,9 +362,9 @@ io.on('connection', socket => {
         if (stanzaTrovata) {
             socket.join(idStanza);
             console.log("'" + nome_ut + "'" + " si è connesso correttamente alla stanza di " +  "'" + creatore_stanza + "'");
-            io.to(idStanza).emit("naviga-a-gioco", idStanza, creatore_stanza_ID);     
+            io.to(idStanza).emit("naviga-a-gioco");     
             io.to(creatore_stanza_ID).emit("creatore", idStanza);
-   
+
         } else {
             socket.emit("messaggi-al-client", "sbagliata");
             let data = letturaDati();
@@ -372,11 +377,27 @@ io.on('connection', socket => {
             
         }
     });
-
+    
     socket.on("inizio-gioco", (idStanza) => {   
-        let giocatoreCorrenteID = inizio_turno(idStanza);   
+        let utenti = inizio_turno(idStanza);  
         let colore = "rosso";
-        io.to(giocatoreCorrenteID).emit("primo-giocatore", idStanza, colore);
+        let turno_g;
+        let bool_g1 = utenti[5];
+        let bool_g2 = utenti[6];
+
+        if(bool_g1){ //DEVE MANDARE A G1 CHE è IL PRIMO GIOCATORE, E A G2 IL NOME UTENTE DEL PRIMO GIOCATORE
+            io.to(utenti[1]).emit("primo-giocatore", idStanza, colore);
+            turno_g = utenti[3]//PRIMO GIOCATORE
+            
+           }
+        if(bool_g2){
+            io.to(utenti[2]).emit("primo-giocatore", idStanza, colore);
+            turno_g = utenti[4]//PRIMO GIOCATORE
+            
+        }
+
+        io.to(utenti[0]).emit("turno", turno_g);
+
     });
 
       
@@ -384,6 +405,7 @@ io.on('connection', socket => {
     socket.on("mossa", (mossa, idStanza, board, colore, nome_utente) => {  
         
         io.to(idStanza).emit("aggiorna-gioco", mossa, colore);
+        
 
         if(verifica_vincita(board)){      
             let coppia = vincitore(nome_utente);
@@ -400,10 +422,12 @@ io.on('connection', socket => {
             return;
         }
         
-        giocatoreCorrente = cambio_turno(idStanza); 
-        
+        let utente = cambio_turno(idStanza);
+        giocatoreCorrente = utente[0];
+               
         colore = cambio_colore(colore);
         io.to(giocatoreCorrente).emit("giocatore-corrente", idStanza, colore);  
+        io.to(idStanza).emit("turno", utente[1]);
         
     });
 

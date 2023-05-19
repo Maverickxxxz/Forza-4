@@ -13,6 +13,7 @@ var input_stanza = document.getElementById("nomeStanza");
 
 var idStanzaClient;
 let utente;
+let giocatore_attuale;
 
 export function acquisizione_id(){
   const valorichiave = window.location.search;
@@ -173,10 +174,6 @@ socket.on('connect', () => {
       alert("Questa stanza è già piena!");
     }
 
-    if(messaggio === "stesso-utente"){
-      alert("Hai già creato una stanza! Non puoi unirti ad un'altra.");
-    }
-
     if(messaggio === "stesso-utente-creazione"){
       alert("Hai già creato una stanza! Non puoi crearne un'altra.");
     }
@@ -308,6 +305,7 @@ socket.on("naviga-a-gioco", () => {
   setGame();
 });
 
+
 socket.on("creatore", (idStanza) => {
   socket.emit("inizio-gioco", idStanza); //In modo che solo il "creatore" manda un solo segnale di inizio-gioco, altrimenti ne avremmo 2
   idStanzaClient = idStanza;
@@ -321,6 +319,14 @@ socket.on("primo-giocatore", (idStanza, colore) =>{
   giocatoreCorrente = true;
   idStanzaClient = idStanza;
   colore_client = colore;
+});
+
+socket.on("turno", (giocatore_attuale_ut) =>{
+  console.log("XX");
+  giocatore_attuale = giocatore_attuale_ut;
+  let turno = document.getElementById("nome_turno");
+  console.log(giocatore_attuale);
+  turno.innerHTML = giocatore_attuale;
 });
 
 
