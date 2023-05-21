@@ -1,14 +1,198 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Teko&display=swap');
+
+
 body {
+    background-image: url(../../sources/walgame.png);
+    background-size: cover;
+    height: 97.3vh;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
+.griglia{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 10% 80% 10%;
+    height: 98vh;
+}
+
+.row1{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.row1 h1{
+    font-size: 105px;
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 7px;
+    color: white;
+    margin: 0%;
+    transition: 0.5s;
+    
+}
+
+
+.col1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player1c{
+    background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
+    width: 96%;
+    height: 30vh;
+    margin-left: 10%;
+    border-radius: 40px;
+    animation: float 5s ease-in-out infinite;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 60% 40%;
+}
+
+.pedinar{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-top: 5%;
+}
+
+.scritta{
+    color: rgb(173, 27, 27);
+}
+
+.scritta h2{
+    margin-top: -5%;
+    font-family: 'Bree Serif', serif;
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+
+.col2{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.col3{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player2{
+    background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
+    width: 96%;
+    height: 30vh;
+    margin-left: -10%;
+    border-radius: 40px;
+    animation: float 5s ease-in-out infinite;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 60% 40%;
+}
+
+.pedinag{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-top: 5%;
+}
+
+
+.scritta2{
+    color: rgb(255, 179, 0);
+}
+
+.scritta2 h2{
+    margin-top: -5%;
+    font-family: 'Bree Serif', serif;
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+
+#turno2{
+    visibility: hidden;
+}
+
+.row2{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 13vh;
+    margin-top: -8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2%;
+}
+
+#nuovo{
+    background-color: #2843ac;
+    color: white;
+    margin-top: 10%;
+}
+
+#stopwatch {
+    width: 30%;
+    height: 7vh;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hours{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hours h1{
+    color: red;
+}
+
+
+@keyframes float {
+	0% {
+		/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+		transform: translatey(0px);
+	}
+	50% {
+		/*box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);*/
+		transform: translatey(-20px);
+	}
+	100% {
+		/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+		transform: translatey(0px);
+	}
+}
+
 #board {
     height: 540px;
-    width: 630px;
-    background-color: blue;
+    width: 61%;
+    background: linear-gradient(245.59deg, #2843ac 0%, #485fb9 28.53%, #2843ac 75.52%);
     border: 10px solid navy;
-    
+    border-radius: 20px;
+    animation: float 5s ease-in-out infinite;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;

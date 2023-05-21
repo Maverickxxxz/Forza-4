@@ -6,11 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Connect 4</title>
     <link rel="stylesheet" href="gioco.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+    
     <script src="gioco.js"></script>
 </head>
 <body>
-    <h1>Connect 4</h1>
-    <h2 id="winner"></h2>
-    <div id="board"></div>
+    <div class="griglia">
+        <!-- <h1>Connect 4</h1>
+        <h2 id="winner"></h2>
+        <div id="board"></div> -->
+        <div class="row1">
+            <h1 id="testo">CONNECT FOUR</h1>
+        </div>
+        <div class="col1">
+            <div class="player1c">
+                <div class="pedinar">
+                    <img id="rosso" src="../../sources/pedinarossa.png" width="30%">
+                    <hr width="80%">
+                </div>
+                <div class="scritta">
+                    <h1>PLAYER 1</h1>
+                    <h2 id="turno1">E' il tuo turno!</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col2">
+            <div id="board"></div>
+        </div>
+        <div class="col3">
+            <div class="player2">
+                <div class="pedinag">
+                    <img id="giallo" src="../../sources/pedinagialla.png" width="30%">
+                    <hr width="80%">
+                </div>
+                <div class="scritta2">
+                    <h1>PLAYER 2</h1>
+                    <h2 id="turno2">E' il tuo turno!</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="nuova">
+                <button class="btn" id="nuovo">NUOVA PARTITA</button>
+            </div>
+            <div id="stopwatch">
+                <div class=”hours”> <h1>00:</h1>
+                </div>
+                <div class="minutes"><p>00:</p></div>
+                <div class="seconds"><p>00</p></div>
+             </div>
+        </div>
+    </div>
 </body>
 </html>

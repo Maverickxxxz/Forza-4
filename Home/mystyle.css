@@ -511,7 +511,7 @@ footer form {
     grid-row-start: 1;
     grid-row-end: 2;
     margin-top: 6%;
-    animation: backInUp;
+    animation: fadeIn;
     animation-duration: 1.5s;
 }
 
@@ -570,7 +570,7 @@ footer form {
     grid-row-start: 3;
     grid-row-end: 4;
     background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
-    height: 80vh;
+    height: 84vh;
     margin-top: -12%;
     margin-right: -5%;
     margin-left: -5%;

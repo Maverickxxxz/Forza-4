@@ -15,29 +15,7 @@
 
         $nome_utente = $utente["nome_utente"];
         $id = $utente["ID"];
-    }
-
-    /*
-    // GESTIONE DELLA CLASSIFICA
-    $mysqli = new mysqli("localhost", "root", "", "register_database");
-    $sql_classifica = "SELECT nome_utente, puntiClassifica FROM utente ORDER BY puntiClassifica DESC";
-    $result_classifica = $mysqli->query($sql_classifica);
-
-    if (!$result_classifica) {
-        echo "Errore nella query: " . $mysqli->error;
-        exit;
-    }
-
-    $utenti = array(); // Array per memorizzare i record degli utenti
-
-    while ($row = $result_classifica->fetch_assoc()) {
-        $utenti[] = $row; // Aggiungi il record all'array
-    }
-
-    json_encode($utenti); //File json con le informazioni degli utenti e i relativi punti classifica.
-    
-    $mysqli->close();*/
-    
+    } 
 ?>
 
 
@@ -144,7 +122,7 @@
                     <div class="modal-body">
                         <div class="form-check">
                             <button class="btn" id="locale">
-                                <a href="../Profile/profile.html">
+                                <a href="../game/Locale/gioco.php">
                                     Locale
                                 </a>
                             </button>
@@ -239,23 +217,23 @@
                         </tr>
                         <tr>
                         <td class="number">5</td>
-                        <td class="name">Alessio Croce</td>
-                        <td class="points">258.208</td>
+                        <td id="top5" class="name"></td>
+                        <td id="punto5" class="points"></td>
                         </tr>
                         <tr>
                         <td class="number">6</td>
-                        <td class="name">Simone Di Cocco</td>
-                        <td class="points">252.208</td>
+                        <td id="top6" class="name"></td>
+                        <td id="punto6" class="points"></td>
                         </tr>
                         <tr>
                         <td class="number">7</td>
-                        <td class="name">Noemi Giustini</td>
-                        <td class="points">252.100</td>
+                        <td id="top7" class="name"></td>
+                        <td id="punto7" class="points"></td>
                         </tr>
                         <tr>
                         <td class="number">8</td>
-                        <td class="name">Sergio Mattarella</td>
-                        <td class="points">100</td>
+                        <td id="top8" class="name"></td>
+                        <td id="punto8" class="points"></td>
                         </tr>
                     </table>
                 </div>
@@ -313,7 +291,17 @@
             dataType: "json",
             success: function(data) {
                 // Manipola i dati ottenuti come desideri
-                //console.log(data);
+                console.log(data);
+                for(var i = 0; i < 8; i++){
+                    var nome = data[i]["nome_utente"];
+                    var punto = data[i]["puntiClassifica"];
+                    var divNome = $("#top" + (i + 1)); // Assumendo che gli ID dei div siano "top1", "top2", ecc.
+                    var divPunto = $("#punto" + (i + 1));
+                
+                    // Assegna il nome al contenuto del div
+                    divNome.text(nome);
+                    divPunto.text(punto);
+                }
             },
             error: function(xhr, status, error) {
                 console.error("Errore nella richiesta AJAX:", status, error);

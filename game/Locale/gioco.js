@@ -12,6 +12,31 @@ var currColumns = []; //keeps track of which row each column is at.
 window.onload = function() {
     setGame();
 }
+document.addEventListener('DOMContentLoaded', function() {
+    var head = document.getElementById('testo');
+    var count = 0;
+  
+    head.addEventListener('mouseenter', function() {
+      count++;
+      if (count % 2 === 1) {
+        head.style.color = 'rgb(255, 179, 0)';
+        head.style.fontSize = '110px';
+        head.style.transition = '0.5s';
+      } else {
+        head.style.color = 'rgb(173, 27, 27)';
+        head.style.fontSize = '110px';
+        head.style.transition = '0.5s';
+      }
+    });
+  
+    head.addEventListener('mouseleave', function() {
+      head.style.color = 'white';
+      head.style.fontSize = '105px';
+      head.style.transition = '0.5s';
+    });
+  });
+  
+
 
 function setGame() {
     board = [];
@@ -42,6 +67,8 @@ function setPiece() {
     let coords = this.id.split("-");
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
+    let turno1 = document.getElementById('turno1');
+    let turno2 = document.getElementById('turno2');
 
     // figure out which row the current column should be on
     r = currColumns[c]; 
@@ -55,10 +82,15 @@ function setPiece() {
     if (currPlayer == playerRed) {
         tile.classList.add("red-piece");
         currPlayer = playerYellow;
+        turno2.style.visibility = 'visible';
+        turno1.style.visibility = 'hidden';
+
     }
     else {
         tile.classList.add("yellow-piece");
         currPlayer = playerRed;
+        turno1.style.visibility = 'visible';
+        turno2.style.visibility = 'hidden';
     }
 
     r -= 1; //update the row height for that column
