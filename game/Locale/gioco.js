@@ -8,10 +8,8 @@ var board;
 var rows = 6;
 var columns = 7;
 var currColumns = []; //keeps track of which row each column is at.
+var intervalId;
 
-window.onload = function() {
-    setGame();
-}
 document.addEventListener('DOMContentLoaded', function() {
     var head = document.getElementById('testo');
     var count = 0;
@@ -39,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function setGame() {
+    let tavola = document.getElementById("board");
+    tavola.style.visibility="visible";
     board = [];
     currColumns = [5, 5, 5, 5, 5, 5, 5];
 
@@ -52,7 +52,7 @@ function setGame() {
             tile.id = r.toString() + "-" + c.toString();
             tile.classList.add("tile");
             tile.addEventListener("click", setPiece);
-            document.getElementById("board").append(tile);
+            tavola.append(tile);
         }
         board.push(row);
     }
@@ -149,12 +149,46 @@ function checkWinner() {
     }
 }
 
+function newGame(){
+    location.reload();
+}
+
 function setWinner(r, c) {
     let winner = document.getElementById("winner");
+    let btn = document.getElementById("nuovo");
+    let btn2 = document.getElementById("nuovo2");
     if (board[r][c] == playerRed) {
-        winner.innerText = "Red Wins";             
+        winner.innerHTML = "Ha vinto il <span id='colore'>rosso</span>!";             
     } else {
-        winner.innerText = "Yellow Wins";
+        winner.innerHTML = "Ha vinto il <span id='colore2'>rosso</span>!";
     }
+    btn.removeAttribute('disabled');
+    btn2.removeAttribute('disabled');
+    clearInterval(intervalId);
+
     gameOver = true;
+}
+
+
+function startTimer(){
+    let start = document.getElementById("nuovo3");
+    setGame();
+    var container = document.getElementById("contimer");
+    var startTime = Date.now();
+
+    function updateTimer() {
+        var currentTime = Date.now();
+        var elapsedTime = currentTime - startTime;
+
+        var minutes = Math.floor(elapsedTime / 60000);
+        var seconds = Math.floor((elapsedTime % 60000) / 1000);
+        var milliseconds = Math.floor((elapsedTime % 1000) / 10);
+
+        container.innerText = minutes.toString().padStart(2, '0') + ':' +
+                              seconds.toString().padStart(2, '0') + ':' +
+                              milliseconds.toString().padStart(2, '0');
+    }
+
+    intervalId = setInterval(updateTimer, 30);
+    start.disabled = true;
 }

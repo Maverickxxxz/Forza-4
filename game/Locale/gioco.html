@@ -18,10 +18,10 @@
 <body>
     <div class="griglia">
         <!-- <h1>Connect 4</h1>
-        <h2 id="winner"></h2>
         <div id="board"></div> -->
         <div class="row1">
             <h1 id="testo">CONNECT FOUR</h1>
+            <h2 id="winner"></h2>
         </div>
         <div class="col1">
             <div class="player1c">
@@ -33,10 +33,12 @@
                     <h1>PLAYER 1</h1>
                     <h2 id="turno1">E' il tuo turno!</h1>
                 </div>
+                <div class="contimer" id="contimer">
+                </div>
             </div>
         </div>
         <div class="col2">
-            <div id="board"></div>
+            <div id="board" style="visibility: hidden;"></div>
         </div>
         <div class="col3">
             <div class="player2">
@@ -52,8 +54,9 @@
         </div>
         <div class="row2">
             <div class="nuova">
-                <button disabled class="btn" id="nuovo">NUOVA PARTITA</button>
-                <button disabled class="btn" id="nuovo2">TORNA ALLA HOME</button>
+                <button class="btn" id="nuovo3" onclick="startTimer();">INIZIA!</button>
+                <button disabled class="btn" id="nuovo" onclick="newGame();">NUOVA PARTITA</button>
+                <button disabled class="btn" id="nuovo2"><a href="../../Home/index.php">TORNA ALLA HOME</a></button>
             </div>
         </div>
     </div>
