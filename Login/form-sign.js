@@ -1,10 +1,9 @@
 function presa_elementi_registrazione(){
-
+    let nome = document.form_registrazione.nome.value;
+    let cognome = document.form_registrazione.cognome.value;
     let nome_utente = document.form_registrazione.nome_utente_r.value;
     let email = document.form_registrazione.email_r.value;
     let password = document.form_registrazione.password_r.value;
-    let nome = document.getElementById("nome").value;
-    let cognome = document.getElementById("cognome").value;
     let password_conferma = document.form_registrazione.cpassword_r.value;
 
     //CONTROLLA SE I CAMPI SONO VUOTI
