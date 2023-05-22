@@ -22,6 +22,7 @@ if (isset($_SESSION["utente_id"])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <script src="profile.js"></script>
 
     <!-- JQUERY -->
@@ -36,6 +37,7 @@ if (isset($_SESSION["utente_id"])) {
                   <a class="navbar-brand nav-link" target="_blank" href="../Home/index.php">
                       <img class = "animato "src="../sources/logo-connect4.png" width="130px">
                   </a>
+
                   <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
                       aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
                       <i class="fas fa-bars"></i>
@@ -73,11 +75,12 @@ if (isset($_SESSION["utente_id"])) {
 
     <section class="py-5 my-5">
 		<div class="container">
+            <div class="home"><a href="../Home/index.php"><svg class="bottonehome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" style="margin-left: -21%; margin-top: -6%"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 11V8L8 12L12 16V13H16V11H12Z" fill="rgba(245,245,245,1)"></path></svg></a></div>
 			<div class="bg shadow rounded-lg d-block d-sm-flex">
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
 						<div class="img-circle text-center mb-3">
-							<img src="../sources/user2.jpg" alt="Image" class="shadow">
+							<img src="../sources/immagineprofilo.avif" alt="Image" class="shadow">
 						</div>
 						<h4 class="text-center" id="nomeu"></h4>
 					</div>
