@@ -62,11 +62,12 @@ body {
 
 .player1c{
     background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
-    width: 96%;
-    height: 30vh;
+    width: 80%;
+    height: 25vh;
     margin-left: 10%;
     border-radius: 40px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    animation: float 5s ease-in-out infinite;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: 60% 40%;
@@ -106,11 +107,12 @@ body {
 
 .player2{
     background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
-    width: 96%;
-    height: 30vh;
-    margin-left: -10%;
+    width: 80%;
+    height: 25vh;
+    margin-left: 7%;
     border-radius: 40px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    animation: float 5s ease-in-out infinite;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: 60% 40%;
@@ -240,7 +242,6 @@ body {
     background: linear-gradient(245.59deg, #2843ac 0%, #485fb9 28.53%, #2843ac 75.52%);
     border: 10px solid navy;
     border-radius: 20px;
-    animation: float 5s ease-in-out infinite;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
     margin: 0 auto;
     display: flex;

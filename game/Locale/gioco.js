@@ -160,7 +160,7 @@ function setWinner(r, c) {
     if (board[r][c] == playerRed) {
         winner.innerHTML = "Ha vinto il <span id='colore'>rosso</span>!";             
     } else {
-        winner.innerHTML = "Ha vinto il <span id='colore2'>rosso</span>!";
+        winner.innerHTML = "Ha vinto il <span id='colore2'>giallo</span>!";
     }
     btn.removeAttribute('disabled');
     btn2.removeAttribute('disabled');
