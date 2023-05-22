@@ -291,7 +291,6 @@
             dataType: "json",
             success: function(data) {
                 // Manipola i dati ottenuti come desideri
-                console.log(data);
                 for(var i = 0; i < 8; i++){
                     var nome = data[i]["nome_utente"];
                     var punto = data[i]["puntiClassifica"];
