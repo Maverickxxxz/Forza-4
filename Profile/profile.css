@@ -159,6 +159,19 @@ body {
     transform: translateX(4px);
     transition: 0.5s;
 }
+
+#elimina{
+    background-color: rgb(19, 54, 152); 
+    color: white;
+    transition: 0.5s;
+    margin-top: 5.2%;
+}
+
+#elimina:hover{
+    background-color: rgb(10, 37, 110);
+    transform: translateX(4px);
+    transition: 0.5s;
+}
 .form-group {
 	margin-bottom: 1.5rem;
 }

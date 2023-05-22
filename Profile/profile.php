@@ -141,12 +141,11 @@ if (isset($_SESSION["utente_id"])) {
 								  	<input disabled id="data" type="date" id="eta" class="form-control">
 								</div>
 							</div>
-							<!--<div class="col-md-12">
+                            <div class="col-md-6">
 								<div class="form-group">
-								  	<label>Biografia:</label>
-									<textarea disabled id="bio" class="form-control" rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
+							        <button id ="elimina" class="btn" onclick="eliminaIstanza();">Elimina Account</button>
 								</div>
-							</div>-->
+							</div>
 						</div>
 						<div>
 							<button disabled id ="conferma" class="btn">Conferma Modifiche</button>
@@ -210,7 +209,7 @@ if (isset($_SESSION["utente_id"])) {
 						</div>
 						<div>
 							<button disabled id ="conferma3" class="btn btn-primary">Conferma Modifiche</button>
-							<button id="aggiorna3" class="btn">Aggiorna</button>
+							<button disabled id="aggiorna3" class="btn">Aggiorna</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
@@ -270,7 +269,7 @@ if (isset($_SESSION["utente_id"])) {
 						</div>
 						<div>
 							<button disabled id ="conferma5" class="btn btn-primary">Conferma Modifiche</button>
-							<button id="aggiorna5" class="btn">Aggiorna</button>
+							<button disabled id="aggiorna5" class="btn">Aggiorna</button>
 						</div>
 					</div>
 				</div>
@@ -397,7 +396,6 @@ if (isset($_SESSION["utente_id"])) {
         $(window).on("load", function(){
             $aggiorna.removeAttr('disabled');
             $aggiorna2.removeAttr('disabled');
-            $aggiorna3.removeAttr('disabled');
             $aggiorna4.removeAttr('disabled');
             $("#nome").prop('disabled',true);
             $("#cognome").prop('disabled',true);
@@ -450,6 +448,26 @@ if (isset($_SESSION["utente_id"])) {
             }
         });
 
+    </script>
+
+    <script>
+        function eliminaIstanza(){
+            var idIstanza = 1; // L'ID o l'identificatore dell'istanza da eliminare
+            var utente_id = "<?php echo isset($utente_id) ? $utente_id : ''; ?>";
+            // Effettua la chiamata AJAX utilizzando jQuery
+            $.ajax({
+                url: "elimina.php?id=" + utente_id,
+                type: "POST",
+                data: { id: idIstanza },
+                success: function(response) {
+                    alert("Account eliminato correttamente!");
+                    window.location.href="../Home/index.php";
+                },
+                error: function(xhr, status, error) {
+                console.log("Errore durante la chiamata AJAX:", error);
+                }
+            });
+        } 
     </script>
 </body>
 </html>
