@@ -297,7 +297,7 @@ socket.on('classifica', (risultato) => {
 
 socket.on("avversario-disconnesso", () =>{
   alert("Il tuo avversario si è disconnesso :(");
-  window.location.href = "http://localhost:8080/stanza.html?id=" + acquisizione_id();
+  window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
 });
 
 
@@ -383,13 +383,13 @@ socket.on("giocatore-non-corrente", (idStanza) => {
 
 socket.on("vincitore", () => {
   alert("HAI VINTO!");
-  window.location.href = "http://localhost:8080/stanza.html?id=" + acquisizione_id();
+  window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
 });
 
 
 socket.on("perdente", () => {
   alert("HAI PERSO!");
-  window.location.href = "http://localhost:8080/stanza.html?id=" + acquisizione_id();
+  window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
 });
 
 
