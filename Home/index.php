@@ -110,7 +110,7 @@
                 Che aspetti? Non avere paura!
             </p>
             <button type="button" id="gioca_ora" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <!-- HO ELIMINATO QUESTA A !!!-->  <a class = "cta"><i class="ri-play-fill"></i>Gioca ora!</a>
+                <a class = "cta"><i class="ri-play-fill"></i>Gioca ora!</a>
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

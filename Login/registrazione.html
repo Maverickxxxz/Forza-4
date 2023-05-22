@@ -108,15 +108,6 @@
             line-height: 42px;
             text-align: center;
         }
-
-        /*form #nomed{
-            grid-column-start: 1;
-            grid-column-end: 2;
-            grid-row-start: 2;
-            grid-row-end: 3;
-            display: flex;
-            justify-content: center;
-        } */
         
         label{
             position: relative;
@@ -152,7 +143,8 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10%;
-            transition: all .5s ease-in-out;;
+            transition: all .5s ease-in-out;
+            margin-left: 50%;
         }
         
         button:hover{
@@ -211,39 +203,45 @@
     <div class="contenitore1">
         
         <div class="form">
-            <form name="form_registrazione" method="post" action="./signup-process.php">
+            <form name="form_registrazione" method="post" action="./signup-process.php" onsubmit="return presa_elementi_registrazione();">
                 <h3>REGISTRATI QUI</h3>
                 <div class="nomed">
                     <i class="ri-account-circle-fill"></i>
                     <label for="nome">Nome</label>
-                    <input name="nome" id="nome" type="text" placeholder="Nome" oninput="verifica_vuoto();">
+                    <input name="nome" id="nome" type="text" placeholder="Nome">
                 </div>
                 
                 <div class="cognomed">
                     <i class="ri-account-circle-fill"></i> 
                     <label for="cognome" id="labelc">Cognome</label>
-                    <input name="cognome" id="cognome" type="text" placeholder="Cognome" oninput="verifica_vuoto();">
+                    <input name="cognome" id="cognome" type="text" placeholder="Cognome">
                 </div>
                 
                 <div class="nomeu">
                     <i class="fa fa-gamepad"></i>
                     <label for="nome_utente_r">Nome utente</label>
-                    <input name="nome_utente_r" id="nome_utente_r" type="text" placeholder="Nome utente" oninput="verifica_vuoto();">
+                    <input name="nome_utente_r" id="nome_utente_r" type="text" placeholder="Nome utente">
                 </div>
                 
                 <div class="em">
                     <i class="ri-mail-fill"></i>
                     <label for="email_r">Email</label>
-                    <input name="email_r" id="email_r" type="email" placeholder="Email" oninput="verifica_vuoto();">    
+                    <input name="email_r" id="email_r" type="email" placeholder="Email">    
                 </div>
                 
                 <div class="pw">
                     <i class="ri-key-fill"></i>
                     <label for="password_r">Password</label>
-                    <input name="password_r" type="password" placeholder="Password" id="password_r" oninput="verifica_vuoto();">    
+                    <input name="password_r" type="password" placeholder="Password" id="password_r">    
+                </div>
+
+                <div class="pw">
+                    <i class="ri-key-fill"></i>
+                    <label for="cpassword_r">Conferma password</label>
+                    <input name="cpassword_r" type="password" placeholder="Conferma password" id="cpassword_r">    
                 </div>
                 
-                <button type="submit" id="bottoneRegistrati" onclick="return presa_elementi_registrazione();">REGISTRATI</button>
+                <button type="submit" id="bottoneRegistrati">REGISTRATI</button>
             </form>
         </div>
         
