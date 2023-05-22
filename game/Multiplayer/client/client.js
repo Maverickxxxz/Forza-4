@@ -58,7 +58,9 @@ export function aggiornaGioco(mossa, colore){
 
   let r = mossa[0];
   let c = mossa[1];
-  r = currColumns[c]; 
+  r = currColumns[c];
+  let turno1 = document.getElementById('turno1');
+  let turno2 = document.getElementById('turno2'); 
 
   if (r < 0) { 
       board[r][c] != ' '
@@ -69,10 +71,14 @@ export function aggiornaGioco(mossa, colore){
 
   if(colore=="rosso"){
     tile.classList.add("red-piece");
+    turno2.style.visibility = 'visible';
+    turno1.style.visibility = 'hidden';
   }
 
   if(colore=="giallo"){
     tile.classList.add("yellow-piece");
+    turno1.style.visibility = 'visible';
+    turno2.style.visibility = 'hidden';
   }
 
   r -= 1; //update the row height for that column
@@ -109,6 +115,8 @@ export function mossa() {
 
 function setGame() {
   // Funzione che inizializza la tavola da gioco
+  let tavola = document.getElementById("board");
+  tavola.style.visibility="visible";
   board = [];
   currColumns = [5, 5, 5, 5, 5, 5, 5];
   let rows = 6;
@@ -296,14 +304,46 @@ socket.on("avversario-disconnesso", () =>{
 // Listener per l'evento "naviga-a-gioco"
 socket.on("naviga-a-gioco", () => {
   const primaPagina = document.getElementById("prima-pagina");
-  const secondaPagina = document.getElementById("seconda-pagina");
+  const secondaPagina = document.getElementById("griglia");
+  const navbar = document.getElementById("navbar");
+  let inizia = document.getElementById("nuovo3");
+  let btn = document.getElementById("nuovo");
+  let btn2 = document.getElementById("nuovo2");
   // Nascondo la prima pagina
-  primaPagina.style.display = "none";  
+  primaPagina.style.display = "none";
+  navbar.style.display="none";  
   // Mostro la seconda pagina
   secondaPagina.style.display = "grid";
 
   setGame();
+
+  var head = document.getElementById('testo');
+  var count = 0;
+
+  head.addEventListener('mouseenter', function() {
+    count++;
+    if (count % 2 === 1) {
+      head.style.color = 'rgb(255, 179, 0)';
+      head.style.fontSize = '110px';
+      head.style.transition = '0.5s';
+    } else {
+      head.style.color = 'rgb(173, 27, 27)';
+      head.style.fontSize = '110px';
+      head.style.transition = '0.5s';
+    }
+  });
+
+  head.addEventListener('mouseleave', function() {
+    head.style.color = 'white';
+    head.style.fontSize = '105px';
+    head.style.transition = '0.5s';
+  });
+
 });
+
+function newGame(){
+  location.reload();
+}
 
 
 socket.on("creatore", (idStanza) => {

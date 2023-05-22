@@ -38,7 +38,7 @@
     <title>Stanza</title>
 </head>
 <body>
-    <header>
+    <header id="navbar">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block">
             <div class="container-fluid">
@@ -164,12 +164,42 @@
     </div>
          
 
-    <div id="seconda-pagina" style="display: none;">   
+    <div id = "griglia" class="griglia">
+        <div class="row1">
+            <h1 id="testo">CONNECT FOUR</h1>
             <h2 id="winner"></h2>
-            <div id="bord" class="bord">
-                <h1>È il turno di <span id="nome_turno" class="nome"></span></h1>
-                <div id="board"></div>
+        </div>
+        <div class="col1">
+            <div class="player1c">
+                <div class="pedinar">
+                    <img id="rosso" src="pedinarossa.png" width="30%">
+                </div>
+                <div class="scritta">
+                    <h1>PLAYER 1</h1>
+                    <h2 id="turno1">E' il tuo turno!</h1>
+                </div>
             </div>
+        </div>
+        <div class="col2">
+            <div id="board" style="visibility: hidden;"></div>
+        </div>
+        <div class="col3">
+            <div class="player2">
+                <div class="pedinag">
+                    <img id="giallo" src="pedinagialla.png" width="30%">
+                    
+                </div>
+                <div class="scritta2">
+                    <h1>PLAYER 2</h1>
+                    <h2 id="turno2">E' il tuo turno!</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="nuova">
+                <button class="btn" id="nuovo2"><a href="http://localhost/Progetto/Home/index.php">TORNA ALLA HOME</a></button> <!-- DA SISTEMARE -->
+            </div>
+        </div>
     </div>
 </body>
 </html>

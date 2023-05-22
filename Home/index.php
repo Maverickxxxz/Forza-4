@@ -70,7 +70,7 @@
                 <li>
                     <div class="action">
                         <div class="profile" onclick="menuToggle();">
-                            <img src="../sources/av1.png" />
+                            <img src="../sources/immagineprofilo.avif" />
                         </div>
                         <div class="menu">
                             <h3><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a><br /></h3>
@@ -162,7 +162,10 @@
                 <div class="card mt-5 ms-5" style="width: 18rem;">
                     <h4 class="mt-1">1</h4>
                     <div class="card-body">
-                        <p class="card-text">Avrete davanti una scacchiera 6x7. DA CORREGGERE!:!:!:!:.</p>
+                        <p class="card-text">La scacchiera di Forza 4 è composta da una griglia rettangolare 6x7, che offre un totale di 42 posizioni in cui posizionare le pedine. 
+                            Ogni giocatore dispone di un set di pedine di un colore specifico, giallo e rosso.
+
+                        </p>
                     </div>
                 </div>
                 <div class="card mt-5 ms-5" style="width: 18rem;">

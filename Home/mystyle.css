@@ -677,7 +677,7 @@ z-index: -1;
 
 
 @media (max-width: 740px) {
-    * {
+    *{
     font-size: 70%;
     }
 }
@@ -841,6 +841,7 @@ z-index: -1;
         height: 100%;
         gap: 1rem;
         grid-template-columns: 1fr;
+        margin-left: 23%;
     }
 
     .scroll-down {
@@ -904,12 +905,6 @@ z-index: -1;
 
     header .logo{
         width: 40%;
-    }
-
-    
-    .hero-text{
-        padding-top: 0;
-        /*z-index: 999;*/
     }
 
     .hero-img img {
