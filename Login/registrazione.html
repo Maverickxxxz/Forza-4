@@ -108,15 +108,6 @@
             line-height: 42px;
             text-align: center;
         }
-
-        /*form #nomed{
-            grid-column-start: 1;
-            grid-column-end: 2;
-            grid-row-start: 2;
-            grid-row-end: 3;
-            display: flex;
-            justify-content: center;
-        } */
         
         label{
             position: relative;
@@ -152,7 +143,8 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10%;
-            transition: all .5s ease-in-out;;
+            transition: all .5s ease-in-out;
+            margin-left: 50%;
         }
         
         button:hover{
@@ -211,7 +203,7 @@
     <div class="contenitore1">
         
         <div class="form">
-            <form name="form_registrazione" method="post" action="./signup-process.php">
+            <form name="form_registrazione" method="post" action="./signup-process.php" onsubmit="return presa_elementi_registrazione();">
                 <h3>REGISTRATI QUI</h3>
                 <div class="nomed">
                     <i class="ri-account-circle-fill"></i>
@@ -243,7 +235,7 @@
                     <input name="password_r" type="password" placeholder="Password" id="password_r">    
                 </div>
                 
-                <button type="submit" id="bottoneRegistrati" onclick="return presa_elementi_registrazione();">REGISTRATI</button>
+                <button type="submit" id="bottoneRegistrati">REGISTRATI</button>
             </form>
         </div>
         
