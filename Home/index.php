@@ -122,7 +122,7 @@
                     <div class="modal-body">
                         <div class="form-check">
                             <button class="btn" id="locale">
-                                <a href="../game/Locale/gioco.php">
+                                <a href="../game/Locale/gioco.html">
                                     Locale
                                 </a>
                             </button>
