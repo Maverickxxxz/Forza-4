@@ -154,6 +154,14 @@ if (isset($_SESSION["utente_id"])) {
 					</div>
 					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
 						<h3 class="mb-4">Aggiorna Password</h3>
+                        <div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Vecchia password</label>
+								  	<input id="old" disabled type="password" class="form-control">
+								</div>
+							</div>
+                        </div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -170,7 +178,7 @@ if (isset($_SESSION["utente_id"])) {
 						</div>
 						<div>
 							<button disabled id ="conferma2" class="btn btn-primary" onclick="aggiornaPass();">Conferma Modifiche</button>
-							<button id="aggiorna2" class="btn">Aggiorna</button>
+							<button id="aggiorna2" class="btn">Modifica</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
@@ -463,10 +471,14 @@ if (isset($_SESSION["utente_id"])) {
     </script>
     <script>
         function aggiornaPass(){
-            var idIstanza = 1; // L'ID o l'identificatore dell'istanza da eliminare
-            var utente_id = "<?php echo isset($utente_id) ? $utente_id : ''; ?>";
-            var newPassword = $("#new").val();
-            // Effettua la chiamata AJAX utilizzando jQuery
+        var idIstanza = 1;
+        var utente_id = "<?php echo isset($utente_id) ? $utente_id : ''; ?>";
+        var newPassword = $("#new").val();
+
+        if(newPassword == ""){
+            alert("La nuova password non può essere vuota!");
+        } else {
+            // Effettua la chiamata AJAX solo se la nuova password non è vuota
             $.ajax({
                 url: "aggiorna.php",
                 type: "POST",
@@ -475,10 +487,11 @@ if (isset($_SESSION["utente_id"])) {
                     alert("Password aggiornata correttamente!");
                 },
                 error: function(xhr, status, error) {
-                console.log("Errore durante la chiamata AJAX:", error);
+                    console.log("Errore durante la chiamata AJAX:", error);
                 }
             });
-        } 
+            }  
+        }
     </script>
 </body>
 </html>

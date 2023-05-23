@@ -14,15 +14,31 @@ $utente_id = $_POST['utente_id'];
 $newPassword = $_POST['newPassword'];
 $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
 
-// Esegui la query per aggiornare la password
-$sql = "UPDATE utente SET password_hash = '$newPasswordHash' WHERE id = {$_SESSION["utente_id"]}";
+$sql = "SELECT password_hash FROM utente WHERE id = {$_SESSION["utente_id"]}";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Istanza eliminata con successo";
-} else {
-    echo "Errore durante l'eliminazione dell'istanza: " . $conn->error;
+$result = $conn->query($sql);
+if ($result && $result->num_rows > 0) {
+    $pass = $result->fetch_assoc();
 }
 
-$conn->close();
+$password_bool = password_verify($newPassword, $pass["password_hash"]);
+
+if(!$password_bool){
+    // Esegui la query per aggiornare la password
+    $sql = "UPDATE utente SET password_hash = '$newPasswordHash' WHERE id = {$_SESSION["utente_id"]}";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Password aggiornata con successo";
+    } else {
+        echo "Errore durante l'aggiornamento: " . $conn->error;
+    }
+    
+    $conn->close();
+}
+
+else{
+    echo "<script>alert('La password non può essere uguale alla precedente!!');</script>"; 
+
+}
 ?>
 
