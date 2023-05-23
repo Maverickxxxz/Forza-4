@@ -397,7 +397,7 @@ z-index: -1;
 .player1c{
     background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
     width: 80%;
-    height: 25vh;
+    height: 28vh;
     margin-left: 10%;
     border-radius: 40px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
@@ -421,7 +421,7 @@ z-index: -1;
 }
 
 .scritta h2{
-    margin-top: -5%;
+    margin-top: -1%;
     font-family: 'Bree Serif', serif;
     font-size: 35px;
     letter-spacing: 3px;
@@ -444,7 +444,7 @@ z-index: -1;
 .player2{
     background: linear-gradient(245.59deg, #f8f8f8 0%, #ffffff 28.53%, #f8f8f8 75.52%);
     width: 80%;
-    height: 25vh;
+    height: 28vh;
     margin-left: 7%;
     border-radius: 40px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
@@ -470,7 +470,7 @@ z-index: -1;
 }
 
 .scritta2 h2{
-    margin-top: -5%;
+    margin-top: -1%;
     font-family: 'Bree Serif', serif;
     font-size: 35px;
     letter-spacing: 3px;
