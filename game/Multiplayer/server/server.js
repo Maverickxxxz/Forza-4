@@ -121,14 +121,17 @@ io.on('connection', socket => {
 
     socket.on("disconnect", () => {
         let data = letturaDati();
+        let giocatore;
         for(let x in data){
             if(data[x]["giocatori"]["socketID_G1"] == socket.id){
                 if(data[x]["giocatori"]["numero"] == 2){
+                    giocatore = data[x]["giocatori"]["giocatore1"];
                     let socketG2 = data[x]["giocatori"]["socketID_G2"];
                     delete data[x];
                     io.to(socketG2).emit("avversario-disconnesso");          
                     scritturaDati(data);
                     letturaStanzeAttive(data);
+                    db.penalizzazione(giocatore, function(result) {});
                     break;
                 }
             }
@@ -136,13 +139,17 @@ io.on('connection', socket => {
                 
                 if(data[x]["giocatori"]["numero"] == 2){
                     let socketG1 = data[x]["giocatori"]["socketID_G1"];
+                    giocatore = data[x]["giocatori"]["giocatore2"];
                     delete data[x];
                     io.to(socketG1).emit("avversario-disconnesso");       
                     scritturaDati(data);
                     letturaStanzeAttive(data);
+                    db.penalizzazione(giocatore, function(result) {});
                     break;
                 }
             }
+
+            
 
             if(socket.id==data[x]["giocatori"]["socketID_G2"] || socket.id ==data[x]["giocatori"]["socketID_G1"]){
                 delete data[x];
@@ -418,9 +425,7 @@ io.on('connection', socket => {
             io.to(coppia[1]).emit("perdente", idStanza, colore);
 
             
-            db.update(nome_utente, function(result) {
-                
-              });
+            db.update(nome_utente, function(result) {});
 
             eliminaStanzeAttive(letturaDati(), idStanza);
             return;
