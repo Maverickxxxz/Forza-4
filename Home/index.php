@@ -103,7 +103,7 @@
     <!-- SEZIONE CON TESTO A SX E PLAY E A IMMAGINE A DX -->
     <section id = "sezione1" class="hero">
         <div class="hero-text">
-            <h2 class="mt-2">GIOCARE A FORZA 4 NON È MAI STATO COSÌ DIVERTENTE!</h2>
+            <h2 class="mt-2">GIOCARE A <span style="color: rgb(255, 208, 0);">FORZA</span> <span style="color:red">4</span> NON È MAI STATO COSÌ DIVERTENTE!</h2>
             <p>Da un'idea di <strong>Giulio Di Gregorio</strong> e <strong>Maffongelli Mattia</strong> nasce il gioco dell'anno: 
                 competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
                 Che aspetti? Non avere paura!
@@ -153,7 +153,7 @@
     <!-- COME SI GIOCA -->
 
     <section id="img-down" class="how">
-        <div class="container text-center text-md-left mt-auto mb-auto" data-aos="fade-up">
+        <!--<div class="container text-center text-md-left mt-auto mb-auto" data-aos="fade-up">
             <h1 class="testo ">COME SI GIOCA?</h1>
             <h2 class="testo2">Non conosci Forza 4 e le sue regole? <br>
                 Te le spieghiamo noi!</h2>
@@ -181,7 +181,45 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+    <div class="text text-center text-md-left mt-auto mb-auto">
+        <h1 class="testo">COME SI GIOCA?</h1>
+        <h2 class="testo2">Non conosci Forza 4 e le sue regole? <br>
+                Te le spieghiamo noi!</h2>
+    </div>
+    <div class="container">
+        
+        <div class="card">
+            <div class="box">
+            <div class="content">
+                <h2>01</h2>
+                <h3>TABELLA DI GIOCO:</h3>
+                <p>La scacchiera di Forza 4 è composta da una griglia rettangolare 6x7, che offre un totale di 42 posizioni in cui posizionare le pedine. 
+                    Ogni giocatore dispone di un set di pedine di un colore specifico, giallo e rosso.</p>
+            </div>
+            </div>
         </div>
+
+        <div class="card">
+            <div class="box">
+            <div class="content">
+                <h2>02</h2>
+                <h3>MOSSE ESEGUIBILI:</h3>
+                <p>A turno dovrete posizionare la vostra pedina in una cella, combinando logica e tattica affinchè riusciate a fare Forza 4 prima del vostro avversario!</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="box">
+            <div class="content">
+                <h2>03</h2>
+                <h3>OBIETTIVO FINALE:</h3>
+                <p>L'obiettivo finale sarà quello di avere 4 pedine consecutive dello stesso colore per riga, per colonna o in diagonale. Vince chi per primo raggiunge tale obiettivo!</p>
+            </div>
+            </div>
+        </div>
+    </div>
     </section>
 
     <!-- CLASSIFICA -->

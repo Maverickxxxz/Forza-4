@@ -3,8 +3,10 @@
 
 
 body {
-    background-image: url(../../sources/walgame.png);
+    background: linear-gradient(-220deg, #cdcdcd 0%, #ffffff 28.53%, #cdcdcd 75.52%);
+    background-image: url(../Multiplayer/client/back.jpeg);
     background-size: cover;
+    background-color: rgba(0, 0, 0, 0.042);
     height: 97.3vh;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -32,7 +34,7 @@ body {
     font-size: 105px;
     font-family: 'Teko', sans-serif;
     letter-spacing: 7px;
-    color: white;
+    color: rgb(0, 0, 0);
     margin: 0%;
     margin-top: 5%;
     transition: 0.5s;
@@ -40,7 +42,7 @@ body {
 
 .row1 h2{
     font-family: 'Bree Serif', serif;
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
 }
 
 

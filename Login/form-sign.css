@@ -1,6 +1,9 @@
 
 body{  
-  background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%,  #12215b 75.52%);
+  background: linear-gradient(-220deg, #cdcdcd 0%, #ffffff 28.53%, #cdcdcd 75.52%);
+  background-image: url(../sources/back.jpeg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.042);
 }
 
 .animato:hover{
@@ -9,7 +12,6 @@ body{
 } 
 
 .navbar{
-  background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
   animation: fadeIn;
   animation-duration: 3s;
 }
@@ -33,7 +35,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
+    background: linear-gradient(53deg, #000000 40%, rgb(32, 33, 36) 53.53%, #201e1e 30.52%);
   }
   
 footer ul {
@@ -47,12 +49,12 @@ footer ul li {
   }
   
 footer ul li a {
-    color: #1e3386;
+    color: #ffffff;
     text-decoration: none;
   }
   
 footer ul li a:hover {
-    color: #162975;
+    color: #e0e0e0;
   }
   
 footer form {
@@ -76,10 +78,10 @@ footer form {
   
 .list-unstyled li {
     margin: 10px 0;
-    color: #1e3386;
+    color: white;
   }
   
 .titleFooter{
     text-align: center;
-    color: #1e3386;
+    color: white;
   }

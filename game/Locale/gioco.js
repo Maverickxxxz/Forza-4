@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     head.addEventListener('mouseleave', function() {
-      head.style.color = 'white';
+      head.style.color = 'black';
       head.style.fontSize = '105px';
       head.style.transition = '0.5s';
     });
