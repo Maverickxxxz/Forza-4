@@ -13,7 +13,8 @@ var input_stanza = document.getElementById("nomeStanza");
 
 var idStanzaClient;
 let utente;
-let giocatore_attuale;
+let secondo_giocatore;
+let prima_verifica = true;
 
 export function acquisizione_id(){
   const valorichiave = window.location.search;
@@ -22,7 +23,6 @@ export function acquisizione_id(){
   return id_;
 }
 
-let in_attesa = false;
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {
   const nomeStanza = document.getElementById("nomeStanza").value;
@@ -91,7 +91,6 @@ export function mossa() {
   if(giocatoreCorrente==false){
     alert("Non è ancora il tuo turno, aspetta!");
   }
-
   
   else{
     // prende le coordinate del click
@@ -194,13 +193,13 @@ socket.on('connect', () => {
 
 
 //RICEZIONE DEI MESSAGGI DAL SERVER DI AVVENUTA CREAZIONE STANZA.
-socket.on('stanza-creata', (idStanza, nomeStanza) => {
-  in_attesa = true;
+socket.on('stanza-creata', (nomeStanza) => {
 
-  if(in_attesa){
+  
     let stanze = document.getElementById("stanze");
     stanze.style.display = "none";
-  }
+  
+
   document.getElementById("nomeStanzaUnione").value = nomeStanza;
   let div_crea = document.getElementById("crea");
   let div_unisciti = document.getElementById("unisciti");
@@ -306,13 +305,10 @@ socket.on("naviga-a-gioco", () => {
   const primaPagina = document.getElementById("prima-pagina");
   const secondaPagina = document.getElementById("griglia");
   const navbar = document.getElementById("navbar");
-  let inizia = document.getElementById("nuovo3");
-  let btn = document.getElementById("nuovo");
-  let btn2 = document.getElementById("nuovo2");
-  // Nascondo la prima pagina
+  // Nascondo la prima parte, che è quella delle stanze
   primaPagina.style.display = "none";
   navbar.style.display="none";  
-  // Mostro la seconda pagina
+  // Mostro la seconda parte, che è quella del gioco
   secondaPagina.style.display = "grid";
 
   setGame();
@@ -361,12 +357,18 @@ socket.on("primo-giocatore", (idStanza, colore) =>{
   colore_client = colore;
 });
 
-socket.on("turno", (giocatore_attuale_ut) =>{
-  console.log("XX");
+socket.on("turno", (giocatore_attuale_ut, secondo) =>{
+  
+  if(prima_verifica){
+    let p1 = document.getElementById("player1");
+    let p2 = document.getElementById("player2");
+    p1.innerHTML = giocatore_attuale_ut;
+    p2.innerHTML = secondo;
+    prima_verifica = false;
+
+  }
   giocatore_attuale = giocatore_attuale_ut;
-  let turno = document.getElementById("nome_turno");
-  console.log(giocatore_attuale);
-  turno.innerHTML = giocatore_attuale;
+  secondo_giocatore = secondo;
 });
 
 

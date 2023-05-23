@@ -108,7 +108,7 @@ function cambio_turno(idStanza){
         }
     }
 
-    utente.push(giocatoreCorrente, primo)
+    utente.push(giocatoreCorrente, primo);
     scritturaDati(data);
     return utente;
 }
@@ -380,23 +380,27 @@ io.on('connection', socket => {
     
     socket.on("inizio-gioco", (idStanza) => {   
         let utenti = inizio_turno(idStanza);  
+        // VALORE DI utenti = (id, giocatore1_SID, giocatore2_SID, giocatore1_ut, giocatore2_ut, giocatore1, giocatore2);
         let colore = "rosso";
         let turno_g;
+        let secondo;
         let bool_g1 = utenti[5];
         let bool_g2 = utenti[6];
 
-        if(bool_g1){ //DEVE MANDARE A G1 CHE è IL PRIMO GIOCATORE, E A G2 IL NOME UTENTE DEL PRIMO GIOCATORE
+        if(bool_g1){ //DEVE MANDARE A G1 CHE è IL PRIMO GIOCATORE
             io.to(utenti[1]).emit("primo-giocatore", idStanza, colore);
-            turno_g = utenti[3]//PRIMO GIOCATORE
+            turno_g = utenti[3]; //PRIMO GIOCATORE
+            secondo = utenti[4]; //SECONDO GIOCATORE
             
            }
         if(bool_g2){
             io.to(utenti[2]).emit("primo-giocatore", idStanza, colore);
-            turno_g = utenti[4]//PRIMO GIOCATORE
+            turno_g = utenti[4]; //PRIMO GIOCATORE
+            secondo = utenti[3]; //SECONDO GIOCATORE
             
         }
 
-        io.to(utenti[0]).emit("turno", turno_g);
+        io.to(utenti[0]).emit("turno", turno_g, secondo);
 
     });
 
