@@ -486,7 +486,6 @@ z-index: -1;
     grid-column-end: 3;
     width: 100%;
     height: 13vh;
-    margin-top: -17%;
     position: relative;
     left: 38%;
 }
@@ -511,7 +510,6 @@ z-index: -1;
 #nuovo2{
     background-color: rgb(255, 179, 0);
     color: white;
-    margin-top: 10%;
     transition: 0.5s;
     text-decoration: none;
 }
