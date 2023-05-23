@@ -346,7 +346,7 @@ z-index: -1;
 /*GIOCO */
 
 .griglia{
-    display: grid;
+    display: none;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 10% 80% 10%;
     height: 100vh;
@@ -492,7 +492,7 @@ z-index: -1;
 }
 
 .row2 .btn{
-    margin-left: 2%;
+    margin-left: 3%;
 }
 
 #nuovo{

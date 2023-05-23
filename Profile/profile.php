@@ -157,14 +157,6 @@ if (isset($_SESSION["utente_id"])) {
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Vecchia password</label>
-								  	<input id="old" disabled type="password" class="form-control">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
 								  	<label>Nuova password</label>
 								  	<input id="new" disabled type="password" class="form-control">
 								</div>
@@ -177,7 +169,7 @@ if (isset($_SESSION["utente_id"])) {
 							</div>
 						</div>
 						<div>
-							<button disabled id ="conferma2" class="btn btn-primary">Conferma Modifiche</button>
+							<button disabled id ="conferma2" class="btn btn-primary" onclick="aggiornaPass();">Conferma Modifiche</button>
 							<button id="aggiorna2" class="btn">Aggiorna</button>
 						</div>
 					</div>
@@ -462,6 +454,25 @@ if (isset($_SESSION["utente_id"])) {
                 success: function(response) {
                     alert("Account eliminato correttamente!");
                     window.location.href="../Home/index.php";
+                },
+                error: function(xhr, status, error) {
+                console.log("Errore durante la chiamata AJAX:", error);
+                }
+            });
+        } 
+    </script>
+    <script>
+        function aggiornaPass(){
+            var idIstanza = 1; // L'ID o l'identificatore dell'istanza da eliminare
+            var utente_id = "<?php echo isset($utente_id) ? $utente_id : ''; ?>";
+            var newPassword = $("#new").val();
+            // Effettua la chiamata AJAX utilizzando jQuery
+            $.ajax({
+                url: "aggiorna.php",
+                type: "POST",
+                data: { utente_id: utente_id, newPassword: newPassword },
+                success: function(response) {
+                    alert("Password aggiornata correttamente!");
                 },
                 error: function(xhr, status, error) {
                 console.log("Errore durante la chiamata AJAX:", error);
