@@ -104,7 +104,7 @@
     <section id = "sezione1" class="hero">
         <div class="hero-text">
             <h4 class="mt-2">PROVA A COMPETERE ANCHE TU!</h4>
-            <h1>FORZA 4</h1>
+            <h1><span style="color: rgb(255, 179, 0);">F</span><span style="color: rgb(173, 27, 27);">O</span><span style="color: rgb(255, 179, 0);">R</span><span style="color: rgb(173, 27, 27);">Z</span><span style="color: rgb(255, 179, 0);">A</span><span style="color: rgb(173, 27, 27);">4</span></h1>
             <p>Da un'idea di <strong>Giulio Di Gregorio</strong> e <strong>Maffongelli Mattia</strong> nasce il gioco dell'anno: 
                 competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
                 Che aspetti? Non avere paura!

@@ -379,16 +379,23 @@ socket.on("giocatore-non-corrente", (idStanza) => {
 });
 
 socket.on("vincitore", () => {
-  alert("HAI VINTO!");
-  window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
+  let winner = document.getElementById("winner");
+  winner.innerHTML = "Hai vinto la partita! +3 in classifica!";
+
+  setTimeout(function() {
+    window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
+  }, 5000);  // Ritardo di 5000 millisecondi (5 secondi)
 });
+
 
 
 socket.on("perdente", () => {
-  alert("HAI PERSO!");
-  window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
+  let loser = document.getElementById("loser");
+  loser.innerHTML = "Hai perso la partita! -3 in classifica!";  
+  setTimeout(function() {
+    window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
+  }, 5000);  // Ritardo di 5000 millisecondi (5 secondi)
 });
-
 
 
 });
