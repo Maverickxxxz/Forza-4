@@ -380,18 +380,18 @@ socket.on("giocatore-non-corrente", (idStanza) => {
 
 socket.on("vincitore", () => {
   let winner = document.getElementById("winner");
-  winner.innerHTML = "Hai vinto la partita! +3 in classifica!";x
-  let torna = document.getElementById("nuovo");
-  torna.removeAttribute("disabled");
+  winner.innerHTML = "Hai vinto la partita! +3 punti in classifica!";x
+  let torna_lobby = document.getElementById("torna_lobby");
+  torna_lobby.removeAttribute("disabled")
 });
 
 
 
 socket.on("perdente", () => {
   let loser = document.getElementById("loser");
-  loser.innerHTML = "Hai perso la partita! -3 in classifica!";
-  let torna = document.getElementById("nuovo");
-  torna.removeAttribute("disabled");
+  loser.innerHTML = "Hai perso la partita!";
+  let torna_lobby = document.getElementById("torna_lobby");
+  torna_lobby.removeAttribute("disabled")
 });
 
 

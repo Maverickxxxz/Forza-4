@@ -495,53 +495,36 @@ z-index: -1;
     margin-left: 3%;
 }
 
-#nuovo{
-    background-color: rgb(173, 27, 27);
+#torna_lobby{
+    background-color: rgb(255, 187, 0);
     color: white;
     margin-top: 0%;
     transition: 0.5s;
 }
 
-#nuovo:hover{
-    background-color: rgb(207, 26, 26);
+#torna_lobby:hover{
+    background-color: rgb(243, 160, 5);
     transform: translateX(-4px);
     transition: 0.5s;
 }
 
-#nuovo2{
-    background-color: rgb(255, 179, 0);
+#abbandona{
+    background-color: rgb(207, 26, 26);
     color: white;
     transition: 0.5s;
     text-decoration: none;
 }
 
-#nuovo2 a{
+#abbandona a{
     text-decoration: none;
     color: white;
 }
 
-#nuovo2:hover{
-    background-color: rgb(255, 210, 29);
+#abbandona:hover{
+    background-color: rgb(152, 16, 16);
     transform: translateX(4px);
     transition: 0.5s;
 }
-
-#nuovo3{
-    background-color: rgb(0, 140, 255);
-    color: white;
-    margin-top: 10%;
-    transition: 0.5s;
-    text-decoration: none;
-}
-
-#nuovo3:hover{
-    background-color: rgb(0, 179, 255);
-    transform: translateX(-4px);
-    transition: 0.5s;
-    -webkit-box-shadow: 1px 1px 18px 8px #88cdffa7;
-    box-shadow: 1px 1px 18px 8px #88cdffa7;
-}
-
 
 @keyframes float {
 	0% {
