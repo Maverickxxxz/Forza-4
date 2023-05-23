@@ -306,9 +306,6 @@ socket.on("naviga-a-gioco", () => {
   const primaPagina = document.getElementById("prima-pagina");
   const secondaPagina = document.getElementById("griglia");
   const navbar = document.getElementById("navbar");
-  let inizia = document.getElementById("nuovo3");
-  let btn = document.getElementById("nuovo");
-  let btn2 = document.getElementById("nuovo2");
   // Nascondo la prima pagina
   primaPagina.style.display = "none";
   navbar.style.display="none";  
@@ -340,11 +337,6 @@ socket.on("naviga-a-gioco", () => {
   });
 
 });
-
-function newGame(){
-  location.reload();
-}
-
 
 socket.on("creatore", (idStanza) => {
   socket.emit("inizio-gioco", idStanza); //In modo che solo il "creatore" manda un solo segnale di inizio-gioco, altrimenti ne avremmo 2
