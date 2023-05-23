@@ -19,7 +19,7 @@ Inoltre, sarà necessario l'utilizzo dell'applicazione [XAMPP](https://www.apach
 ## Installazione
 
 I comandi che vengono elencati di seguito, devono essere eseguiti rispettivamente nelle cartelle "client" e "server", ognuno in due terminali diversi.
-I due terminali, installerano le dipendenze necessarie, e faranno partire per la cartella client il server [snowpack](https://www.snowpack.dev/), mentre per la cartella server [nodemon](https://nodemon.io/).
+I due terminali, installerano le dipendenze necessarie, e faranno partire per la cartella "client" il server [snowpack](https://www.snowpack.dev/), mentre per la cartella "server" il server [nodemon](https://nodemon.io/).
 
 ### Installazione --> client
 
