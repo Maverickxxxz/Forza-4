@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@500&display=swap');
+
+
 
 * {
     padding: 0;
@@ -118,10 +121,11 @@ section {
 }
 
 .hero-text h1 {
-    font-family: 'Abril Fatface', cursive;
+    /*font-family: 'Abril Fatface', cursive;*/
+    font-family: 'Wix Madefor Display', sans-serif;
     font-size: 90px;
     line-height: 1;
-    color: white;
+    color: #ffffff;
     margin: 0 0 45px;
 }
 
