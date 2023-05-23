@@ -488,7 +488,7 @@ z-index: -1;
     width: 100%;
     height: 13vh;
     position: relative;
-    left: 38%;
+    left: 30%;
 }
 
 .row2 .btn{
@@ -498,7 +498,7 @@ z-index: -1;
 #nuovo{
     background-color: rgb(173, 27, 27);
     color: white;
-    margin-top: 10%;
+    margin-top: 0%;
     transition: 0.5s;
 }
 
