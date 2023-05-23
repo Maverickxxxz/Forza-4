@@ -337,11 +337,6 @@ socket.on("naviga-a-gioco", () => {
 
 });
 
-function newGame(){
-  location.reload();
-}
-
-
 socket.on("creatore", (idStanza) => {
   socket.emit("inizio-gioco", idStanza); //In modo che solo il "creatore" manda un solo segnale di inizio-gioco, altrimenti ne avremmo 2
   idStanzaClient = idStanza;

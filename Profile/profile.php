@@ -34,7 +34,7 @@ if (isset($_SESSION["utente_id"])) {
               <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block">
                   <div class="container-fluid">
                   <!-- Navbar brand -->
-                  <a class="navbar-brand nav-link" target="_blank" href="../Home/index.php">
+                  <a class="navbar-brand nav-link" target="_self" href="../Home/index.php">
                       <img class = "animato "src="../sources/logo-connect4.png" width="130px">
                   </a>
 
@@ -47,23 +47,23 @@ if (isset($_SESSION["utente_id"])) {
                       <ul class="navbar-nav list-inline">
                       <!-- Icons -->
                       <li class="nav-item2">
-                          <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+                          <a class="nav-link" href="https://www.youtube.com/" rel="nofollow"
                           target="_blank">
                           <i class="fab fa-youtube"></i>
                           </a>
                       </li>
                       <li class="nav-item2">
-                          <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+                          <a class="nav-link" href="https://it-it.facebook.com/" rel="nofollow" target="_blank">
                           <i class="fab fa-facebook-f"></i>
                           </a>
                       </li>
                       <li class="nav-item2">
-                          <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
+                          <a class="nav-link" href="https://twitter.com/" rel="nofollow" target="_blank">
                           <i class="fab fa-twitter"></i>
                           </a>
                       </li>
                       <li class="nav-item2">
-                          <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
+                          <a class="nav-link" href="https://github.com/" rel="nofollow" target="_blank">
                           <i class="fab fa-github"></i>
                           </a>
                       </li>
