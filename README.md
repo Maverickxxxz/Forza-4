@@ -1,11 +1,13 @@
 # Forza 4 Online
 
-Il progetto Forza 4 Online è un gioco creato da Giulio Di Gregorio e Mattia Maffongelli (Ingegneria Informatica @ [Sapienza](https://www.uniroma1.it/it/pagina-strutturale/home). 
+Il progetto Forza 4 Online è un gioco creato da Giulio Di Gregorio e Mattia Maffongelli 
+(Ingegneria Informatica @ [Sapienza](https://www.uniroma1.it/it/pagina-strutturale/home)). 
 Siamo orgogliosi di presentare un gioco familiare e divertente, realizzato con la potenza di HTML, JavaScript, Node.js, PHP, CSS e Bootstrap.
 
 ## Funzionalità
 
 • **Gioca in locale sullo stesso Computer!**: Gioca con i tuoi amici direttamente sullo stesso Monitor. 
+
 • **Gioca Online!**: Gioca con i tuoi amici o con chiunque nel mondo nella sezione MultiPlayer.
 
 ## Prerequisiti
