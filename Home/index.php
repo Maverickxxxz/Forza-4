@@ -103,8 +103,7 @@
     <!-- SEZIONE CON TESTO A SX E PLAY E A IMMAGINE A DX -->
     <section id = "sezione1" class="hero">
         <div class="hero-text">
-            <h4 class="mt-2">PROVA A COMPETERE ANCHE TU!</h4>
-            <h1><span style="color: rgb(255, 179, 0);">F</span><span style="color: rgb(173, 27, 27);">O</span><span style="color: rgb(255, 179, 0);">R</span><span style="color: rgb(173, 27, 27);">Z</span><span style="color: rgb(255, 179, 0);">A</span><span style="color: rgb(173, 27, 27);">4</span></h1>
+            <h2 class="mt-2">GIOCARE A FORZA 4 NON È MAI STATO COSÌ DIVERTENTE!</h2>
             <p>Da un'idea di <strong>Giulio Di Gregorio</strong> e <strong>Maffongelli Mattia</strong> nasce il gioco dell'anno: 
                 competi contro un tuo amico, un bot o un qualsiasi avversario proveniente dall'altra parte del mondo!
                 Che aspetti? Non avere paura!
@@ -116,7 +115,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">SELEZIONA UNA MODALITA':</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">SELEZIONA UNA MODALITÀ:</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                     <div class="modal-body">
@@ -155,9 +154,9 @@
 
     <section id="img-down" class="how">
         <div class="container text-center text-md-left mt-auto mb-auto" data-aos="fade-up">
-            <h1 class="testo ">COME SI GIOCA</h1>
-            <h2 class="testo2">Non conosci il gioco o le regole del gioco? <br>
-                Non ti preoccupare e leggi di seguito!</h2>
+            <h1 class="testo ">COME SI GIOCA?</h1>
+            <h2 class="testo2">Non conosci Forza 4 e le sue regole? <br>
+                Te le spieghiamo noi!</h2>
             <div class="griglia">
                 <div class="card mt-5 ms-5" style="width: 18rem;">
                     <h4 class="mt-1">1</h4>
