@@ -6,15 +6,15 @@ Siamo orgogliosi di presentare un gioco familiare e divertente, realizzato con l
 
 ## Funzionalità
 
-• **Gioca in locale sullo stesso Computer!**: Gioca con i tuoi amici direttamente sullo stesso Monitor. 
+• **Gioca in locale sullo stesso Computer!** --- Gioca con i tuoi amici direttamente sullo stesso Monitor. 
 
-• **Gioca Online!**: Gioca con i tuoi amici o con chiunque nel mondo nella sezione MultiPlayer.
+• **Gioca Online!** --- Gioca con i tuoi amici o con chiunque nel mondo nella sezione MultiPlayer.
 
 ## Prerequisiti
 
 Per eseguire questo progetto sul proprio dispositivo, è necessario avere installato sul proprio sistema Node.js e npm.
 Inoltre, sarà necessario l'utilizzo dell'applicazione [XAMPP](https://www.apachefriends.org/it/index.html) per gestire il database MySQL, e l'hosting in locale del sito con Apache. La struttura del database da utilizzare, è allegata all'interno della main-page Forza4, con il nome di "register_database.sql". 
-È fortemente consigliato di avere almeno 8 utenti registrati nel database, che può essere effettuata direttamente dal comando in Home-Page.
+È fortemente consigliato avere almeno 8 utenti registrati nel database, che può essere effettuata direttamente dal comando in Home-Page.
 
 ## Installazione
 
