@@ -17,7 +17,7 @@ function connectToDatabase(){
 
 
 function query_classifica(callback){
-  con.query(`select nome_utente, puntiClassifica from utente order by puntiClassifica DESC`, function(err, result) {
+  con.query(`select nome_utente, puntiClassifica from utente order by puntiClassifica DESC LIMIT 6`, function(err, result) {
     if (err) throw err;
 
     let punti = {};
@@ -25,8 +25,9 @@ function query_classifica(callback){
     for(i = 0;i < 6;i++){
       let nome_utente = result[i].nome_utente;
       let puntiClassifica = result[i].puntiClassifica;
-      punti[nome_utente] = puntiClassifica;     
+      punti[nome_utente] = puntiClassifica;   
     }
+
     callback(punti);
   });
 }

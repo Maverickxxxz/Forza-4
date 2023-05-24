@@ -388,7 +388,10 @@ socket.on("vincitore", () => {
   let winner = document.getElementById("winner");
   winner.innerHTML = "Hai vinto la partita! +3 punti in classifica!";
   let torna_lobby = document.getElementById("torna_lobby");
-  torna_lobby.removeAttribute("disabled")
+  torna_lobby.removeAttribute("disabled");
+  let turno1 = document.getElementById("turno1"); turno1.remove();
+  let turno2 = document.getElementById("turno2"); turno2.remove();
+  let abbandona = document.getElementById("abbandona"); abbandona.remove();
 });
 
 
@@ -397,7 +400,10 @@ socket.on("perdente", () => {
   let loser = document.getElementById("loser");
   loser.innerHTML = "Hai perso la partita!";
   let torna_lobby = document.getElementById("torna_lobby");
-  torna_lobby.removeAttribute("disabled")
+  torna_lobby.removeAttribute("disabled");
+  let turno1 = document.getElementById("turno1"); turno1.remove();
+  let turno2 = document.getElementById("turno2"); turno2.remove();
+  let abbandona = document.getElementById("abbandona"); abbandona.remove();
 });
 
 
