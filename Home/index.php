@@ -110,7 +110,7 @@
             </p>
             <?php if(isset($utente)):?>
             <button type="button" id="gioca_ora" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <a class = "giocaora"><i class="ri-play-fill" style="margin-left: -5%"></i>Gioca ora!</a>
+                <a class = "giocaora"><i class="ri-play-fill" style="margin-left: -5%"></i> Gioca ora!</a>
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -143,11 +143,11 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="gameplay"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
+            <a href="https://www.youtube.com/watch?v=IhvL8CVtwhk" class="gameplay"><i class="ri-play-fill"></i> GUARDA IL GAMEPLAY</a>
 
             <?php else: ?>
                 <button type="button" id="registrati" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <a class = "giocaora" href="../Login/registrazione.html"><i class="ri-user-3-line" style="margin-left: -5%"></i>Registrati!</a>
+                <a class = "giocaora" href="../Login/registrazione.html"><i class="ri-user-3-line" style="margin-left: -5%"></i> Registrati!</a>
                 </button>
                 <a href="#" class="gameplay"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
             <?php endif;?>

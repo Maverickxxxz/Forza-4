@@ -5,27 +5,29 @@ const io = require('socket.io')(3000, {
     },
 })
 
-//MAP con nomeStanza e idStanza
+
 var fs = require('fs');
 //Importiamo il file database
 var db = require('./database');
 
+//Connessione al database
 db.connect();
 
+//Inizializziamo il file stanzeAttive se il server viene riavviato
 fs.writeFile('stanzeAttive.json', "{}", (err) => {
     if (err) {
         console.error('Errore durante la scrittura del file:', err);
     }
 });
 
-
-
+//Funzione per la lettura dei dati nel file stanzeAttive.json
 function letturaDati(){
     let dati = fs.readFileSync('stanzeAttive.json', 'utf-8');
     let data =  JSON.parse(dati);
     return data;
 }
 
+//Funzione per la scrittura dei dati nel file stanzeAttive.json, prende in argomento il nuovo contenuto da sovrascrivere
 function scritturaDati(data){
     fs.writeFile('stanzeAttive.json', JSON.stringify(data, null, 2), (err) => {
         if (err) {
@@ -34,6 +36,7 @@ function scritturaDati(data){
     });
 }
 
+//Funzione che decide casualmente quale sarà il primo giocatore
 function inizio_turno(idStanza) {
     // Genera un numero casuale tra 0 e 1
     var num = Math.random();
@@ -54,6 +57,7 @@ function inizio_turno(idStanza) {
         giocatore2  = true;
     }
 
+    //Mi ritorna varie informazioni degli utenti connessi in quella specifica stanza
     let utenti = [];
     for(let id in data){
         if(id == idStanza){
@@ -78,7 +82,7 @@ function cambio_colore(colore){
 }
 
 
-
+//Cambia il turno dei giocatori, dopo ogni mossa
 function cambio_turno(idStanza){
     let data = letturaDati();
     let primo;
@@ -119,6 +123,7 @@ let giocatori_attivi = {};
 //Ascolto del server di messaggi in arrivo
 io.on('connection', socket => {
 
+    //Si avvia qualora un utente si dovesse disconnettere, e invia un messaggio all'altro utente connesso
     socket.on("disconnect", () => {
         let data = letturaDati();
         let giocatore;
@@ -155,10 +160,9 @@ io.on('connection', socket => {
                 delete data[x];
                 scritturaDati(data);
             }
-
             
-            
-            letturaStanzeAttive(data);
+            //Riaggiorna le stanzeAttive
+            letturaStanzeAttive(data); 
 
             break;
         }
@@ -166,19 +170,21 @@ io.on('connection', socket => {
       });
     
 
-
+    //Legge gli utenti registrati, in modo che nessun utente non registrato possa giocare
     function letturaUtenti(){
         db.utenti(function(result) {    
             socket.emit("utenti", result);
         });
     }
      
+    //Legge le stanze attualmente attive
     function letturaStanzeAttive(data){
         for(let id in data){
             socket.emit("stanze-attive", data[id]['nomeStanza'], data[id]['giocatori']['giocatore1'], data[id]['giocatori']['numero']);
         }
     }
 
+    //Legge la classifica
     function letturaClassifica(){
         db.classifica(function(result) {
             socket.emit("classifica", result);
@@ -196,6 +202,7 @@ io.on('connection', socket => {
         }
     }
 
+    //Verifica la vincita nella tavola
     function verifica_vincita(board) {
         let rows = 6;
         let columns = 7;
@@ -244,6 +251,7 @@ io.on('connection', socket => {
        }
       }
 
+    //Manda un messaggio al vincitore e al perdente, uno diverso per ognuno
     function vincitore(nome_utente){
         let vince;
         let perde;      
@@ -266,6 +274,7 @@ io.on('connection', socket => {
         return coppia;
     }
 
+    //Se un utente si connette con due schede diverse, gli viene bloccato il secondo accesso
     socket.on("sono-connesso", (socket_id, id) =>{
         
         let già_connesso = false;     
@@ -283,6 +292,7 @@ io.on('connection', socket => {
         
     });
 
+    //I risultati di tutte queste funzioni vengono mandate al client, che poi le visiona graficamente
     letturaUtenti();
     // Lettura delle stanze attive in modo che altri giocatori possano connettersi senza sapere il codice
     let data_stanze = letturaDati();
@@ -305,7 +315,7 @@ io.on('connection', socket => {
                     giocatore2: null,
                     socketID_G2: null,
                     turnoG2: null,
-                    numero: numero_g,
+                    numero: numero_g, //numero giocatori connessi in quella stanza
                 },
             }
         }
@@ -317,16 +327,19 @@ io.on('connection', socket => {
             if(old_data[x]["nomeStanza"] == nomeStanza){
                 stanzaEsiste = true; 
             }
+            //qualora uno stesso utente riuscisse a connettersi due volte, gli blocca la creazione della seconda stanza
             if(old_data[x]["giocatori"]["giocatore1"] == nome_utente){
                 socket.emit("messaggi-al-client", "stesso-utente-creazione");
                 return;
             }
         }
 
+        //se quel nome è già esistente, manda un errore
         if(stanzaEsiste){   
             socket.emit("messaggi-al-client", "errore_creazione_nome");
         }
         
+        //se la stanza non esiste, viene aggiunta a stanzeAttive.json
         else{
                 //AGGIUNTA DEL DATA AL FILE .JSON
                 Object.assign(old_data, data)
@@ -352,11 +365,13 @@ io.on('connection', socket => {
 
                 idStanza = x;
 
+                //se la stanza ha già 2 giocatori, non ne permette la connessione al 3° utente
                 if(old_data[x]["giocatori"]["numero"] == 2){
                     socket.emit("messaggi-al-client", "stanza-piena");
                     return;
                 }
 
+                //Scrittura di vari dati, e delle informazioni del secondo giocatore
                 old_data[x]["giocatori"]["numero"] = 2;
                 old_data[x]["giocatori"]["giocatore2"] = nome_ut;
                 old_data[x]["giocatori"]["socketID_G2"] = socket.id;
@@ -385,6 +400,7 @@ io.on('connection', socket => {
         }
     });
     
+    //Status di nizio gioco che viene mandato dal creatore della stanza
     socket.on("inizio-gioco", (idStanza) => {   
         let utenti = inizio_turno(idStanza);  
         // VALORE DI utenti = (id, giocatore1_SID, giocatore2_SID, giocatore1_ut, giocatore2_ut, giocatore1, giocatore2);
@@ -407,30 +423,34 @@ io.on('connection', socket => {
             
         }
 
+        //Manda agli utenti di chi è il turno (serve solo per capire graficamente dove mettere "è il tuo turno")
         io.to(utenti[0]).emit("turno", turno_g, secondo);
 
     });
 
       
-    
+    //Ascolta la mossa dell'utente 
     socket.on("mossa", (mossa, idStanza, board, colore, nome_utente) => {  
         
+        //Aggiorna la grafica del gioco
         io.to(idStanza).emit("aggiorna-gioco", mossa, colore);
         
-
+        //Verifica la vincita 
         if(verifica_vincita(board)){      
             let coppia = vincitore(nome_utente);
 
             io.to(coppia[0]).emit("vincitore", idStanza, colore);
             io.to(coppia[1]).emit("perdente", idStanza, colore);
 
-            
+            //Aggiorna il punteggio del vincitore
             db.update(nome_utente, function(result) {});
 
+            //Elimina quella stanza, poichè la partita è finita
             eliminaStanzeAttive(letturaDati(), idStanza);
             return;
         }
-        
+
+        //Dopo ogni mossa, cambia il turno e il colore della pedina da inserire
         let utente = cambio_turno(idStanza);
         giocatoreCorrente = utente[0];
                
@@ -439,10 +459,4 @@ io.on('connection', socket => {
         io.to(idStanza).emit("turno", utente[1]);
         
     });
-
-
-
-    
-
-
 })

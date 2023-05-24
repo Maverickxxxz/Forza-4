@@ -2,10 +2,11 @@ import io from "socket.io-client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
+// Fa in modo che alla pressione del tasto Enter, la pagina non si ricarichi
 var input_stanza = document.getElementById("nomeStanza");
     input_stanza.addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
-        event.preventDefault(); // fa in modo che alla pressione del tasto Enter, la pagina non si ricarichi
+        event.preventDefault(); 
         return null;
       }
     });
@@ -16,6 +17,7 @@ let utente;
 let secondo_giocatore;
 let prima_verifica = true;
 
+//ACQUISISCE L'ID DELL'UTENTE DALL'URL
 export function acquisizione_id(){
   const valorichiave = window.location.search;
   const urlParams = new URLSearchParams(valorichiave);
@@ -23,11 +25,10 @@ export function acquisizione_id(){
   return id_;
 }
 
+//RITORNA ALLA PAGINA gioco.html CLICCANDO IL TASTO TORNA ALLA LOBBY
 export function torna_lobby(){
   console.log("WE");
-  //let id = acquisizione_id();
   location.reload()
-  //window.location.href = "localhost:8080/gioco.html?id=" + id;
 }
 
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
@@ -48,6 +49,7 @@ export function uniscitiStanza() {
   socket.emit("unisciti-stanza", nomeStanzaUnione, utente);
 }
 
+//FUNZIONE CHE SI AVVIA CLICCANDO L'UNIONE DELLA STANZA NELLA SEZIONE "STANZE ATTIVE"
 export function uniscitiStanzaSotto(nomeStanzaUnione){
   socket.emit("unisciti-stanza", nomeStanzaUnione, utente);
 }
@@ -59,9 +61,10 @@ let currColumns = [5, 5, 5, 5, 5, 5, 5];
 let mossaRicevuta;
 let colore_client;
 
+//AGGIORNA IL GIOCO GRAFICAMENTE DOPO OGNI MOSSA
 export function aggiornaGioco(mossa, colore){
 
-  colore_client = colore; // COLORE ROSSO!! ALL'INIZIO PER TUTTI E DUE I CLIENT
+  colore_client = colore; 
 
   let r = mossa[0];
   let c = mossa[1];
@@ -76,6 +79,7 @@ export function aggiornaGioco(mossa, colore){
 
   let tile = document.getElementById(r.toString() + "-" + c.toString());
 
+  //SE IL COLORE è IL ROSSO, AGGIUNGE LA PEDINA ROSSA
   if(colore=="rosso"){
     tile.classList.add("red-piece");
     turno2.style.visibility = 'visible';
@@ -88,11 +92,12 @@ export function aggiornaGioco(mossa, colore){
     turno2.style.visibility = 'hidden';
   }
 
-  r -= 1; //update the row height for that column
-  currColumns[c] = r; //update the array
+  r -= 1; //AGGIORNA LA RIGA IN CUI CI TROVIAMO
+  currColumns[c] = r; //AGGIORNAMENTO DELL'ARRAY
 }
 
 
+//PRENDE LA MOSSA DELL'UTENTE E LA MANDA AL SERVER
 export function mossa() {
   
   if(giocatoreCorrente==false){
@@ -119,8 +124,9 @@ export function mossa() {
   }
 }
 
+// Funzione che inizializza la tavola da gioco
 function setGame() {
-  // Funzione che inizializza la tavola da gioco
+
   let tavola = document.getElementById("board");
   tavola.style.visibility="visible";
   board = [];
@@ -150,7 +156,7 @@ const socket = io('http://localhost:3000');
 socket.on('connect', () => {
 
   let id = acquisizione_id();
-  let condizione = false;
+  let registrato = false;
 
   // CONTROLLA SE L'ID DELL'UTENTE ESISTE NEL DATABASE
   socket.on("utenti", (result) => {
@@ -158,18 +164,19 @@ socket.on('connect', () => {
     for(let x in result){
       if(id == x){
         utente = result[x];
-        condizione = true;
+        registrato = true;
         socket.emit("sono-connesso", socket.id, id);
       }
     }
 
-    if(!condizione){
+    if(!registrato){
       alert("Devi essere un utente registrato per poter giocare!");
       window.location.href = "http://localhost/Progetto/Home/index.php";
     }
     
   });
 
+  //CONTROLLA SE UN CLIENT SI CONNETTE DUE VOLTE AL SERVER
   socket.on("doppia-connessione", ()=>{
     alert("Non puoi connetterti da due pagine diverse, chiudine una!");
     window.location.href = "http://localhost/Progetto/Home/index.php";
@@ -177,7 +184,7 @@ socket.on('connect', () => {
 
   
 
-
+  //VARI MESSAGGI DI GESTIONE AL CLIENT
   socket.on("messaggi-al-client", (messaggio) =>{
 
     if(messaggio === "errore_creazione_nome"){
@@ -202,12 +209,9 @@ socket.on('connect', () => {
 //RICEZIONE DEI MESSAGGI DAL SERVER DI AVVENUTA CREAZIONE STANZA.
 socket.on('stanza-creata', (nomeStanza) => {
 
+  let stanze = document.getElementById("stanze");
+  stanze.style.display = "none";
   
-    let stanze = document.getElementById("stanze");
-    stanze.style.display = "none";
-  
-
-  //document.getElementById("nomeStanzaUnione").value = nomeStanza;
   let div_crea = document.getElementById("crea");
   let div_unisciti = document.getElementById("unisciti");
   let div_attesa = document.getElementById("attesa");
@@ -216,6 +220,7 @@ socket.on('stanza-creata', (nomeStanza) => {
   div_attesa.style.display = "flex";
 });
 
+//RICEZIONE DELLE STANZE ATTIVE DAL SERVER E AGGIUNTA NELLA SEZIONE "STANZE ATTIVE"
 socket.on('stanze-attive', (stanza, creatore, numero) => {
   let ol_html = document.getElementById("creatore_lista");
 
@@ -254,6 +259,7 @@ socket.on('stanze-attive', (stanza, creatore, numero) => {
   
 });
 
+//RICEZIONE DELLA CLASSIFICA DAL SERVER E AGGIUNTA NELLA SEZIONE "CLASSIFICA"
 socket.on('classifica', (risultato) => {
   let classifica = {}
   let array = [];
@@ -301,13 +307,14 @@ socket.on('classifica', (risultato) => {
   punto6.textContent = classifica[array[5]];
 });
 
+//QUALORA L'AVVERSARIO SI DOVESSE DISCONNETTERE, RIMANDA ALLA PAGINA DEL GIOCO
 socket.on("avversario-disconnesso", () =>{
   alert("Il tuo avversario si è disconnesso :(");
   window.location.href = "http://localhost:8080/gioco.html?id=" + acquisizione_id();
 });
 
 
-// Listener per l'evento "naviga-a-gioco"
+// Listener per l'evento "naviga-a-gioco", viene ricevuta una volta che due giocatori si connettono alla stessa stanza
 socket.on("naviga-a-gioco", () => {
   const primaPagina = document.getElementById("prima-pagina");
   const secondaPagina = document.getElementById("griglia");
@@ -326,7 +333,7 @@ socket.on("naviga-a-gioco", () => {
   head.addEventListener('mouseenter', function() {
     count++;
     if (count % 2 === 1) {
-      head.style.color = 'rgb(255, 179, 0)';
+      head.style.color = 'rgbA(255, 179, 0)';
       head.style.fontSize = '110px';
       head.style.transition = '0.5s';
     } else {
@@ -344,8 +351,9 @@ socket.on("naviga-a-gioco", () => {
 
 });
 
+//Faccio in modo che solo il "creatore" manda un solo segnale di inizio-gioco, altrimenti ne avremmo 2, 1 per ogni client
 socket.on("creatore", (idStanza) => {
-  socket.emit("inizio-gioco", idStanza); //In modo che solo il "creatore" manda un solo segnale di inizio-gioco, altrimenti ne avremmo 2
+  socket.emit("inizio-gioco", idStanza); 
   idStanzaClient = idStanza;
 });
 
@@ -353,12 +361,14 @@ socket.on("aggiorna-gioco", (mossa, colore) =>{
   aggiornaGioco(mossa, colore);
 });
 
+//Il primo giocatore può fare la mossa, il secondo non ancora
 socket.on("primo-giocatore", (idStanza, colore) =>{
   giocatoreCorrente = true;
   idStanzaClient = idStanza;
   colore_client = colore;
 });
 
+//Gestione del messaggio "è il tuo turno"
 socket.on("turno", (giocatore_attuale_ut, secondo) =>{
   
   if(prima_verifica){
@@ -372,7 +382,7 @@ socket.on("turno", (giocatore_attuale_ut, secondo) =>{
   secondo_giocatore = secondo;
 });
 
-
+//Gestione dei turni dei due players
 socket.on("giocatore-corrente", (idStanza, colore) => {
   colore_client = colore;
   giocatoreCorrente = true;
@@ -384,20 +394,29 @@ socket.on("giocatore-non-corrente", (idStanza) => {
   idStanzaClient = idStanza;
 });
 
+//Se il client vince, riceve questo aggiornamento alla pagina
 socket.on("vincitore", () => {
   let winner = document.getElementById("winner");
   winner.innerHTML = "Hai vinto la partita! +3 punti in classifica!";
   let torna_lobby = document.getElementById("torna_lobby");
-  torna_lobby.removeAttribute("disabled")
+  torna_lobby.removeAttribute("disabled");
+  torna_lobby.style.marginLeft = "110px";
+  let turno1 = document.getElementById("turno1"); turno1.remove();
+  let turno2 = document.getElementById("turno2"); turno2.remove();
+  let abbandona = document.getElementById("abbandona"); abbandona.remove();
 });
 
 
-
+//Se il client perde, riceve questo aggiornamento alla pagina
 socket.on("perdente", () => {
   let loser = document.getElementById("loser");
   loser.innerHTML = "Hai perso la partita!";
   let torna_lobby = document.getElementById("torna_lobby");
-  torna_lobby.removeAttribute("disabled")
+  torna_lobby.removeAttribute("disabled");
+  torna_lobby.style.marginLeft = "110px";
+  let turno1 = document.getElementById("turno1"); turno1.remove();
+  let turno2 = document.getElementById("turno2"); turno2.remove();
+  let abbandona = document.getElementById("abbandona"); abbandona.remove();
 });
 
 
