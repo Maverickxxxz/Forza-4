@@ -963,6 +963,29 @@ z-index: -1;
         display: none;
 
     }
+
+    .hero-text a.gameplay {
+        background: transparent;
+        border: 1px solid black;
+        color: black;
+        margin-left: 20px;
+        display: none;
+        padding: 12px 30px;
+        line-height: 1.4;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 30px;
+        text-transform: uppercase;
+        transition: all .55s ease;
+    }
+
+    #sezione4 .punti{
+        display: none;
+    }
+
+    #sezione4 .testocl{
+        margin-top: 20%;
+    }
 }
 
 @media(max-width:1150px){
@@ -1047,6 +1070,11 @@ z-index: -1;
         position: relative;
         padding: 0;
         margin-top: 77%;
+    }
+
+    .hero-text a.gameplay{
+        display: none;
+        visibility: hidden;
     }
 
     .contcl{
