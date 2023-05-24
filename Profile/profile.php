@@ -429,7 +429,6 @@ if (isset($_SESSION["utente_id"])) {
             type: "GET",
             dataType: "json",
             success: function(data) {
-                // Manipola i dati ottenuti come desideri
                 nome = data["nome"];
                 cognome = data["cognome"];
                 nomeu = data["nome_utente"];

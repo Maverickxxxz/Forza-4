@@ -33,8 +33,6 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 33px 9%;
-    /* background: transparent; */
-    /* background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%); */
 }
 
 header a {
@@ -168,7 +166,7 @@ section {
     color: white;
 }
 
-.hero-text a.ctaa, a.cta {
+.hero-text a.gameplay, a.giocaora {
     display: inline-block;
     color: black;
     background: #a12d1b;
@@ -183,20 +181,20 @@ section {
 }
 
 
-.hero-text a.ctaa:hover, a.cta:hover {
+.hero-text a.gameplay:hover, a.giocaora:hover {
     background: transparent;
     border: 1px solid black;
     transform: translateX(8px);
 }
 
 
-.hero-text a.ctaa {
+.hero-text a.gameplay {
     background: transparent;
     border: 1px solid black;
     margin-left: 20px;
 }
 
-.hero-text a.ctaa i {
+.hero-text a.gameplay i {
     vertical-align: middle;
     margin-right: 5px;
 }
@@ -398,7 +396,6 @@ section {
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
-    /*z-index: 100000;*/
 }
 
 .action .menu.active {
@@ -665,15 +662,12 @@ footer form {
 
 @keyframes float {
 	0% {
-		/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
 		transform: translatey(0px);
 	}
 	50% {
-		/*box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);*/
 		transform: translatey(-20px);
 	}
 	100% {
-		/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
 		transform: translatey(0px);
 	}
 }
@@ -971,7 +965,6 @@ z-index: -1;
     section {
         padding: 0 1%;
         transition: .2s;
-        /*z-index: 1000;*/
     }
 
     .hero-img img{
@@ -990,7 +983,6 @@ z-index: -1;
         flex-direction: column;
         padding: 50px 20px;
         transition: all .55s ease;
-        /*z-index: 999;*/
     }
 
     .navlist a {
