@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="gameplay"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
+            <a href="https://www.youtube.com/watch?v=IhvL8CVtwhk" class="gameplay"><i class="ri-play-fill"></i> GUARDA IL GAMEPLAY</a>
 
             <?php else: ?>
                 <button type="button" id="registrati" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
