@@ -229,6 +229,14 @@
             <h1>CLASSIFICA:</h1>
         </div>
         <div class="crown"><img src="../sources/crown.png" class="coronaimg" alt=""></div>
+        <div class="punti">
+            <h2 id="aggpunti">AGGIORNAMENTO PUNTI:</h2>
+            <ul>
+                <li><h2>+3 per chi vince</h2></li>
+                <li><h2>+0 per chi perde</h2></li>
+                <li><h2>-3 per chi si ritira</h2></li>
+            </ul>
+        </div>
         <div class="contcl">
             <div id="leaderboard">
                 <div class="ribbon"></div>

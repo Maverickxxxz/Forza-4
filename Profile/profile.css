@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 body {
-	background: linear-gradient(245.59deg, #485fb9 0%, #1e3386 28.53%, #12215b 75.52%);
-	font-family: "Roboto", sans-serif;
+    background: linear-gradient(-220deg, #cdcdcd 0%, #ffffff 28.53%, #cdcdcd 75.52%);
+    background-image: url(../sources/back.jpeg);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.042);font-family: "Roboto", sans-serif;
 }
 
 
@@ -114,6 +116,10 @@ body {
     transition: 0.5s;
 }
 
+#conferma:disabled{
+    background-color: rgb(226, 96, 96);
+}
+
 #conferma2{
     background-color: rgb(213, 18, 18); 
     color: white;
@@ -124,6 +130,10 @@ body {
     background-color: rgb(176, 14, 14);
     transform: translateX(4px);
     transition: 0.5s;
+}
+
+#conferma2:disabled{
+    background-color: rgb(226, 96, 96);
 }
 
 #conferma3{
@@ -137,6 +147,11 @@ body {
     transform: translateX(4px);
     transition: 0.5s;
 }
+
+#conferma3:disabled{
+    background-color: rgb(226, 96, 96);
+}
+
 #conferma4{
     background-color: rgb(213, 18, 18); 
     color: white;
@@ -148,6 +163,11 @@ body {
     transform: translateX(4px);
     transition: 0.5s;
 }
+
+#conferma4:disabled{
+    background-color: rgb(226, 96, 96);
+}
+
 #conferma5{
     background-color: rgb(213, 18, 18); 
     color: white;
@@ -160,15 +180,19 @@ body {
     transition: 0.5s;
 }
 
+#conferma5:disabled{
+    background-color: rgb(226, 96, 96);
+}
+
 #elimina{
-    background-color: rgb(19, 54, 152); 
+    background-color: rgb(53, 48, 48); 
     color: white;
     transition: 0.5s;
     margin-top: 5.2%;
 }
 
 #elimina:hover{
-    background-color: rgb(10, 37, 110);
+    background-color: rgb(0, 0, 0);
     transform: translateX(4px);
     transition: 0.5s;
 }
@@ -180,8 +204,18 @@ body {
 	padding: 15px 20px;
 	border-bottom: 1px solid #ddd;
 	border-radius: 0;
-	color: #333;
+	color: #333;   
 }
+
+.nav-pills a.nav-link.active {
+	padding: 15px 20px;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0;
+	color: #ffffff;
+    background-color: black;
+    
+}
+
 .nav-pills a.nav-link i {
 	width: 20px;
 }
@@ -198,7 +232,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
+    background: linear-gradient(53deg, #000000 40%, rgb(32, 33, 36) 53.53%, #201e1e 30.52%);
   }
   
 footer ul {
@@ -212,12 +246,12 @@ footer ul li {
   }
   
 footer ul li a {
-    color: #1e3386;
+    color: #ffffff;
     text-decoration: none;
   }
   
 footer ul li a:hover {
-    color: #162975;
+    color: #e5e5e5;
   }
   
 footer form {
@@ -241,12 +275,12 @@ footer form {
   
 .list-unstyled li {
     margin: 10px 0;
-    color: #1e3386;
+    color: #ffffff;
   }
   
 .titleFooter{
     text-align: center;
-    color: #1e3386;
+    color: #ffffff;
   }
 
 .animato:hover{
@@ -255,7 +289,6 @@ footer form {
 } 
 
 .navbar{
-  background: linear-gradient(245.59deg, #e4e4e4 0%, #ffffff 28.53%, #e4e4e4 75.52%);
 }
 
 .navbar-brand{

@@ -463,7 +463,7 @@ section {
 }
 
 .action .menu ul li:hover a {
-    color: #ff5d94;
+    color: #ffc641;
 }
 
 
@@ -588,6 +588,22 @@ footer form {
     grid-template-rows: 130px 130px auto;
 }
 
+.punti{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 50%;
+    margin: 10% 5%;
+    height: 27vh;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    text-align: center;
+}
+
+
+
 .testocl{
     grid-column-start: 2;
     grid-column-end: 3;
@@ -607,11 +623,26 @@ footer form {
 }
 
 #sezione4 h1:hover{
-    color: #0a1955;
+    color: #1c1c1d;
     font-size: 80px;
     transition: 0.5s;
     background-size: 150%;
     -webkit-background-clip: text;
+}
+
+#aggpunti{
+    font-size: 30px;
+    margin-top: 7%;
+}
+
+.punti ul{
+    margin-left: -2%;
+    margin-top: 13%;
+    text-align: left;
+}
+
+.punti ul h2{
+    font-size: 25px;
 }
 
 .crown{
