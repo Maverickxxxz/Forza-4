@@ -70,7 +70,7 @@
                 <li>
                     <div class="action">
                         <div class="profile" onclick="menuToggle();">
-                            <img src="../sources/immagineprofilo.avif" />
+                            <img src="../sources/immagineprofilo.png" />
                         </div>
                         <div class="menu">
                             <h3><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a><br /></h3>
@@ -109,7 +109,7 @@
                 Che aspetti? Non avere paura!
             </p>
             <button type="button" id="gioca_ora" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <a class = "cta"><i class="ri-play-fill"></i>Gioca ora!</a>
+                <a class = "giocaora"><i class="ri-play-fill"></i>Gioca ora!</a>
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -142,7 +142,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="ctaa"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
+            <a href="#" class="gameplay"><i class="ri-play-fill"></i>GUARDA IL GAMEPLAY</a>
         </div>
 
         <div class="hero-img">
@@ -153,35 +153,6 @@
     <!-- COME SI GIOCA -->
 
     <section id="img-down" class="how">
-        <!--<div class="container text-center text-md-left mt-auto mb-auto" data-aos="fade-up">
-            <h1 class="testo ">COME SI GIOCA?</h1>
-            <h2 class="testo2">Non conosci Forza 4 e le sue regole? <br>
-                Te le spieghiamo noi!</h2>
-            <div class="griglia">
-                <div class="card mt-5 ms-5" style="width: 18rem;">
-                    <h4 class="mt-1">1</h4>
-                    <div class="card-body">
-                        <p class="card-text">La scacchiera di Forza 4 è composta da una griglia rettangolare 6x7, che offre un totale di 42 posizioni in cui posizionare le pedine. 
-                            Ogni giocatore dispone di un set di pedine di un colore specifico, giallo e rosso.
-
-                        </p>
-                    </div>
-                </div>
-                <div class="card mt-5 ms-5" style="width: 18rem;">
-                    <h4 class="mt-1">2</h4>
-                    <div class="card-body">
-                        <p class="card-text">L'obiettivo finale sarà quello di avere 4 pedine consecutive dello stesso colore per riga, per colonna o in diagonale. Vince chi per primo raggiunge tale obiettivo!</p>
-                    </div>
-                </div>
-                <div class="card mt-5 ms-5" style="width: 18rem;">
-                    <h4 class="mt-1">3</h4>
-                    <div class="card-body">
-                        <p class="card-text"> A turno dunque dovrete posizionare la vostra pedina in una cella, combinando logica e tattica affinchè riusciate a fare Forza 4 prima del vostro avversario!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     <div class="text text-center text-md-left mt-auto mb-auto">
         <h1 class="testo">COME SI GIOCA?</h1>
         <h2 class="testo2">Non conosci Forza 4 e le sue regole? <br>
@@ -229,6 +200,14 @@
             <h1>CLASSIFICA:</h1>
         </div>
         <div class="crown"><img src="../sources/crown.png" class="coronaimg" alt=""></div>
+        <div class="punti">
+            <h2 id="aggpunti">AGGIORNAMENTO PUNTI:</h2>
+            <ul>
+                <li><h2>+3 per chi vince</h2></li>
+                <li><h2>+0 per chi perde</h2></li>
+                <li><h2>-3 per chi si ritira</h2></li>
+            </ul>
+        </div>
         <div class="contcl">
             <div id="leaderboard">
                 <div class="ribbon"></div>

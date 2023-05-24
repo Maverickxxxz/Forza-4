@@ -35,7 +35,7 @@ if (isset($_SESSION["utente_id"])) {
                   <div class="container-fluid">
                   <!-- Navbar brand -->
                   <a class="navbar-brand nav-link" target="_self" href="../Home/index.php">
-                      <img class = "animato "src="../sources/logo-connect4.png" width="130px">
+                      <img class = "animato "src="../sources/logo-connect4.png" width="200%">
                   </a>
 
                   <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
@@ -75,12 +75,12 @@ if (isset($_SESSION["utente_id"])) {
 
     <section class="py-5 my-5">
 		<div class="container">
-            <div class="home"><a href="../Home/index.php"><svg class="bottonehome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" style="margin-left: -21%; margin-top: -6%"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 11V8L8 12L12 16V13H16V11H12Z" fill="rgba(245,245,245,1)"></path></svg></a></div>
+            <div class="home"><a href="../Home/index.php"><svg class="bottonehome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" style="margin-left: -21%; margin-top: -6%"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 11V8L8 12L12 16V13H16V11H12Z" fill="black"></path></svg></a></div>
 			<div class="bg shadow rounded-lg d-block d-sm-flex">
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
 						<div class="img-circle text-center mb-3">
-							<img src="../sources/immagineprofilo.avif" alt="Image" class="shadow">
+							<img src="../sources/immagineprofilo.png" alt="Image" class="shadow">
 						</div>
 						<h4 class="text-center" id="nomeu"></h4>
 					</div>
@@ -297,7 +297,7 @@ if (isset($_SESSION["utente_id"])) {
                 </div>
                 <div class = "col-md-4 mx-auto text-center">
                     <h4 class="titleFooter">Newsletter</h4>
-                    <p style="color:#1e3386;">Iscriviti alla newsletter Connect4 per ricevere informazioni su tutte le future novità!</p>
+                    <p style="color:#fff;">Iscriviti alla newsletter Connect4 per ricevere informazioni su tutte le future novità!</p>
                     <form method = "post" action="">
                         <div class = " input-group mb-3">
                             <input type="email" name = "emailIscritto" class="form-control" placeholder="Email" aria-label = "Email" required>
@@ -429,7 +429,6 @@ if (isset($_SESSION["utente_id"])) {
             type: "GET",
             dataType: "json",
             success: function(data) {
-                // Manipola i dati ottenuti come desideri
                 nome = data["nome"];
                 cognome = data["cognome"];
                 nomeu = data["nome_utente"];
