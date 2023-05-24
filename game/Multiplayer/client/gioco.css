@@ -361,7 +361,14 @@ border-radius: 10px 10px 0px 10px;
 
 .row1 h2{
     font-family: 'Bree Serif', serif;
-    color: rgb(0, 0, 0);
+}
+
+#winner{
+    color: rgb(207, 27, 27);
+}
+
+#loser{
+    color: rgb(255, 203, 31);
 }
 
 .col1{

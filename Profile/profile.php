@@ -473,6 +473,7 @@ if (isset($_SESSION["utente_id"])) {
         var idIstanza = 1;
         var utente_id = "<?php echo isset($utente_id) ? $utente_id : ''; ?>";
         var newPassword = $("#new").val();
+        var oldPassword = $("#old").val();
 
         if(newPassword == ""){
             alert("La nuova password non può essere vuota!");
@@ -481,7 +482,7 @@ if (isset($_SESSION["utente_id"])) {
             $.ajax({
                 url: "aggiorna.php",
                 type: "POST",
-                data: { utente_id: utente_id, newPassword: newPassword },
+                data: { utente_id: utente_id, newPassword: newPassword, oldPassword: oldPassword},
                 success: function(response) {
                     alert("Password aggiornata correttamente!");
                 },
