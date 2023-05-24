@@ -38,13 +38,13 @@ if ($oldPassword !== "") {
                 echo "Errore durante l'aggiornamento: " . $conn->error;
             }
         } else {
-            echo "<script>alert('La password non può essere uguale alla precedente!!');</script>";
+            echo "La password non può essere uguale alla precedente!!";
         }
     } else {
-        echo "<script>alert('La password vecchia è sbagliata!');</script>";
+        echo "La password vecchia è sbagliata!";
     }
 } else {
-    echo "<script>alert('La password vecchia è vuota!');</script>";
+    echo "La password vecchia è vuota!";
 }
 
 $conn->close();

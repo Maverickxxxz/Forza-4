@@ -484,7 +484,7 @@ if (isset($_SESSION["utente_id"])) {
                 type: "POST",
                 data: { utente_id: utente_id, newPassword: newPassword, oldPassword: oldPassword},
                 success: function(response) {
-                    alert("Password aggiornata correttamente!");
+                    alert(response);
                 },
                 error: function(xhr, status, error) {
                     console.log("Errore durante la chiamata AJAX:", error);
