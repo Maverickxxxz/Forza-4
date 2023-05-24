@@ -166,9 +166,9 @@ section {
     color: white;
 }
 
-.hero-text a.gameplay, a.giocaora {
+.hero-text a.giocaora {
     display: inline-block;
-    color: black;
+    color: white;
     background: #a12d1b;
     border: 1px solid transparent;
     padding: 12px 30px;
@@ -181,9 +181,14 @@ section {
 }
 
 
-.hero-text a.gameplay:hover, a.giocaora:hover {
+.hero-text a.gameplay:hover{
     background: transparent;
     border: 1px solid black;
+    transform: translateX(8px);
+    color: black;
+}
+
+.hero-text a.giocaora:hover{
     transform: translateX(8px);
 }
 
@@ -191,7 +196,16 @@ section {
 .hero-text a.gameplay {
     background: transparent;
     border: 1px solid black;
+    color: black;
     margin-left: 20px;
+    display: inline-block;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
 }
 
 .hero-text a.gameplay i {
