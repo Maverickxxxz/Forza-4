@@ -200,7 +200,7 @@
             <div class="div_pulsanti">
                 <button class="btn" id="abbandona"><a href="http://localhost/Progetto/Home/index.php">ABBANDONA</a></button>
 
-                <button disabled class="btn" id="torna_lobby">TORNA ALLA LOBBY</button>
+                <button disabled class="btn" id="torna_lobby" onclick="import('./client.js').then(module => module.torna_lobby())"> TORNA ALLA LOBBY</button>
             </div>
         </div>
     </div>

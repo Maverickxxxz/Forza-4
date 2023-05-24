@@ -23,6 +23,13 @@ export function acquisizione_id(){
   return id_;
 }
 
+export function torna_lobby(){
+  console.log("WE");
+  //let id = acquisizione_id();
+  location.reload()
+  //window.location.href = "localhost:8080/gioco.html?id=" + id;
+}
+
 //FUNZIONE CHE SI AVVIA CON IL BOTTONE "Crea Stanza"
 export function creaStanza() {
   const nomeStanza = document.getElementById("nomeStanza").value;
@@ -200,7 +207,7 @@ socket.on('stanza-creata', (nomeStanza) => {
     stanze.style.display = "none";
   
 
-  document.getElementById("nomeStanzaUnione").value = nomeStanza;
+  //document.getElementById("nomeStanzaUnione").value = nomeStanza;
   let div_crea = document.getElementById("crea");
   let div_unisciti = document.getElementById("unisciti");
   let div_attesa = document.getElementById("attesa");
@@ -362,7 +369,6 @@ socket.on("turno", (giocatore_attuale_ut, secondo) =>{
     prima_verifica = false;
 
   }
-  giocatore_attuale = giocatore_attuale_ut;
   secondo_giocatore = secondo;
 });
 
@@ -380,7 +386,7 @@ socket.on("giocatore-non-corrente", (idStanza) => {
 
 socket.on("vincitore", () => {
   let winner = document.getElementById("winner");
-  winner.innerHTML = "Hai vinto la partita! +3 punti in classifica!";x
+  winner.innerHTML = "Hai vinto la partita! +3 punti in classifica!";
   let torna_lobby = document.getElementById("torna_lobby");
   torna_lobby.removeAttribute("disabled")
 });
