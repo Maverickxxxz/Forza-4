@@ -80,7 +80,7 @@ if (isset($_SESSION["utente_id"])) {
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
 						<div class="img-circle text-center mb-3">
-							<img src="../sources/immagineprofilo.avif" alt="Image" class="shadow">
+							<img src="../sources/immagineprofilo.png" alt="Image" class="shadow">
 						</div>
 						<h4 class="text-center" id="nomeu"></h4>
 					</div>

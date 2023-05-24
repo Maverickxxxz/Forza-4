@@ -70,7 +70,7 @@
                 <li>
                     <div class="action">
                         <div class="profile" onclick="menuToggle();">
-                            <img src="../sources/immagineprofilo.avif" />
+                            <img src="../sources/immagineprofilo.png" />
                         </div>
                         <div class="menu">
                             <h3><a id="nome_utente"> <?= htmlspecialchars(ucfirst($utente["nome_utente"])) ?></a><br /></h3>
