@@ -25,14 +25,17 @@ I due terminali, installerano le dipendenze necessarie, e faranno partire per la
 
 Nella directory client (Forza4/game/Multiplayer/client, esegui il comando seguente per installare le dipendenze e avviare l'applicazione.
 
-`npm install;
+`npm install socket.io;
+npm install socket.io-client;
+npm install snowpack;
 npm start`
 
 ### Installazione --> server
 
 Nella directory server (Forza4/game/Multiplayer/server, esegui il comando seguente per installare le dipendenze e avviare l'applicazione.
 
-`npm install;
+`npm install socket.io;
+npm install mysql;
 npm run devStart`
 
 ### Contributi
